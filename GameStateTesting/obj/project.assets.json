@@ -320,24 +320,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lyynd\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\cmoor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lyynd\\OneDrive\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+      "projectUniqueName": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
       "projectName": "GameStateTesting",
-      "projectPath": "C:\\Users\\lyynd\\OneDrive\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
-      "packagesPath": "C:\\Users\\lyynd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lyynd\\OneDrive\\Documents\\GitHub\\cs320project\\GameStateTesting\\obj\\",
+      "projectPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+      "packagesPath": "C:\\Users\\cmoor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\lyynd\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\cmoor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -345,7 +340,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
