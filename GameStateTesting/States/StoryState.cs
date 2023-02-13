@@ -54,5 +54,6 @@ namespace GameStateTesting.States
             //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.LightGreen);
         }
+        //Test line to test the commits.
     }
 }
