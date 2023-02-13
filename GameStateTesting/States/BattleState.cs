@@ -27,12 +27,12 @@ namespace GameStateTesting.States
             //throw new NotImplementedException();
             var kstate = Keyboard.GetState();
 
-            if (kstate.IsKeyDown(Keys.Up))
-            {
+            if (kstate.IsKeyDown(Keys.P))
+            {  //return back to the manu state
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             }
 
-            if (kstate.IsKeyDown(Keys.Down))
+            /*if (kstate.IsKeyDown(Keys.Down))
             {
                 _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
             }
@@ -40,7 +40,7 @@ namespace GameStateTesting.States
             if (kstate.IsKeyDown(Keys.Left))
             {
                 _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
-            }
+            }*/
 
             /*if (kstate.IsKeyDown(Keys.Right))
             {

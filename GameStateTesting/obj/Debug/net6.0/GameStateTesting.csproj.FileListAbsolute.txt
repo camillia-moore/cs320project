@@ -49,3 +49,36 @@ C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateT
 C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.genruntimeconfig.cache
 C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\ref\GameStateTesting.dll
 C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\MonoGame.UI.Forms.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.exe
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.deps.json
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.runtimeconfig.json
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.pdb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\MonoGame.Framework.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\linux-x64\native\libopenal.so.1
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\osx\native\libSDL2.dylib
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\osx\native\libopenal.1.dylib
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x64\native\SDL2.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x64\native\soft_oal.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x86\native\SDL2.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x86\native\soft_oal.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.csproj.AssemblyReference.cache
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.AssemblyInfoInputs.cache
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.AssemblyInfo.cs
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.csproj.CoreCompileInputs.cache
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.csproj.CopyComplete
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\refint\GameStateTesting.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.pdb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.genruntimeconfig.cache
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\ref\GameStateTesting.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Cyotek.Drawing.BitmapFont.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\FontStashSharp.Base.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\FontStashSharp.MonoGame.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\FontStashSharp.Rasterizers.StbTrueTypeSharp.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\info.lundin.math.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Myra.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\StbImageSharp.dll
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\StbTrueTypeSharp.dll
