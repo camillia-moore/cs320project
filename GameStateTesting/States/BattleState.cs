@@ -21,12 +21,14 @@ namespace GameStateTesting.States
         private Combatant player;
         private Combatant enemy;
         private Spell iceStorm;
+        private Random rand;
         
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             player = new Combatant("KitKat", "The Default Hero", 30, 9, 5);
             enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
             iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
+            rand = new Random();
         }
 
         public override void LoadContent()
@@ -141,14 +143,38 @@ namespace GameStateTesting.States
 
             grid.Widgets.Add(buttonStats);
 
-            var playerHPLabel = new Label
+
+            // Button to View Stats
+            var buttonFlee = new TextButton
             {
                 GridColumn = 0,
                 GridRow = 4,
-                Id = "label",
-                Text = "KitKat HP: " + playerHP + "/" + 30
+                Text = "Flee"
             };
-            grid.Widgets.Add(playerHPLabel);
+
+            buttonFlee.Click += (s, a) =>
+            {
+                int[] hp = player.getHP();
+                double fleeChance = hp[0] / hp[1];
+                double fleeSuccess = rand.Next(0, hp[1]) / hp[1];
+                string messagePrinted;
+
+                if (fleeChance > fleeSuccess) //flee was successful
+                {
+                    messagePrinted = player.Name + " got away!";
+                    _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+
+                }
+                else  //couldn't flee
+                {
+                    messagePrinted = "Couldn't get away!";
+                }    
+
+                var messageBox = Dialog.CreateMessageBox("Flee", messagePrinted);
+                messageBox.ShowModal(_desktop);
+            };
+
+            grid.Widgets.Add(buttonFlee);
 
             // Add it to the desktop
             _desktop = new Desktop();
@@ -165,7 +191,7 @@ namespace GameStateTesting.States
             if (kstate.IsKeyDown(Keys.P))
             {  //return back to the manu state
                 //_game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
-                player.TakeDamage(15);
+                //player.TakeDamage(15);
             }
 
             /*if (kstate.IsKeyDown(Keys.Down))
