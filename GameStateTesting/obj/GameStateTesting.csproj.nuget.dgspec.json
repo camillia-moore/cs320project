@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cmoor\\source\\repos\\GameStateTesting\\GameStateTesting\\GameStateTesting.csproj": {}
+    "C:\\Code files\\Project\\Group Project\\GameStateTesting\\GameStateTesting.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cmoor\\source\\repos\\GameStateTesting\\GameStateTesting\\GameStateTesting.csproj": {
+    "C:\\Code files\\Project\\Group Project\\GameStateTesting\\GameStateTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cmoor\\source\\repos\\GameStateTesting\\GameStateTesting\\GameStateTesting.csproj",
+        "projectUniqueName": "C:\\Code files\\Project\\Group Project\\GameStateTesting\\GameStateTesting.csproj",
         "projectName": "GameStateTesting",
-        "projectPath": "C:\\Users\\cmoor\\source\\repos\\GameStateTesting\\GameStateTesting\\GameStateTesting.csproj",
-        "packagesPath": "C:\\Users\\cmoor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cmoor\\source\\repos\\GameStateTesting\\GameStateTesting\\obj\\",
+        "projectPath": "C:\\Code files\\Project\\Group Project\\GameStateTesting\\GameStateTesting.csproj",
+        "packagesPath": "C:\\Users\\Lyndsey\\.nuget\\packages\\",
+        "outputPath": "C:\\Code files\\Project\\Group Project\\GameStateTesting\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\cmoor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lyndsey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,6 +52,10 @@
             "MonoGame.Framework.DesktopGL": {
               "target": "Package",
               "version": "[3.8.1.303, )"
+            },
+            "MonoGame.UI.Forms": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             }
           },
           "imports": [

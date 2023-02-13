@@ -20,3 +20,6 @@ Based on other tutorials, it seems good practice is to have a .cs file for each 
 README probably needs formating, and this repo unfortunatly probably needs restructuring
 
 	- Camillia Moore, February 10th, 2023
+
+update on 2/12
+	Lyndsey's attempts at button making watching a tutorial to see if something like it could be implemented. Didn't get it to work but hopeful.

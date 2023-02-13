@@ -23,3 +23,29 @@ C:\Users\cmoor\source\repos\GameStateTesting\GameStateTesting\obj\Debug\net6.0\r
 C:\Users\cmoor\source\repos\GameStateTesting\GameStateTesting\obj\Debug\net6.0\GameStateTesting.pdb
 C:\Users\cmoor\source\repos\GameStateTesting\GameStateTesting\obj\Debug\net6.0\GameStateTesting.genruntimeconfig.cache
 C:\Users\cmoor\source\repos\GameStateTesting\GameStateTesting\obj\Debug\net6.0\ref\GameStateTesting.dll
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.exe
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.deps.json
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.runtimeconfig.json
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.dll
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\GameStateTesting.pdb
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\MonoGame.Framework.dll
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\linux-x64\native\libopenal.so.1
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\osx\native\libSDL2.dylib
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\osx\native\libopenal.1.dylib
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x64\native\SDL2.dll
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x64\native\soft_oal.dll
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x86\native\SDL2.dll
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\runtimes\win-x86\native\soft_oal.dll
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.csproj.AssemblyReference.cache
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.AssemblyInfoInputs.cache
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.AssemblyInfo.cs
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.csproj.CoreCompileInputs.cache
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.csproj.CopyComplete
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.dll
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\refint\GameStateTesting.dll
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.pdb
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.genruntimeconfig.cache
+C:\Code files\Project\Group Project\GameStateTesting\obj\Debug\net6.0\ref\GameStateTesting.dll
+C:\Code files\Project\Group Project\GameStateTesting\bin\Debug\net6.0\MonoGame.UI.Forms.dll

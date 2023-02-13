@@ -31,7 +31,11 @@ namespace GameStateTesting
             _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
 
+            //this.Components.Add(new MyButtons(this));
+
             base.Initialize();
+
+            this.Components.Add(new MyButtons(this));
         }
 
         protected override void LoadContent()
@@ -74,8 +78,8 @@ namespace GameStateTesting
 
             // TODO: Add your drawing code here
             _currentState.Draw(gameTime, _spriteBatch);
-
-            base.Draw(gameTime);
+            //this.Components.Add(new MyButtons(this));
+            //base.Draw(gameTime);
         }
     }
 }
