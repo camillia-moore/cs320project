@@ -26,7 +26,7 @@ namespace GameStateTesting.States
         {
             player = new Combatant("KitKat", "The Default Hero", 30, 9, 5);
             enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
-            iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 0, 0));
+            iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
         }
 
         public override void LoadContent()
@@ -97,7 +97,22 @@ namespace GameStateTesting.States
 
             buttonSpells.Click += (s, a) =>
             {
-                var messageBox = Dialog.CreateMessageBox("Spells", "Which Spell?");
+                Spell spellToCast = iceStorm;
+                int[] spellEffect = spellToCast.cast();
+                string messagePrinted;
+                if (spellEffect[3] == 0)
+                {
+                    //buff player
+                    player.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                    messagePrinted = player.Name + " casts " + spellToCast._name + " on themselves!\n" + spellToCast._description;
+                } 
+                else //spellEffect[3] == 1
+                {
+                    //nerf enemy
+                    enemy.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                    messagePrinted = player.Name + " casts " + spellToCast._name + " on " + enemy.Name + "!\n" + spellToCast._description;
+                }
+                var messageBox = Dialog.CreateMessageBox("Spells", messagePrinted);
                 messageBox.ShowModal(_desktop);
             };
 
