@@ -64,8 +64,6 @@ namespace GameStateTesting.States
 
             buttonMenu.Click += (s, a) =>
             {
-                /*var messageBox = Dialog.CreateMessageBox("Message", "Some message!");
-                messageBox.ShowModal(_desktop);*/
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             };
 
@@ -98,54 +96,7 @@ namespace GameStateTesting.States
 
 
 
-            // Button to Choose Spells
-            /*var buttonSpells = new TextButton
-            {
-                GridColumn = 0,
-                GridRow = 2,
-                Text = "Spells"
-            };
-
-            ListItem buttonIceStorm = new ListItem
-            {
-                Text = iceStorm._name,
-                Id = "icestom"
-            };
-
-            buttonSpells.Click += (s, a) =>
-            {
-                //var messageBox = ListBox.CreateMessageBox("Spells", "Which spell?");
-                ListBox spellList = new ListBox();
-                spellList.Items.Add(buttonIceStorm);
-                spellList.ShowModal(_desktop);
-            };*/
-
-
-
-            /*buttonIceStorm.Click += (s, a) =>
-            {
-                Spell spellToCast = iceStorm;
-                int[] spellEffect = spellToCast.cast();
-                string messagePrinted;
-                if (spellEffect[3] == 0)
-                {
-                    //buff player
-                    player.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
-                    messagePrinted = player.Name + " casts " + spellToCast._name + " on themselves!\n" + spellToCast._description;
-                }
-                else //spellEffect[3] == 1
-                {
-                    //nerf enemy
-                    enemy.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
-                    messagePrinted = player.Name + " casts " + spellToCast._name + " on " + enemy.Name + "!\n" + spellToCast._description;
-                }
-                var messageBox = Dialog.CreateMessageBox("Spells", messagePrinted);
-                messageBox.ShowModal(_desktop);
-            };*/
-
-
-
-            /*grid.Widgets.Add(buttonSpells);*/
+            // Menu to Choose Spells
 
             var container = new VerticalStackPanel
             {
@@ -168,58 +119,7 @@ namespace GameStateTesting.States
             titleContainer.Widgets.Add(titleLabel);
             container.Widgets.Add(titleContainer);
 
-            //MenuItem[] spellList = null;
             var verticalMenu = new VerticalMenu();
-            
-            /*for (int i = 0; i < 4; i++)
-            {
-                Spell spellToCast = null;
-                switch (i)
-                {
-                    case 0:
-                        spellToCast = fireball;
-                        break;
-                    case 1:
-                        spellToCast = iceStorm;
-                        break;
-                    case 2:
-                        spellToCast = healing;
-                        break;
-                    case 3:
-                        spellToCast = diacute;
-                        break;
-                    default:
-                        spellToCast = null;
-                        break;
-                }
-                
-                spellList[i] = new MenuItem
-                {
-                    Text = spellToCast._name
-                };
-                spellList[i].Selected += (s, a) =>
-                {
-                    int[] spellEffect = spellToCast.cast();
-                    string messagePrinted;
-                    if (spellEffect[3] == 0)
-                    {
-                        //buff player
-                        player.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
-                        messagePrinted = player.Name + " casts " + spellToCast._name + " on themselves!\n" + spellToCast._description;
-                    }
-                    else //spellEffect[3] == 1
-                    {
-                        //nerf enemy
-                        enemy.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
-                        messagePrinted = player.Name + " casts " + spellToCast._name + " on " + enemy.Name + "!\n" + spellToCast._description;
-                    }
-                    var messageBox = Dialog.CreateMessageBox("Spells", messagePrinted);
-                    messageBox.ShowModal(_desktop);
-                };
-                verticalMenu.Items.Add(spellList[i]);
-                
-            }
-*/
             
             verticalMenu.Items.Add(spellToMenuItem(fireball));
             verticalMenu.Items.Add(spellToMenuItem(iceStorm));
@@ -229,6 +129,7 @@ namespace GameStateTesting.States
             container.Widgets.Add(verticalMenu);
 
             grid.Widgets.Add(container);
+
 
             // Button to View Stats
             var buttonStats = new TextButton
@@ -289,42 +190,20 @@ namespace GameStateTesting.States
             // Add it to the desktop
             _desktop = new Desktop();
             _desktop.Root = grid;
-            //_desktop.ShowContextMenu(container, _desktop.TouchPosition);
             
 
         }
 
         public override void Update(GameTime gameTime)
         {
-            //throw new NotImplementedException();
             var kstate = Keyboard.GetState();
 
-            if (kstate.IsKeyDown(Keys.P))
-            {  //return back to the manu state
-                //_game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
-                //player.TakeDamage(15);
-            }
-
-            /*if (kstate.IsKeyDown(Keys.Down))
-            {
-                _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
-            }
-
-            if (kstate.IsKeyDown(Keys.Left))
-            {
-                _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
-            }*/
-
-            /*if (kstate.IsKeyDown(Keys.Right))
-            {
-                _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
-            }*/
+            //I'm not implementing keyboard controls rn
 
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.LightSlateGray);
             _desktop.Render();
         }
