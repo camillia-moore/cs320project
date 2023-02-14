@@ -20,14 +20,21 @@ namespace GameStateTesting.States
         private int playerHP = 30;
         private Combatant player;
         private Combatant enemy;
+        private Spell fireball;
         private Spell iceStorm;
+        private Spell diacute;
+        private Spell healing;
         private Random rand;
         
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             player = new Combatant("KitKat", "The Default Hero", 30, 9, 5);
             enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
+            fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
             iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
+            diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
+            healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
+
             rand = new Random();
         }
 
@@ -89,15 +96,33 @@ namespace GameStateTesting.States
 
             grid.Widgets.Add(buttonFight);
 
+
+
             // Button to Choose Spells
-            var buttonSpells = new TextButton
+            /*var buttonSpells = new TextButton
             {
                 GridColumn = 0,
                 GridRow = 2,
                 Text = "Spells"
             };
 
+            ListItem buttonIceStorm = new ListItem
+            {
+                Text = iceStorm._name,
+                Id = "icestom"
+            };
+
             buttonSpells.Click += (s, a) =>
+            {
+                //var messageBox = ListBox.CreateMessageBox("Spells", "Which spell?");
+                ListBox spellList = new ListBox();
+                spellList.Items.Add(buttonIceStorm);
+                spellList.ShowModal(_desktop);
+            };*/
+
+
+
+            /*buttonIceStorm.Click += (s, a) =>
             {
                 Spell spellToCast = iceStorm;
                 int[] spellEffect = spellToCast.cast();
@@ -107,7 +132,7 @@ namespace GameStateTesting.States
                     //buff player
                     player.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
                     messagePrinted = player.Name + " casts " + spellToCast._name + " on themselves!\n" + spellToCast._description;
-                } 
+                }
                 else //spellEffect[3] == 1
                 {
                     //nerf enemy
@@ -116,9 +141,94 @@ namespace GameStateTesting.States
                 }
                 var messageBox = Dialog.CreateMessageBox("Spells", messagePrinted);
                 messageBox.ShowModal(_desktop);
+            };*/
+
+
+
+            /*grid.Widgets.Add(buttonSpells);*/
+
+            var container = new VerticalStackPanel
+            {
+                GridColumn = 1,
+                GridRow = 2,
+                Spacing = 4
             };
 
-            grid.Widgets.Add(buttonSpells);
+            var titleContainer = new Panel
+            {
+                Background = DefaultAssets.UITextureRegionAtlas["button"],
+            };
+
+            var titleLabel = new Label
+            {
+                Text = "Spells",
+                HorizontalAlignment= HorizontalAlignment.Center
+            };
+
+            titleContainer.Widgets.Add(titleLabel);
+            container.Widgets.Add(titleContainer);
+
+            //MenuItem[] spellList = null;
+            var verticalMenu = new VerticalMenu();
+            
+            /*for (int i = 0; i < 4; i++)
+            {
+                Spell spellToCast = null;
+                switch (i)
+                {
+                    case 0:
+                        spellToCast = fireball;
+                        break;
+                    case 1:
+                        spellToCast = iceStorm;
+                        break;
+                    case 2:
+                        spellToCast = healing;
+                        break;
+                    case 3:
+                        spellToCast = diacute;
+                        break;
+                    default:
+                        spellToCast = null;
+                        break;
+                }
+                
+                spellList[i] = new MenuItem
+                {
+                    Text = spellToCast._name
+                };
+                spellList[i].Selected += (s, a) =>
+                {
+                    int[] spellEffect = spellToCast.cast();
+                    string messagePrinted;
+                    if (spellEffect[3] == 0)
+                    {
+                        //buff player
+                        player.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                        messagePrinted = player.Name + " casts " + spellToCast._name + " on themselves!\n" + spellToCast._description;
+                    }
+                    else //spellEffect[3] == 1
+                    {
+                        //nerf enemy
+                        enemy.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                        messagePrinted = player.Name + " casts " + spellToCast._name + " on " + enemy.Name + "!\n" + spellToCast._description;
+                    }
+                    var messageBox = Dialog.CreateMessageBox("Spells", messagePrinted);
+                    messageBox.ShowModal(_desktop);
+                };
+                verticalMenu.Items.Add(spellList[i]);
+                
+            }
+*/
+            
+            verticalMenu.Items.Add(spellToMenuItem(fireball));
+            verticalMenu.Items.Add(spellToMenuItem(iceStorm));
+            verticalMenu.Items.Add(spellToMenuItem(diacute));
+            verticalMenu.Items.Add(spellToMenuItem(healing));
+
+            container.Widgets.Add(verticalMenu);
+
+            grid.Widgets.Add(container);
 
             // Button to View Stats
             var buttonStats = new TextButton
@@ -144,7 +254,7 @@ namespace GameStateTesting.States
             grid.Widgets.Add(buttonStats);
 
 
-            // Button to View Stats
+            // Button to Flee
             var buttonFlee = new TextButton
             {
                 GridColumn = 0,
@@ -179,7 +289,8 @@ namespace GameStateTesting.States
             // Add it to the desktop
             _desktop = new Desktop();
             _desktop.Root = grid;
-
+            //_desktop.ShowContextMenu(container, _desktop.TouchPosition);
+            
 
         }
 
@@ -216,6 +327,35 @@ namespace GameStateTesting.States
             //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.LightSlateGray);
             _desktop.Render();
+        }
+
+        private MenuItem spellToMenuItem(Spell spellToCast)
+        {
+            MenuItem menuSpell = new MenuItem
+            {
+                Text = spellToCast._name
+            };
+            menuSpell.Selected += (s, a) =>
+            {
+                int[] spellEffect = spellToCast.cast();
+                string messagePrinted;
+                if (spellEffect[3] == 0)
+                {
+                    //buff player
+                    player.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                    messagePrinted = player.Name + " casts " + spellToCast._name + " on themselves!\n" + spellToCast._description;
+                }
+                else //spellEffect[3] == 1
+                {
+                    //nerf enemy
+                    enemy.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                    messagePrinted = player.Name + " casts " + spellToCast._name + " on " + enemy.Name + "!\n" + spellToCast._description;
+                }
+                var messageBox = Dialog.CreateMessageBox("Spells", messagePrinted);
+                messageBox.ShowModal(_desktop);
+            };
+
+            return menuSpell;
         }
     }
 }

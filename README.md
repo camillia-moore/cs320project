@@ -23,3 +23,8 @@ README probably needs formating, and this repo unfortunatly probably needs restr
 
 update on 2/12
 	Lyndsey's attempts at button making watching a tutorial to see if something like it could be implemented. Didn't get it to work but hopeful.
+
+update: Feb - 13
+	Currently, we are using Myra to display text boxes. Myra is distrubuted with an MIT liscense 
+	https://github.com/rds1983/Myra
+	 -Camillia Moore
