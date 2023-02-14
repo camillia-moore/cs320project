@@ -97,9 +97,11 @@ namespace GameStateTesting.States
             arrowRightSource[1] = new Rectangle(69, 0, 68, 100); // right arrow hover
             arrowRightSource[2] = new Rectangle(137, 0, 68, 100); // right arrow down
 
-            charHeadSource = new Rectangle[2];
+            charHeadSource = new Rectangle[4];
             charHeadSource[0] = new Rectangle(0, 0, 1, 1);
             charHeadSource[1] = new Rectangle(0, 0, 183, 133);
+            charHeadSource[2] = new Rectangle(233, 46, 123, 103);
+            charHeadSource[3] = new Rectangle(0, 206, 199, 144);
 
             charFaceSource = new Rectangle[4];
             charFaceSource[0] = new Rectangle(0, 0, 287, 205);
@@ -107,9 +109,11 @@ namespace GameStateTesting.States
             charFaceSource[2] = new Rectangle(0, 206, 287, 205);
             charFaceSource[3] = new Rectangle(288, 206, 287, 205);
 
-            charBodySource = new Rectangle[2];
+            charBodySource = new Rectangle[4];
             charBodySource[0] = new Rectangle(0, 0, 1, 1);
             charBodySource[1] = new Rectangle(0, 0, 364, 322);
+            charBodySource[2] = new Rectangle(480, 0, 307, 243);
+            charBodySource[3] = new Rectangle(98, 398, 198, 227);
         }
 
         public override void Update(GameTime gameTime)
@@ -117,6 +121,7 @@ namespace GameStateTesting.States
             // TODO: Add support for mouse states in conjunction with keyboard states
             var newState = Keyboard.GetState();
 
+            // controls left arrow color change when keyboard is pressed down
             if (focusArea < 3 && newState.IsKeyDown(Keys.Left))
             {
                 isLeftArrowDown= true;
@@ -125,6 +130,7 @@ namespace GameStateTesting.States
                 isLeftArrowDown= false;
             }
 
+            // controls right arrow color change when keyboard is pressed down
             if (focusArea < 3 && newState.IsKeyDown(Keys.Right))
             {
                 isRightArrowDown = true;
@@ -134,6 +140,7 @@ namespace GameStateTesting.States
                 isRightArrowDown= false;
             }
 
+            // changes focus area to previous when up is pressed
             if (oldState.IsKeyUp(Keys.Up) && newState.IsKeyDown(Keys.Up))
             {
                 if (focusArea > 0)
@@ -142,6 +149,7 @@ namespace GameStateTesting.States
                 }
             }
 
+            // changes focus area to next when down is pressed
             if (oldState.IsKeyUp(Keys.Down) && newState.IsKeyDown(Keys.Down))
             {
                 if (focusArea < 5)
@@ -150,6 +158,7 @@ namespace GameStateTesting.States
                 }
             }
 
+            // controls left cycle for each body part
             if (oldState.IsKeyUp(Keys.Left) && newState.IsKeyDown(Keys.Left))
             {
                 switch (focusArea)
@@ -158,7 +167,7 @@ namespace GameStateTesting.States
                         headArea--;
                         if (headArea < 0)
                         {
-                            headArea = 1;
+                            headArea = 3;
                         }
                         break;
                     case 1:
@@ -172,7 +181,7 @@ namespace GameStateTesting.States
                         bodyArea--;
                         if (bodyArea < 0)
                         {
-                            bodyArea = 1;
+                            bodyArea = 3;
                         }
                         break;
                     default:
@@ -181,13 +190,14 @@ namespace GameStateTesting.States
 
             }
 
+            // controls right cycle for each body part
             if (oldState.IsKeyUp(Keys.Right) && newState.IsKeyDown(Keys.Right))
             {
                 switch(focusArea)
                 {
                     case 0:
                         headArea++;
-                        if (headArea > 1)
+                        if (headArea > 3)
                         {
                             headArea = 0;
                         }
@@ -201,7 +211,7 @@ namespace GameStateTesting.States
                         break;
                     case 2:
                         bodyArea++;
-                        if (bodyArea > 1)
+                        if (bodyArea > 3)
                         {
                             bodyArea = 0;
                         }
@@ -267,26 +277,40 @@ namespace GameStateTesting.States
 
             _spriteBatch.Draw(charBase, new Vector2(0,0), Color.White);
 
-            // TODO: finish charHead
-            if (headArea != 0)
+            // TODO: finish charHead so placements are at the same location (like charFace)
+            switch (headArea)
             {
-                _spriteBatch.Draw(charHead, new Vector2(263, 30), charHeadSource[1], Color.White);
-            } 
-            else
-            {
-                _spriteBatch.Draw(charHead, new Vector2(0, 0), charHeadSource[0], Color.White);
+                case 1:
+                    _spriteBatch.Draw(charHead, new Vector2(263, 30), charHeadSource[1], Color.White);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charHead, new Vector2(238, 125), charHeadSource[2], Color.White);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charHead, new Vector2(278, 53), charHeadSource[3], Color.White);
+                    break;
+                default:
+                    _spriteBatch.Draw(charHead, new Vector2(0, 0), charHeadSource[0], Color.White);
+                    break;
             }
 
             _spriteBatch.Draw(charFace, new Vector2(228, 166), charFaceSource[faceArea], Color.White);
 
-            // TODO: finish charBody
-            if (bodyArea != 0)
+            // TODO: finish charBody so placements are at the same location (like charFace)
+            switch (bodyArea)
             {
-                _spriteBatch.Draw(charBody, new Vector2(195, 364), charBodySource[1], Color.White);
-            } 
-            else
-            {
-                _spriteBatch.Draw(charBody, new Vector2(0, 0), charBodySource[0], Color.White);
+                case 1:
+                    _spriteBatch.Draw(charBody, new Vector2(197, 364), charBodySource[1], Color.White);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charBody, new Vector2(223, 364), charBodySource[2], Color.White);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charBody, new Vector2(291, 364), charBodySource[3], Color.White);
+                    break;
+                default:
+                    _spriteBatch.Draw(charBody, new Vector2(0, 0), charBodySource[0], Color.White);
+                    break;
             }
 
             // draw all the base arrows
