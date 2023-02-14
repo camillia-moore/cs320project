@@ -8,18 +8,83 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
+using Myra;
+using Myra.Graphics2D.UI;
 
 namespace GameStateTesting.States
 {
+
+
     public class StoryState : State
     {
+        private Desktop _desktop;
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
         }
 
         public override void LoadContent()
         {
-            //throw new NotImplementedException();
+            //Console.WriteLine("This is a test.");
+            MyraEnvironment.Game = _game;
+
+            var grid = new Grid
+            {
+                RowSpacing = 8,
+                ColumnSpacing = 8
+            };
+
+            grid.ColumnsProportions.Add(new Proportion(ProportionType.Auto));
+            grid.ColumnsProportions.Add(new Proportion(ProportionType.Auto));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Auto));
+            grid.RowsProportions.Add(new Proportion(ProportionType.Auto));
+
+            // Button to Character Creation
+            var buttonGood = new TextButton
+            {
+                GridColumn = 0,
+                GridRow = 8,
+                Text = "Good Button Test"
+            };
+
+            buttonGood.Click += (s, a) =>
+            {
+                //currently sends back to main menu but temperary
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            };
+
+            grid.Widgets.Add(buttonGood);
+
+            var buttonMid = new TextButton
+            {
+                GridColumn = 0,
+                GridRow = 9,
+                Text = "Neutral Button Test"
+            };
+
+            buttonMid.Click += (s, a) =>
+            {
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            };
+
+            grid.Widgets.Add(buttonMid);
+
+            var buttonBad = new TextButton
+            {
+                GridColumn = 0,
+                GridRow = 10,
+                Text = "Bad Button Test"
+            };
+
+            buttonBad.Click += (s, a) =>
+            {
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            };
+
+            grid.Widgets.Add(buttonBad);
+
+
+            _desktop = new Desktop();
+            _desktop.Root = grid;
         }
 
         public override void Update(GameTime gameTime)
@@ -31,11 +96,6 @@ namespace GameStateTesting.States
             {
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             }
-
-            /*if (kstate.IsKeyDown(Keys.Down))
-            {
-                _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
-            }*/
 
             if (kstate.IsKeyDown(Keys.Left))
             {
@@ -53,8 +113,8 @@ namespace GameStateTesting.States
         {
             //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.LightGreen);
+            _desktop.Render();
         }
-        //Test line to test the commits.
-        //Test line numbr 2.
+
     }
 }
