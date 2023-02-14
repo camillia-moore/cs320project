@@ -4,44 +4,18 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Arrow/arrow-left-down.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Arrow/arrow-left-hover.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Arrow/arrow-left-up.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Arrow/arrow-right-down.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Arrow/arrow-right-hover.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Arrow/arrow-right-up.png</File>
+    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/arrow-left.png</File>
+    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/arrow-right.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/button-continue-up.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-base.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-body00.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-body01.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-body02.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-body03.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-face00.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-face01.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-face02.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-face03.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-head00.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-head01.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-head02.png</File>
-    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/Character/char-head03.png</File>
+    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-body.png</File>
+    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-face.png</File>
+    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-head.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/create-character-title.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/input-name-box.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
