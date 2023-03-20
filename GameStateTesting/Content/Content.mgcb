@@ -13,8 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-<<<<<<< Updated upstream
-=======
 #begin arrow-left.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -111,13 +109,6 @@
 /processorParam:TextureFormat=Color
 /build:create-character-title.png
 
-#begin Fonts/TestFont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:Fonts/TestFont.spritefont
-
 #begin input-name-box.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -142,4 +133,3 @@
 /processorParam:TextureFormat=Color
 /build:selection-box.png
 
->>>>>>> Stashed changes
