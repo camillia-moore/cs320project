@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "4n996HAyl6i3fWOVegZiAvJDkJPHzPsYQjuAuV6T91JDz/vMELK/Fx5dnLpHZsAu5ngereK6DIDKR38KnaalUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lyndsey\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+=======
+  "dgSpecHash": "+JywmCsVkTEIWGrWcrnutSp57xSC/4QQomj1m6hs8V86uSsL10nI8DQgV3khWbOCMnRQrL70NT57UoSO4tU+tg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lyndsey\\Source\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\Lyndsey\\.nuget\\packages\\cyotek.drawing.bitmapfont\\2.0.4\\cyotek.drawing.bitmapfont.2.0.4.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\fontstashsharp.base\\1.1.8\\fontstashsharp.base.1.1.8.nupkg.sha512",

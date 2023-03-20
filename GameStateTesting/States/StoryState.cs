@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using GameStateTesting.States;
 using Myra;
 using Myra.Graphics2D.UI;
 
@@ -18,6 +18,13 @@ namespace GameStateTesting.States
     public class StoryState : State
     {
         private Desktop _desktop;
+
+        //Trying to create sprite boxes for the story to be printed.
+        //private Rectangle[] PrintStory;
+        //private Rectangle[] StoryGood;
+        //private Rectangle[] StoryBad;
+
+        SpriteFont TestFont;
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
         }
@@ -54,7 +61,7 @@ namespace GameStateTesting.States
 
             grid.Widgets.Add(buttonGood);
 
-            var buttonMid = new TextButton
+ /*           var buttonMid = new TextButton
             {
                 GridColumn = 0,
                 GridRow = 9,
@@ -66,13 +73,14 @@ namespace GameStateTesting.States
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             };
 
-            grid.Widgets.Add(buttonMid);
+            grid.Widgets.Add(buttonMid);*/
+
 
             var buttonBad = new TextButton
             {
                 GridColumn = 0,
-                GridRow = 10,
-                Text = "Bad Button Test"
+                GridRow = 9,
+                Text = "Click me I'm bad!"
             };
 
             buttonBad.Click += (s, a) =>
@@ -85,8 +93,12 @@ namespace GameStateTesting.States
 
             _desktop = new Desktop();
             _desktop.Root = grid;
+
+            TestFont = _content.Load<SpriteFont>("Fonts/TestFont");
         }
 
+
+        //overide from story to get to the other states while testing.
         public override void Update(GameTime gameTime)
         {
             //throw new NotImplementedException();
@@ -113,6 +125,12 @@ namespace GameStateTesting.States
         {
             //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.LightGreen);
+
+            //Draw test to the screen
+            spriteBatch.Begin();
+            spriteBatch.DrawString(TestFont, "Hello World!", new Vector2(0, 0), Color.Black);
+            spriteBatch.End();
+
             _desktop.Render();
         }
 

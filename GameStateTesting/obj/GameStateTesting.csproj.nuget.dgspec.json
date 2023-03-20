@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "C:\\Users\\Lyndsey\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\Lyndsey\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
         "packagesPath": "C:\\Users\\Lyndsey\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Lyndsey\\Documents\\GitHub\\cs320project\\GameStateTesting\\obj\\",
+=======
+    "C:\\Users\\Lyndsey\\Source\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Lyndsey\\Source\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Lyndsey\\Source\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+        "projectName": "GameStateTesting",
+        "projectPath": "C:\\Users\\Lyndsey\\Source\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+        "packagesPath": "C:\\Users\\Lyndsey\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lyndsey\\Source\\Repos\\cs320project\\GameStateTesting\\obj\\",
+>>>>>>> Stashed changes
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
