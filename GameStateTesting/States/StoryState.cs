@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GameStateTesting.Story;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Myra;
 using Myra.Graphics2D.UI;
+using System;
+using System.IO;
+using System.Text.Json;
 
 namespace GameStateTesting.States
 {
@@ -24,7 +22,8 @@ namespace GameStateTesting.States
         //private Rectangle[] StoryGood;
         //private Rectangle[] StoryBad;
 
-        SpriteFont TestFont;
+        SpriteFont TestFont; //create sprite for font
+
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
         }
@@ -94,7 +93,7 @@ namespace GameStateTesting.States
             _desktop = new Desktop();
             _desktop.Root = grid;
 
-            TestFont = _content.Load<SpriteFont>("Fonts/TestFont");
+            TestFont = _content.Load<SpriteFont>("Fonts/TestFont"); //load the font into the current content manager
         }
 
 
@@ -123,15 +122,69 @@ namespace GameStateTesting.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            //doesn't work
+            //string fileIncoming = "Story/Part1.json";
+            //string fileIncoming = "C:\Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Story/Part1.json";
+
+            /*Doesn't work
+             * string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\Story\Part1.json");
+            string fileIncoming = Path.GetFullPath(sFile);*/
+
+            //string fileIncoming = Path.GetFullPath("Part1.json"); //THis doesn't work. This makes it null
+
+            //string jsonstring = File.ReadAllText(@"./Story/Part1.json"); //This doesn't work. IT still null
+            //string jsonstring = File.ReadAllText(fileIncoming); //This doesn't work
+
+            /*try   I need to read the whole file not line by line
+            {
+                var path = "Part1.txt";
+                using (StreamReader aa = new StreamReader(path))
+                {
+                    string[] line;
+                    while ((line = aa.ReadAllLines()) != null)
+                    {
+                        Console.
+                    }
+                }
+            }catch(Exception e)
+            {
+                Console.WriteLine("The file could not be read");
+                Console.WriteLine(e.Message);
+            }*/
+
+           
+            //string fileIncoming = "Part1.json"; //This doesn't work no matter what the Part1.json reads null
+            string jsonstring = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Story/Part1.json")); //This doesn't work*/
+
+            /*string jsonstring = @"{
+                       ""Id"" : 17,
+                         ""MessageDescription"" : ""Hello World!""
+                            }";*/
+
+            Message? message = JsonSerializer.Deserialize<Message>(jsonstring); 
+
             //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.LightGreen);
 
             //Draw test to the screen
             spriteBatch.Begin();
-            spriteBatch.DrawString(TestFont, "Hello World!", new Vector2(0, 0), Color.Black);
+            spriteBatch.DrawString(TestFont, text: $"Our message:{message.MessageDescription}", new Vector2(0, 0), Color.Black); //draw the font 
             spriteBatch.End();
 
             _desktop.Render();
+
+
+            ////
+            //string jsonstring = string.Empty; //not initialized in memory
+            //string jsonstring = "";// this one is.
+            /*string jsonstring = @"{
+                                   ""Id"" : 17,
+                                     ""MessageDescription"" : ""Hello World!""
+                                        }";*/
+            //string fileIncoming = "Part1.json";
+           // string jsonstring = File.ReadAllText(fileIncoming);
+           // Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
         }
 
     }
