@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStateTesting", "GameStateTesting\GameStateTesting.csproj", "{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameStateTesting", "GameStateTesting\GameStateTesting.csproj", "{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cs320tests", "cs320tests\cs320tests.csproj", "{2110918E-6107-4D99-B96B-6F28C455D653}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2110918E-6107-4D99-B96B-6F28C455D653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2110918E-6107-4D99-B96B-6F28C455D653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2110918E-6107-4D99-B96B-6F28C455D653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2110918E-6107-4D99-B96B-6F28C455D653}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

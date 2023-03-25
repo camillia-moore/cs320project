@@ -52,9 +52,11 @@ namespace GameStateTesting.States
         private bool isLeftArrowDown = false;
         private bool isRightArrowDown = false;
 
+        private string entryName;
+        private string entryPronouns;
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
 
         public CharacterCreationState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -221,7 +223,7 @@ namespace GameStateTesting.States
                 }
             }
 
-            // move to next story screen
+            // move to next story screen; saves customization screen input then changes screen state
             // TODO: add Continue button states and go only if focusArea > 4
             if (focusArea > 2)
             {

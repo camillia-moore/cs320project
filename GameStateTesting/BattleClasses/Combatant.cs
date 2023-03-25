@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace GameStateTesting.BattleClasses
 {
-    internal class Combatant
+    public class Combatant
     {
         public string Name;
         public string Description;
-        private int MaxHP;
-        private int CurrentHP;
-        private int Attack;
-        private int AttackMod;
-        private int Defense;
-        private int DefenseMod;
+        public int MaxHP;
+        public int CurrentHP;
+        public int Attack;
+        public int AttackMod;
+        public int Defense;
+        public int DefenseMod;
         
         public Combatant(string name, string description, int hp, int atk, int def) {
             Name = name;

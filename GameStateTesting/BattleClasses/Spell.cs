@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GameStateTesting.BattleClasses
 {
-    internal class Spell
+    public class Spell
     {
         public string _name;
         public string _description;
-        private Effect _effect;
+        public Effect _effect;
         public Spell(string name, string description, Effect effect) {
             _name = name;
             _description = description;
