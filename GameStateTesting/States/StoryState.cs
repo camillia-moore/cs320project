@@ -159,7 +159,7 @@ namespace GameStateTesting.States
 
             /*string jsonstring = @"{
                        ""Id"" : 17,
-                         ""MessageDescription"" : ""Hello World!""
+                         ""Story"" : ""Hello World!""
                             }";*/
 
             Message? message = JsonSerializer.Deserialize<Message>(jsonstring); 
@@ -169,7 +169,7 @@ namespace GameStateTesting.States
 
             //Draw test to the screen
             spriteBatch.Begin();
-            spriteBatch.DrawString(TestFont, text: $"Our message:{message.MessageDescription}", new Vector2(0, 0), Color.Black); //draw the font 
+            spriteBatch.DrawString(TestFont, text: $"Our message:{message.Story}", new Vector2(0, 0), Color.Black); //draw the font 
             spriteBatch.End();
 
             _desktop.Render();
