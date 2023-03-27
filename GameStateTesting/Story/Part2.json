@@ -1,0 +1,77 @@
+[
+  //Begin the next set
+  {
+    "Id": "XAA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  //The begining of the next set
+  {
+    "Id": "XAAA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAAB",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABA",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  }  
+]
+  

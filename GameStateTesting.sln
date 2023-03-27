@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStateTesting", "GameStateTesting\GameStateTesting.csproj", "{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameStateTesting", "GameStateTesting\GameStateTesting.csproj", "{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStateTesting.Test", "GameStateTesting.Test\GameStateTesting.Test.csproj", "{7E3935F6-AD06-46F7-928B-60F6EE6521E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5636FDA3-2F25-4D63-A3EF-D8A87D5DFFB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3935F6-AD06-46F7-928B-60F6EE6521E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3935F6-AD06-46F7-928B-60F6EE6521E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3935F6-AD06-46F7-928B-60F6EE6521E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3935F6-AD06-46F7-928B-60F6EE6521E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
