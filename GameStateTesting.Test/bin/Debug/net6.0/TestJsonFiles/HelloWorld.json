@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "A",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "AA",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "AB",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "AAA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "AAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "ABA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "ABB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  }
+]

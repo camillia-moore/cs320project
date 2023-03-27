@@ -205,3 +205,6 @@ C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.genruntimeconfig.cache
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\ref\GameStateTesting.dll
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part1.json
+C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part2.json
+C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part3.json

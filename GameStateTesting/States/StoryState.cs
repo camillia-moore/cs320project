@@ -1,4 +1,5 @@
 ﻿using GameStateTesting.Story;
+using GameStateTesting.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -6,7 +7,9 @@ using Microsoft.Xna.Framework.Input;
 using Myra;
 using Myra.Graphics2D.UI;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 namespace GameStateTesting.States
@@ -153,26 +156,29 @@ namespace GameStateTesting.States
                 Console.WriteLine(e.Message);
             }*/
 
-           
+
             //string fileIncoming = "Part1.json"; //This doesn't work no matter what the Part1.json reads null
-            string jsonstring = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Story/Part1.json")); //This doesn't work*/
+            List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part1.json");
 
             /*string jsonstring = @"{
                        ""Id"" : 17,
-                         ""MessageDescription"" : ""Hello World!""
+                         ""Story"" : ""Hello World!""
                             }";*/
 
-            Message? message = JsonSerializer.Deserialize<Message>(jsonstring); 
+            //Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
 
             //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.LightGreen);
 
             //Draw test to the screen
             spriteBatch.Begin();
-            spriteBatch.DrawString(TestFont, text: $"Our message:{message.MessageDescription}", new Vector2(0, 0), Color.Black); //draw the font 
+            //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+            spriteBatch.DrawString(TestFont, text: $"Our message:{message.First(m => m.Id=="X").Story}", new Vector2(0, 0), Color.Black); //draw the font 
             spriteBatch.End();
 
             _desktop.Render();
+
+
 
 
             ////
@@ -183,9 +189,11 @@ namespace GameStateTesting.States
                                      ""MessageDescription"" : ""Hello World!""
                                         }";*/
             //string fileIncoming = "Part1.json";
-           // string jsonstring = File.ReadAllText(fileIncoming);
-           // Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
+            // string jsonstring = File.ReadAllText(fileIncoming);
+            // Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
         }
+
+
 
     }
 }

@@ -1,0 +1,292 @@
+//Begin the next set 48 total Id's/objexts in list
+[
+  {
+    "Id": "XAAAA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAAAB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAABA",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAABB",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABAA",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABAB",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABBA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABBB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBABA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBABB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBBA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBBB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  ////The next wave starts here
+  {
+    "Id": "XAAAAA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAAAAB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAAABA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAAABB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAABAA",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAABAB",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAABBA",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XAABBB",
+    "Story": "Second 1st story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABAAA",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABAAB",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABABA",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABABB",
+    "Story": "Second 2nd story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABBAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABBAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABBBA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XABBBB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAAAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAAAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAABA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAABB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBABAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBABAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBABBA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBABBB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBAAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBAAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBABA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBABB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBBAA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBBAB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBBBA",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBBBB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  }
+]
