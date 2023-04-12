@@ -28,7 +28,7 @@ namespace GameStateTesting.States
         
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            player = new Combatant("KitKat", "The Default Hero", 30, 9, 5);
+            //player = new Combatant("Kit-Kat", "The Default Hero", 30, 9, 5);
             enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
             fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
             iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
@@ -36,6 +36,11 @@ namespace GameStateTesting.States
             healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
 
             rand = new Random();
+        }
+
+        public void createPlayer(String name, String description, int hp, int atk, int def)
+        {
+            player = new Combatant(name, description, hp, atk, def);
         }
 
         public override void LoadContent()
@@ -86,10 +91,31 @@ namespace GameStateTesting.States
                 int[] enemyStats = enemy.getStats();
                 enemy.TakeDamage(damageFromPlayer);
                 player.TakeDamage(damageFromEnemy);
-                String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
+                if (enemy.isDefeated())
+                {
+                    String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
+                                        enemy.Name + " deals " + damageFromEnemy + " damage!\n" +
+                                        enemy.Name + " has defeated " + player.Name + "!\n";
+                    var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
+                    messageBox.ShowModal(_desktop);
+                    _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                }
+                else if (player.isDefeated())
+                {
+                    String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
+                                        enemy.Name + " deals " + damageFromEnemy + " damage!\n" +
+                                        player.Name + " has defeated  " + enemy.Name + "!\n";
+                    var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
+                    messageBox.ShowModal(_desktop);
+                    _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                }
+                else
+                {
+                    String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
                                         enemy.Name + " deals " + damageFromEnemy + " damage!\n";
-                var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
-                messageBox.ShowModal(_desktop);
+                    var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
+                    messageBox.ShowModal(_desktop);
+                }
             };
 
             grid.Widgets.Add(buttonFight);

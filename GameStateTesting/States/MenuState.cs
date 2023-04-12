@@ -82,7 +82,10 @@ namespace GameStateTesting.States
             {
                 /*var messageBox = Dialog.CreateMessageBox("Message", "Some message!");
                 messageBox.ShowModal(_desktop);*/
-                _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5);
+                _game.ChangeState(nextState);
+
             };
 
             grid.Widgets.Add(buttonBS);
