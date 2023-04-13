@@ -135,6 +135,7 @@ namespace GameStateTesting.States
 
             buttonMenu.Click += (s, a) =>
             {
+                Story.CheckString.MakeOriginalString(); //this is temperary
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             };
 

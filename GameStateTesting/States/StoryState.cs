@@ -136,14 +136,17 @@ namespace GameStateTesting.States
 
             if (kstate.IsKeyDown(Keys.Up))
             {
+                Story.CheckString.MakeOriginalString();
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             }
             if (kstate.IsKeyDown(Keys.Left))
             {
+                Story.CheckString.MakeOriginalString();
                 _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
             }
             if (kstate.IsKeyDown(Keys.Right))
             {
+                Story.CheckString.MakeOriginalString();
                 _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
             }
         }
@@ -202,59 +205,6 @@ namespace GameStateTesting.States
             //spriteBatch.End();
 
             _desktop.Render();
-
-            
-
-
-
-            ///Just shit code that I want to reuse.
-            ///
-                        //doesn't work
-            //string fileIncoming = "Story/Part1.json";
-            //string fileIncoming = "C:\Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Story/Part1.json";
-
-            /*Doesn't work
-             * string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\Story\Part1.json");
-            string fileIncoming = Path.GetFullPath(sFile);*/
-
-            //string fileIncoming = Path.GetFullPath("Part1.json"); //THis doesn't work. This makes it null
-
-            //string jsonstring = File.ReadAllText(@"./Story/Part1.json"); //This doesn't work. IT still null
-            //string jsonstring = File.ReadAllText(fileIncoming); //This doesn't work
-
-            /*try   I need to read the whole file not line by line
-            {
-                var path = "Part1.txt";
-                using (StreamReader aa = new StreamReader(path))
-                {
-                    string[] line;
-                    while ((line = aa.ReadAllLines()) != null)
-                    {
-                        Console.
-                    }
-                }
-            }catch(Exception e)
-            {
-                Console.WriteLine("The file could not be read");
-                Console.WriteLine(e.Message);
-            }*/
-
-
-
-            ////
-            //string jsonstring = string.Empty; //not initialized in memory
-            //string jsonstring = "";// this one is.
-            /*string jsonstring = @"{
-                                   ""Id"" : 17,
-                                     ""MessageDescription"" : ""Hello World!""
-                                        }";*/
-            //string fileIncoming = "Part1.json";
-            // string jsonstring = File.ReadAllText(fileIncoming);
-            // Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
         }
-
-
-
     }
 }

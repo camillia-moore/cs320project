@@ -4,18 +4,18 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-left.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-right.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-base.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-body.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-face.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-head.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/create-character-title.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/input-name-box.png</File>
-    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-left.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-right.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/char-base.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/char-body.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/char-face.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/char-head.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/create-character-title.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/input-name-box.png</File>
+    <File>C:/Users/lyynd/OneDrive/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
