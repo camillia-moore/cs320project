@@ -19,7 +19,7 @@ namespace GameStateTesting.Story
         public static string ChangeString( string newstring )
         {
             idPlacement = idPlacement + newstring;
-            return idPlacement; 
+            return idPlacement;
         }
     }
 }
