@@ -59,7 +59,18 @@ namespace GameStateTesting.States
                 int ourStringLen = placeinstoryA.Length;
                 if ((ourStringLen == 3) || (ourStringLen == 5) || (ourStringLen == 7))
                 {
-                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    //_game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                    nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
+                    nextState.createEnemy("Spooky Monster", "Generic Enemy", 20, 8, 4);
+                    nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
+                    nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
+                    nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
+                    nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
+                    nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
+                    nextState.buffEnemy(0, 0, 0, 0);
+                    nextState.fromMenu(true);
+                    _game.ChangeState(nextState);
                 }
                 else
                 {
@@ -85,7 +96,19 @@ namespace GameStateTesting.States
                 int ourStringLen = placeinstoryB.Length;
                 if ((ourStringLen == 3) ||  (ourStringLen == 5) || (ourStringLen == 7))
                 {
-                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    //_game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                    nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
+                    nextState.createEnemy("Spooky Monster", "Generic Enemy", 20, 8, 4);
+                    nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
+                    nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
+                    nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
+                    nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
+                    nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
+                    nextState.buffEnemy(0,0,0, 0);
+                    //last number relevant to spells
+                    nextState.fromMenu(true);
+                    _game.ChangeState(nextState);
                 }
                 else
                 {
