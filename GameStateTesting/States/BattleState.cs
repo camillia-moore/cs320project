@@ -26,7 +26,7 @@ namespace GameStateTesting.States
         private Random rand;
         private Spell[] spellbook = new Spell[10];
         private int numSpells;
-        private String storyProgress;
+        private Boolean returnToMenu;
 
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -38,12 +38,12 @@ namespace GameStateTesting.States
             //spellbook[2] = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
             //spellbook[3] = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
             //numSpells = 4;
-            
+
             //fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
             //iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
             //diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
             //healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
-            storyProgress = string.Empty;
+            returnToMenu = false;
             rand = new Random();
         }
 
@@ -67,10 +67,10 @@ namespace GameStateTesting.States
             numSpells++;
         }
 
-        public void setStoryProgress(String story)
+        public void fromMenu(Boolean fromMenu)
         {
-            //function to store the progress of the story from the story state
-            storyProgress = story;
+            //function to store whether we should return to the story or the menu
+            returnToMenu = fromMenu;
         }
 
         public void buffPlayer(int HP, int atk, int def, int hd)
@@ -138,7 +138,14 @@ namespace GameStateTesting.States
                                         enemy.Name + " has defeated " + player.Name + "!\n";
                     var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
                     messageBox.ShowModal(_desktop);
-                    _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    if(returnToMenu)
+                    {
+                        _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else
+                    {
+                        _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                    }
                 }
                 else if (player.isDefeated())
                 {
@@ -147,7 +154,14 @@ namespace GameStateTesting.States
                                         player.Name + " has defeated  " + enemy.Name + "!\n";
                     var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
                     messageBox.ShowModal(_desktop);
-                    _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    if (returnToMenu)
+                    {
+                        _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else
+                    {
+                        _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                    }
                 }
                 else
                 {

@@ -89,6 +89,7 @@ namespace GameStateTesting.States
                 nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
                 nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
                 nextState.addSpell("Menu's Healing", "Heals the user", +5, 0, 0, 0, 6);
+                nextState.fromMenu(true);
                 _game.ChangeState(nextState);
 
             };
