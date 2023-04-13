@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace GameStateTesting.States
@@ -20,15 +21,10 @@ namespace GameStateTesting.States
     {
         private Desktop _desktop;
 
-        //Trying to create sprite boxes for the story to be printed.
-        //private Rectangle[] PrintStory;
-        //private Rectangle[] StoryGood;
-        //private Rectangle[] StoryBad;
-
         SpriteFont TestFont; //create sprite for font
-
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
+            //private string idStringToChange = "X"; 
         }
 
         public override void LoadContent()
@@ -52,42 +48,51 @@ namespace GameStateTesting.States
             {
                 GridColumn = 0,
                 GridRow = 8,
-                Text = "Good Button Test"
+                Text = "Click me!"
             };
 
             buttonGood.Click += (s, a) =>
             {
-                //currently sends back to main menu but temperary
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                //This no longer just sends to menue state. will send back to story or battle
+                string isA = "A";
+                string placeinstoryA = Story.CheckString.ChangeString(isA);
+                int ourStringLen = placeinstoryA.Length;
+                if ((ourStringLen == 3) || (ourStringLen == 5) || (ourStringLen == 7))
+                {
+                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                }
+                else
+                {
+                    _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                }
+
             };
 
             grid.Widgets.Add(buttonGood);
-
- /*           var buttonMid = new TextButton
-            {
-                GridColumn = 0,
-                GridRow = 9,
-                Text = "Neutral Button Test"
-            };
-
-            buttonMid.Click += (s, a) =>
-            {
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
-            };
-
-            grid.Widgets.Add(buttonMid);*/
-
 
             var buttonBad = new TextButton
             {
                 GridColumn = 0,
                 GridRow = 9,
-                Text = "Click me I'm bad!"
+                Text = "Click me!"
             };
 
             buttonBad.Click += (s, a) =>
             {
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                //No longer goes to just the menu state
+                string isB = "B";
+                string placeinstoryB = Story.CheckString.ChangeString(isB);
+                int ourStringLen = placeinstoryB.Length;
+                if ((ourStringLen == 3) ||  (ourStringLen == 5) || (ourStringLen == 7))
+                {
+                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                }
+                else
+                {
+                    _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                }
+
+
             };
 
             grid.Widgets.Add(buttonBad);
@@ -110,22 +115,78 @@ namespace GameStateTesting.States
             {
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             }
-
             if (kstate.IsKeyDown(Keys.Left))
             {
                 _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
             }
-
             if (kstate.IsKeyDown(Keys.Right))
             {
                 _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
             }
-
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //doesn't work
+            _graphicsDevice.Clear(Color.LightGreen);
+
+
+            string placeinstory = Story.CheckString.StoryCheckString();
+            int lengthOfPlace = placeinstory.Length;
+
+            //string fileIncoming = "Part1.json"; //This doesn't work no matter what the Part1.json reads null
+
+            if (lengthOfPlace < 3) //so up to two in length to access the part1.json
+            {
+                List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part1.json");
+                //Draw test to the screen
+                spriteBatch.Begin();
+                //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Story}", new Vector2(0, 0), Color.Black); //draw the font 
+                //Draw good string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Good}", new Vector2(100, 550), Color.Black);
+                //Draw bad string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
+                spriteBatch.End();
+            }
+            //Should grab from only the part2.json
+            if ((lengthOfPlace >= 3) && (lengthOfPlace < 5))
+            {
+                List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part2.json");
+                //Draw test to the screen
+                spriteBatch.Begin();
+                //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Story}", new Vector2(0, 0), Color.Black); //draw the font 
+                //Draw good string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Good}", new Vector2(100, 550), Color.Black);
+                //Draw bad string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
+                spriteBatch.End();
+            }
+            if ((lengthOfPlace >= 5) && (lengthOfPlace < 7))
+            {
+                List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part3.json");
+                //Draw test to the screen
+                spriteBatch.Begin();
+                //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Story}", new Vector2(0, 0), Color.Black); //draw the font 
+                //Draw good string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Good}", new Vector2(100, 550), Color.Black);
+                //Draw bad string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
+                spriteBatch.End();
+            }
+
+            //spriteBatch.End();
+
+            _desktop.Render();
+
+            
+
+
+
+            ///Just shit code that I want to reuse.
+            ///
+                        //doesn't work
             //string fileIncoming = "Story/Part1.json";
             //string fileIncoming = "C:\Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Story/Part1.json";
 
@@ -155,29 +216,6 @@ namespace GameStateTesting.States
                 Console.WriteLine("The file could not be read");
                 Console.WriteLine(e.Message);
             }*/
-
-
-            //string fileIncoming = "Part1.json"; //This doesn't work no matter what the Part1.json reads null
-            List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part1.json");
-
-            /*string jsonstring = @"{
-                       ""Id"" : 17,
-                         ""Story"" : ""Hello World!""
-                            }";*/
-
-            //Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
-
-            //throw new NotImplementedException();
-            _graphicsDevice.Clear(Color.LightGreen);
-
-            //Draw test to the screen
-            spriteBatch.Begin();
-            //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
-            spriteBatch.DrawString(TestFont, text: $"Our message:{message.First(m => m.Id=="X").Story}", new Vector2(0, 0), Color.Black); //draw the font 
-            spriteBatch.End();
-
-            _desktop.Render();
-
 
 
 
