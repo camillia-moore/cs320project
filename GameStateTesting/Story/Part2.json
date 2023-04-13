@@ -2,9 +2,9 @@
   //Begin the next set
   {
     "Id": "XAA",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "After taking medication you still don't feel better, and you wonder if this is more than just a cold. You decide to...'",
+    "Good": "Go to the local Urgent Care to get tested",
+    "Bad": "Wait out the day and see if you feel better in the morning."
   },
   {
     "Id": "XAB",
@@ -27,9 +27,9 @@
   //The begining of the next set
   {
     "Id": "XAAA",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You went to urgent care and got tested to see if you have the flue or cold. The test comes back positive for the a new disease called COVID-19. You decide..",
+    "Good": "to go home and follow all the doctors instructions for the next week.",
+    "Bad": "to stop by the store to grab some groceries for the week, ignoring the doctors recommendation to stay secluded for a week."
   },
   {
     "Id": "XAAB",

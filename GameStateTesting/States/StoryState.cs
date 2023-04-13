@@ -52,7 +52,7 @@ namespace GameStateTesting.States
             {
                 GridColumn = 0,
                 GridRow = 8,
-                Text = "Good Button Test"
+                Text = "Click me!"
             };
 
             buttonGood.Click += (s, a) =>
@@ -63,26 +63,11 @@ namespace GameStateTesting.States
 
             grid.Widgets.Add(buttonGood);
 
- /*           var buttonMid = new TextButton
-            {
-                GridColumn = 0,
-                GridRow = 9,
-                Text = "Neutral Button Test"
-            };
-
-            buttonMid.Click += (s, a) =>
-            {
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
-            };
-
-            grid.Widgets.Add(buttonMid);*/
-
-
             var buttonBad = new TextButton
             {
                 GridColumn = 0,
                 GridRow = 9,
-                Text = "Click me I'm bad!"
+                Text = "Click me!"
             };
 
             buttonBad.Click += (s, a) =>
@@ -174,6 +159,10 @@ namespace GameStateTesting.States
             spriteBatch.Begin();
             //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
             spriteBatch.DrawString(TestFont, text: $"Our message:{message.First(m => m.Id=="X").Story}", new Vector2(0, 0), Color.Black); //draw the font 
+            //Draw good string
+            spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Good}", new Vector2(100, 550), Color.Black);
+            //Draw bad string
+            spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Bad}", new Vector2(100, 640), Color.Black);
             spriteBatch.End();
 
             _desktop.Render();
