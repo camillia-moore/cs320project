@@ -21,19 +21,11 @@ namespace GameStateTesting.States
     {
         private Desktop _desktop;
 
-        //Trying to create sprite boxes for the story to be printed.
-        //private Rectangle[] PrintStory;
-        //private Rectangle[] StoryGood;
-        //private Rectangle[] StoryBad;
-
         SpriteFont TestFont; //create sprite for font
-
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             //private string idStringToChange = "X"; 
         }
-
-
 
         public override void LoadContent()
         {
@@ -61,8 +53,19 @@ namespace GameStateTesting.States
 
             buttonGood.Click += (s, a) =>
             {
-                //currently sends back to main menu but temperary
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                //This no longer just sends to menue state. will send back to story or battle
+                string isA = "A";
+                string placeinstoryA = Story.CheckString.ChangeString(isA);
+                int ourStringLen = placeinstoryA.Length;
+                if ((ourStringLen == 3) || (ourStringLen == 5) || (ourStringLen == 7))
+                {
+                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                }
+                else
+                {
+                    _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                }
+
             };
 
             grid.Widgets.Add(buttonGood);
@@ -76,8 +79,20 @@ namespace GameStateTesting.States
 
             buttonBad.Click += (s, a) =>
             {
-                //Currently sends back to main menu but temperary
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                //No longer goes to just the menu state
+                string isB = "B";
+                string placeinstoryB = Story.CheckString.ChangeString(isB);
+                int ourStringLen = placeinstoryB.Length;
+                if ((ourStringLen == 3) ||  (ourStringLen == 5) || (ourStringLen == 7))
+                {
+                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                }
+                else
+                {
+                    _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                }
+
+
             };
 
             grid.Widgets.Add(buttonBad);
@@ -117,7 +132,7 @@ namespace GameStateTesting.States
 
             string placeinstory = Story.CheckString.StoryCheckString();
             int lengthOfPlace = placeinstory.Length;
-            
+
             //string fileIncoming = "Part1.json"; //This doesn't work no matter what the Part1.json reads null
 
             if (lengthOfPlace < 3) //so up to two in length to access the part1.json
@@ -126,14 +141,42 @@ namespace GameStateTesting.States
                 //Draw test to the screen
                 spriteBatch.Begin();
                 //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
-                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id=="X").Story}", new Vector2(0, 0), Color.Black); //draw the font 
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Story}", new Vector2(0, 0), Color.Black); //draw the font 
                 //Draw good string
-                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Good}", new Vector2(100, 550), Color.Black);
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Good}", new Vector2(100, 550), Color.Black);
                 //Draw bad string
-                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Bad}", new Vector2(100, 640), Color.Black);
-            )
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
+                spriteBatch.End();
+            }
+            //Should grab from only the part2.json
+            if ((lengthOfPlace >= 3) && (lengthOfPlace < 5))
+            {
+                List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part2.json");
+                //Draw test to the screen
+                spriteBatch.Begin();
+                //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Story}", new Vector2(0, 0), Color.Black); //draw the font 
+                //Draw good string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Good}", new Vector2(100, 550), Color.Black);
+                //Draw bad string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
+                spriteBatch.End();
+            }
+            if ((lengthOfPlace >= 5) && (lengthOfPlace < 7))
+            {
+                List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part3.json");
+                //Draw test to the screen
+                spriteBatch.Begin();
+                //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Story}", new Vector2(0, 0), Color.Black); //draw the font 
+                //Draw good string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Good}", new Vector2(100, 550), Color.Black);
+                //Draw bad string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
+                spriteBatch.End();
+            }
 
-            spriteBatch.End();
+            //spriteBatch.End();
 
             _desktop.Render();
 
