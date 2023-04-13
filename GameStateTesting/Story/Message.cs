@@ -7,9 +7,9 @@ namespace GameStateTesting.Story
         public string Id { get; set; }
 
         public string Story { get; set; }
-        public string GoodDecision { get; set; }
+        public string Good { get; set; }
 
-        public string BadDecision { get; set; }
+        public string Bad { get; set; }
 
         public static implicit operator Message(string v)
         {
