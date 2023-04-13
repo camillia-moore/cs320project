@@ -44,6 +44,8 @@ namespace GameStateTesting.States
             //diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
             //healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
             returnToMenu = false;
+            createPlayer("Kitkat", "The Default Hero", 30, 9, 5, 10);
+            setEnemy(0);
             rand = new Random();
         }
 
@@ -57,6 +59,30 @@ namespace GameStateTesting.States
         {
             //function for outside states to create stats for the enemy
             enemy = new Combatant(name, description,hp, atk, def);
+        }
+
+        public void setEnemy(int id)
+        {
+            //function for outside states to define which preset enemy to fight
+            switch (id)
+            {
+                case 1:
+                    createEnemy("Slime", "Just a little slimey boy", 10, 6, 2);
+                    break;
+                case 2:
+                    createEnemy("Jellyfish", "Oooh, spooky jelly", 20, 8, 4);
+                    break;
+                case 3:
+                    createEnemy("Dragon", "I FUDGING LOVBE BOWSDER, I WANMT TO BREAMTHE FIRE!!!!!!", 30, 10, 6);
+                    break;
+                case 4:
+                    createEnemy("Boss", "So evil, we don't have a design yet", 40, 12, 8);
+                    break;
+                default:
+                    createEnemy("Monster", "Generic Enemy", 20, 8, 4);
+                    break;
+            }
+
         }
 
         public void addSpell(String name, String description, int HP, int atk, int def, int hd, int manaCost)
