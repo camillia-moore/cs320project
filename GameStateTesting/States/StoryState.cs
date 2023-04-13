@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace GameStateTesting.States
@@ -29,7 +30,10 @@ namespace GameStateTesting.States
 
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
+            //private string idStringToChange = "X"; 
         }
+
+
 
         public override void LoadContent()
         {
@@ -72,6 +76,7 @@ namespace GameStateTesting.States
 
             buttonBad.Click += (s, a) =>
             {
+                //Currently sends back to main menu but temperary
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             };
 
@@ -95,22 +100,50 @@ namespace GameStateTesting.States
             {
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             }
-
             if (kstate.IsKeyDown(Keys.Left))
             {
                 _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
             }
-
             if (kstate.IsKeyDown(Keys.Right))
             {
                 _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
             }
-
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //doesn't work
+            _graphicsDevice.Clear(Color.LightGreen);
+
+
+            string placeinstory = Story.CheckString.StoryCheckString();
+            int lengthOfPlace = placeinstory.Length;
+            
+            //string fileIncoming = "Part1.json"; //This doesn't work no matter what the Part1.json reads null
+
+            if (lengthOfPlace < 3) //so up to two in length to access the part1.json
+            {
+                List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part1.json");
+                //Draw test to the screen
+                spriteBatch.Begin();
+                //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id=="X").Story}", new Vector2(0, 0), Color.Black); //draw the font 
+                //Draw good string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Good}", new Vector2(100, 550), Color.Black);
+                //Draw bad string
+                spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Bad}", new Vector2(100, 640), Color.Black);
+            )
+
+            spriteBatch.End();
+
+            _desktop.Render();
+
+            
+
+
+
+            ///Just shit code that I want to reuse.
+            ///
+                        //doesn't work
             //string fileIncoming = "Story/Part1.json";
             //string fileIncoming = "C:\Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Story/Part1.json";
 
@@ -140,33 +173,6 @@ namespace GameStateTesting.States
                 Console.WriteLine("The file could not be read");
                 Console.WriteLine(e.Message);
             }*/
-
-
-            //string fileIncoming = "Part1.json"; //This doesn't work no matter what the Part1.json reads null
-            List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part1.json");
-
-            /*string jsonstring = @"{
-                       ""Id"" : 17,
-                         ""Story"" : ""Hello World!""
-                            }";*/
-
-            //Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
-
-            //throw new NotImplementedException();
-            _graphicsDevice.Clear(Color.LightGreen);
-
-            //Draw test to the screen
-            spriteBatch.Begin();
-            //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
-            spriteBatch.DrawString(TestFont, text: $"Our message:{message.First(m => m.Id=="X").Story}", new Vector2(0, 0), Color.Black); //draw the font 
-            //Draw good string
-            spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Good}", new Vector2(100, 550), Color.Black);
-            //Draw bad string
-            spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == "X").Bad}", new Vector2(100, 640), Color.Black);
-            spriteBatch.End();
-
-            _desktop.Render();
-
 
 
 
