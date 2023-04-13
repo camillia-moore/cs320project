@@ -21,5 +21,10 @@ namespace GameStateTesting.Story
             idPlacement = idPlacement + newstring;
             return idPlacement;
         }
+
+        public static void MakeOriginalString()
+        {
+            idPlacement = "X";
+        }
     }
 }
