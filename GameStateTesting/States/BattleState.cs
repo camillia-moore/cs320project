@@ -17,30 +17,70 @@ namespace GameStateTesting.States
     public class BattleState : State
     {
         private Desktop _desktop;
-        private int playerHP = 30;
         private Combatant player;
         private Combatant enemy;
-        private Spell fireball;
-        private Spell iceStorm;
-        private Spell diacute;
-        private Spell healing;
+        //private Spell fireball;
+        //private Spell iceStorm;
+        //private Spell diacute;
+        //private Spell healing;
         private Random rand;
-        
+        private Spell[] spellbook = new Spell[10];
+        private int numSpells;
+        private String storyProgress;
+
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             //player = new Combatant("Kit-Kat", "The Default Hero", 30, 9, 5);
-            enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
-            fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
-            iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
-            diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
-            healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
-
+            //enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
+            numSpells = 0;
+            //spellbook[0] = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
+            //spellbook[1] = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
+            //spellbook[2] = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
+            //spellbook[3] = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
+            //numSpells = 4;
+            
+            //fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
+            //iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
+            //diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
+            //healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
+            storyProgress = string.Empty;
             rand = new Random();
         }
 
-        public void createPlayer(String name, String description, int hp, int atk, int def)
+        public void createPlayer(String name, String description, int hp, int atk, int def, int mana)
         {
+            //function for outside states to create stats for the player
             player = new Combatant(name, description, hp, atk, def);
+        }
+
+        public void createEnemy(String name, String description, int hp, int atk, int def)
+        {
+            //function for outside states to create stats for the enemy
+            enemy = new Combatant(name, description,hp, atk, def);
+        }
+
+        public void addSpell(String name, String description, int HP, int atk, int def, int hd, int manaCost)
+        {
+            //function for other states to give Kitkat spells
+            //please do not add more than 10 spells
+            spellbook[numSpells] = new Spell(name, description, new BattleClasses.Effect(HP, atk, def, hd));
+            numSpells++;
+        }
+
+        public void setStoryProgress(String story)
+        {
+            //function to store the progress of the story from the story state
+            storyProgress = story;
+        }
+
+        public void buffPlayer(int HP, int atk, int def, int hd)
+        {
+            //function to buff the stats of the player
+        }
+
+        public void buffEnemy(int HP, int atk, int def, int hd)
+        {
+            //function to buff the stats of the enemy
         }
 
         public override void LoadContent()
@@ -146,11 +186,16 @@ namespace GameStateTesting.States
             container.Widgets.Add(titleContainer);
 
             var verticalMenu = new VerticalMenu();
+
+            for(int i = 0; i < numSpells; i++)
+            {
+                verticalMenu.Items.Add(spellToMenuItem(spellbook[i]));
+            }
             
-            verticalMenu.Items.Add(spellToMenuItem(fireball));
-            verticalMenu.Items.Add(spellToMenuItem(iceStorm));
-            verticalMenu.Items.Add(spellToMenuItem(diacute));
-            verticalMenu.Items.Add(spellToMenuItem(healing));
+            //verticalMenu.Items.Add(spellToMenuItem(fireball));
+            //verticalMenu.Items.Add(spellToMenuItem(iceStorm));
+            //verticalMenu.Items.Add(spellToMenuItem(diacute));
+            //verticalMenu.Items.Add(spellToMenuItem(healing));
 
             container.Widgets.Add(verticalMenu);
 
@@ -196,7 +241,8 @@ namespace GameStateTesting.States
                 double fleeSuccess = rand.Next(0, hp[1]) / hp[1];
                 string messagePrinted;
 
-                if (fleeChance > fleeSuccess) //flee was successful
+                //if (fleeChance > fleeSuccess) //flee was successful
+                if (false) //no fleeing for you
                 {
                     messagePrinted = player.Name + " got away!";
                     _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
