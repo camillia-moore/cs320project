@@ -11,12 +11,12 @@ namespace GameStateTesting.BattleClasses
     {
         public string Name;
         public string Description;
-        public int MaxHP;
-        public int CurrentHP;
-        public int Attack;
-        public int AttackMod;
-        public int Defense;
-        public int DefenseMod;
+        private int MaxHP;
+        private int CurrentHP;
+        private int Attack;
+        private int AttackMod;
+        private int Defense;
+        private int DefenseMod;
         
         public Combatant(string name, string description, int hp, int atk, int def) {
             Name = name;
