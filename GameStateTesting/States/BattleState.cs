@@ -183,6 +183,7 @@ namespace GameStateTesting.States
                     messageBox.ShowModal(_desktop);
                     if (returnToMenu)
                     {
+
                         _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
                     }
                     else

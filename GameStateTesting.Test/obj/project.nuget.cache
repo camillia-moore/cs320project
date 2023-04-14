@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KBdAbhzMf4HWCMZ5nTSlwcjfUkVAY2m2SnhLTBDeYODvlpDhDhZWZOPoZoVJKk0/BTxw7ux6bXEL4m7SmrsZyQ==",
+  "dgSpecHash": "85kAUhBV2uZ3N0tbjdaRAC5HqOFKwnHNH+n8WLUb2vXxer8KR4PAZeKv7jYdcdA7Ev32/IRJmvJ3G+a+QvHEjQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lyndsey\\Documents\\GitHub\\cs320project\\GameStateTesting.Test\\GameStateTesting.Test.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\Lyndsey\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.3.2\\microsoft.testplatform.objectmodel.17.3.2.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\microsoft.testplatform.testhost\\17.3.2\\microsoft.testplatform.testhost.17.3.2.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Lyndsey\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\myra\\1.4.5\\myra.1.4.5.nupkg.sha512",
@@ -51,6 +52,7 @@
     "C:\\Users\\Lyndsey\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.3.0\\system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
+    "C:\\Users\\Lyndsey\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\system.dynamic.runtime\\4.0.11\\system.dynamic.runtime.4.0.11.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Lyndsey\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
