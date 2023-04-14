@@ -1,0 +1,21 @@
+[
+  {
+    "Id": "XAAAAAA",
+    "Story": "You beat the ick! No one else got sick. You live a long life and didn't spread the disease.",
+    "Good": " ",
+    "Bad": " "
+  },
+  //Begin the next set
+  {
+    "Id": "XA",
+    "Story": " ",
+    "Good": " ",
+    "Bad": " "
+  },
+  {
+    "Id": "XB",
+    "Story": " ",
+    "Good": " ",
+    "Bad": " "
+  }
+]
