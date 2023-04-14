@@ -56,27 +56,36 @@ namespace GameStateTesting.States
                 //This no longer just sends to menue state. will send back to story or battle
                 string isA = "A";
                 string placeinstoryA = Story.CheckString.ChangeString(isA);
-                int ourStringLen = placeinstoryA.Length;
-                if ((ourStringLen == 3) || (ourStringLen == 5) || (ourStringLen == 7))
+                int ourStringLenA = placeinstoryA.Length;
+                if ((ourStringLenA == 3) || (ourStringLenA == 5) || (ourStringLenA == 7))
                 {
                     //_game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
                     BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                    if (ourStringLenA == 3)
+                    {
+                        nextState.setEnemy(1);
+                    }
+                    if (ourStringLenA == 5)
+                    {
+                        nextState.setEnemy(2);
+                    }
+                    if (ourStringLenA == 7)
+                    {
+                        nextState.setEnemy(3);
+                    }
                     nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
-                    nextState.createEnemy("Spooky Monster", "Generic Enemy", 20, 8, 4);
                     nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
                     nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
                     nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
                     nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
                     nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
                     nextState.buffEnemy(0, 0, 0, 0);
-                    nextState.fromMenu(true);
                     _game.ChangeState(nextState);
                 }
                 else
                 {
                     _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                 }
-
             };
 
             grid.Widgets.Add(buttonGood);
@@ -93,13 +102,24 @@ namespace GameStateTesting.States
                 //No longer goes to just the menu state
                 string isB = "B";
                 string placeinstoryB = Story.CheckString.ChangeString(isB);
-                int ourStringLen = placeinstoryB.Length;
-                if ((ourStringLen == 3) ||  (ourStringLen == 5) || (ourStringLen == 7))
+                int ourStringLenB = placeinstoryB.Length;
+                if ((ourStringLenB == 3) ||  (ourStringLenB == 5) || (ourStringLenB == 7))
                 {
                     //_game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
                     BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                    if(ourStringLenB == 3)
+                    {
+                        nextState.setEnemy(1);
+                    }
+                    if(ourStringLenB == 5)
+                    {
+                        nextState.setEnemy(2);
+                    }
+                    if(ourStringLenB == 7)
+                    {
+                        nextState.setEnemy(3);
+                    }
                     nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
-                    nextState.createEnemy("Spooky Monster", "Generic Enemy", 20, 8, 4);
                     nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
                     nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
                     nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
@@ -107,7 +127,6 @@ namespace GameStateTesting.States
                     nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
                     nextState.buffEnemy(0,0,0, 0);
                     //last number relevant to spells
-                    nextState.fromMenu(true);
                     _game.ChangeState(nextState);
                 }
                 else
@@ -119,7 +138,6 @@ namespace GameStateTesting.States
             };
 
             grid.Widgets.Add(buttonBad);
-
 
             _desktop = new Desktop();
             _desktop.Root = grid;
