@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-face.png</SourceFile>
-  <SourceTime>2023-02-13T22:55:41.6383239-08:00</SourceTime>
-  <DestFile>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/char-face.xnb</DestFile>
-  <DestTime>2023-02-13T23:15:52.7398198-08:00</DestTime>
+  <SourceFile>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/char-face.png</SourceFile>
+  <SourceTime>2023-03-20T16:25:12.469528-07:00</SourceTime>
+  <DestFile>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/char-face.xnb</DestFile>
+  <DestTime>2023-04-13T21:10:40.9939867-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T04:44:56-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

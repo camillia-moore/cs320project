@@ -1,0 +1,77 @@
+[
+  //Begin the next set
+  {
+    "Id": "XAA",
+    "Story": "After taking medication and contacting your teacher you still don't feel better, and you wonder if this is more than just a cold. You decide to...",
+    "Good": "Go to the local Urgent Care to get tested to see what you have caught.",
+    "Bad": "Wait out the day and see if you feel better in the morning."
+  },
+  {
+    "Id": "XAB",
+    "Story": "Working on some projects you begin to feel really tired and the throat has gotten worse. Some friends call you about going to a party that night....",
+    "Good": "You let them know that you haven't been feeling good and will stay in tonight. You make yourself a cup of tea and take some cold meds.",
+    "Bad": "Excited about a social event you get ready for the night out. Going out will recharge your batteries and relieve stress."
+  },
+  {
+    "Id": "XBA",
+    "Story": "Since your at school but masked up you decide to get through the school day but your feeling worse as the day goes on. It is a long an brutal day.",
+    "Good": "Exhausted you skip your last class and go home to rest and take some medication. You have begun to cough.",
+    "Bad": "You stay and unmask in the lunch room, talking and laughing with all your friends talking about a presentation."
+  },
+  {
+    "Id": "XBB",
+    "Story": "Your feeling really exhausted at the club meeting but you greeted everyone with a smile. You began coughin at the end of the meeting and its recommended you go home. ",
+    "Good": "You agree with the recommendation and go home feeling really tired. You take some meds to help with an oncoming fever and a lowkey cough.",
+    "Bad": "Not thinking anything of it you decide that there is still more to do and go to that family dinner that was planned a week ago. "
+  },
+  //The begining of the next set
+  {
+    "Id": "XAAA",
+    "Story": "You went to urgent care and got tested to see if you have the flue or cold. The test comes back positive for the a new disease called COVID-19. You decide..",
+    "Good": "to go home and follow all the doctors instructions for the next week.",
+    "Bad": "to stop by the store to grab some groceries for the week, ignoring the doctors recommendation to stay secluded for a week."
+  },
+  {
+    "Id": "XAAB",
+    "Story": "You wake up the next morning exhausted, coughing, and running a fever. Doing anything makes you want to take a nap. Your throat is shards.",
+    "Good": "You take medication and go to urgent care to get tested.",
+    "Bad": "There is a test today and you have to go to class to take it. You decide to go to school."
+  },
+  {
+    "Id": "XABA",
+    "Story": "Staying home you stopped other people from contracting what you have and you stay in bed. The next morning your throat is on fire.",
+    "Good": "This feels much different than the average cold. You decide to go to a local testing center and get tested for a new disease that is making its rounds.",
+    "Bad": "Although your throat is on fire and your beyond exhausted the a test is VERY important and you have to go take that test!"
+  },
+  {
+    "Id": "XABB",
+    "Story": "Out and about your throat is worse, and you begin to become more tired. Your friends are excited to see you and you hug everyone and party all night.",
+    "Good": "But in the end you leave early and go home to get some rest and take some cold meds.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBAB",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBA",
+    "Story": "Second story message",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  },
+  {
+    "Id": "XBBB",
+    "Story": "Hello World!",
+    "Good": "Good choice to pick.",
+    "Bad": "Bad choice to pick."
+  }  
+]
+  

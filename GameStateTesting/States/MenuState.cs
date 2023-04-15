@@ -82,7 +82,16 @@ namespace GameStateTesting.States
             {
                 /*var messageBox = Dialog.CreateMessageBox("Message", "Some message!");
                 messageBox.ShowModal(_desktop);*/
-                _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                nextState.createPlayer("Menu's KitKat", "The Default Hero", 30, 9, 5, 10);
+                nextState.addSpell("Menu's Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
+                nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
+                nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
+                nextState.addSpell("Menu's Healing", "Heals the user", +5, 0, 0, 0, 6);
+                nextState.buffPlayer(+0, +1, +0, +0); //should buf attack by 1
+                nextState.fromMenu(true);//then swap to the battle
+                _game.ChangeState(nextState);
+
             };
 
             grid.Widgets.Add(buttonBS);

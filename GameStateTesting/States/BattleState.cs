@@ -17,25 +17,96 @@ namespace GameStateTesting.States
     public class BattleState : State
     {
         private Desktop _desktop;
-        private int playerHP = 30;
         private Combatant player;
         private Combatant enemy;
-        private Spell fireball;
-        private Spell iceStorm;
-        private Spell diacute;
-        private Spell healing;
+        //private Spell fireball;
+        //private Spell iceStorm;
+        //private Spell diacute;
+        //private Spell healing;
         private Random rand;
-        
+        private Spell[] spellbook = new Spell[10];
+        private int numSpells;
+        private Boolean returnToMenu;
+
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            player = new Combatant("KitKat", "The Default Hero", 30, 9, 5);
-            enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
-            fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
-            iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
-            diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
-            healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
+            //player = new Combatant("Kit-Kat", "The Default Hero", 30, 9, 5);
+            //enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
+            numSpells = 0;
+            //spellbook[0] = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
+            //spellbook[1] = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
+            //spellbook[2] = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
+            //spellbook[3] = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
+            //numSpells = 4;
 
+            //fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
+            //iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
+            //diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
+            //healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
+            returnToMenu = false;
+            createPlayer("Kitkat", "The Default Hero", 30, 9, 5, 10);
+            setEnemy(0);
             rand = new Random();
+        }
+
+        public void createPlayer(String name, String description, int hp, int atk, int def, int mana)
+        {
+            //function for outside states to create stats for the player
+            player = new Combatant(name, description, hp, atk, def);
+        }
+
+        public void createEnemy(String name, String description, int hp, int atk, int def)
+        {
+            //function for outside states to create stats for the enemy
+            enemy = new Combatant(name, description,hp, atk, def);
+        }
+
+        public void setEnemy(int id)
+        {
+            //function for outside states to define which preset enemy to fight
+            switch (id)
+            {
+                case 1:
+                    createEnemy("Slime", "Just a little slimey boy", 10, 6, 2);
+                    break;
+                case 2:
+                    createEnemy("Jellyfish", "Oooh, spooky jelly", 20, 8, 4);
+                    break;
+                case 3:
+                    createEnemy("Dragon", "I FUDGING LOVBE BOWSDER, I WANMT TO BREAMTHE FIRE!!!!!!", 30, 10, 6);
+                    break;
+                case 4:
+                    createEnemy("Boss", "So evil, we don't have a design yet", 40, 12, 8);
+                    break;
+                default:
+                    createEnemy("Monster", "Generic Enemy", 20, 8, 4);
+                    break;
+            }
+
+        }
+
+        public void addSpell(String name, String description, int HP, int atk, int def, int hd, int manaCost)
+        {
+            //function for other states to give Kitkat spells
+            //please do not add more than 10 spells
+            spellbook[numSpells] = new Spell(name, description, new BattleClasses.Effect(HP, atk, def, hd));
+            numSpells++;
+        }
+
+        public void fromMenu(Boolean fromMenu)
+        {
+            //function to store whether we should return to the story or the menu
+            returnToMenu = fromMenu;
+        }
+
+        public void buffPlayer(int HP, int atk, int def, int hd)
+        {
+            //function to buff the stats of the player
+        }
+
+        public void buffEnemy(int HP, int atk, int def, int hd)
+        {
+            //function to buff the stats of the enemy
         }
 
         public override void LoadContent()
@@ -64,6 +135,7 @@ namespace GameStateTesting.States
 
             buttonMenu.Click += (s, a) =>
             {
+                Story.CheckString.MakeOriginalString(); //this is temperary
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             };
 
@@ -86,10 +158,46 @@ namespace GameStateTesting.States
                 int[] enemyStats = enemy.getStats();
                 enemy.TakeDamage(damageFromPlayer);
                 player.TakeDamage(damageFromEnemy);
-                String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
+                if (enemy.isDefeated())
+                {
+                    String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
+                                        enemy.Name + " deals " + damageFromEnemy + " damage!\n" +
+                                        enemy.Name + " has defeated " + player.Name + "!\n";
+                    var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
+                    messageBox.ShowModal(_desktop);
+                    if(returnToMenu)
+                    {
+                        _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else
+                    {
+                        _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                    }
+                }
+                else if (player.isDefeated())
+                {
+                    String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
+                                        enemy.Name + " deals " + damageFromEnemy + " damage!\n" +
+                                        player.Name + " has defeated  " + enemy.Name + "!\n";
+                    var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
+                    messageBox.ShowModal(_desktop);
+                    if (returnToMenu)
+                    {
+
+                        _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else
+                    {
+                        _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                    }
+                }
+                else
+                {
+                    String messagePrinted = player.Name + " deals " + damageFromPlayer + " damage!\n" +
                                         enemy.Name + " deals " + damageFromEnemy + " damage!\n";
-                var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
-                messageBox.ShowModal(_desktop);
+                    var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
+                    messageBox.ShowModal(_desktop);
+                }
             };
 
             grid.Widgets.Add(buttonFight);
@@ -120,11 +228,16 @@ namespace GameStateTesting.States
             container.Widgets.Add(titleContainer);
 
             var verticalMenu = new VerticalMenu();
+
+            for(int i = 0; i < numSpells; i++)
+            {
+                verticalMenu.Items.Add(spellToMenuItem(spellbook[i]));
+            }
             
-            verticalMenu.Items.Add(spellToMenuItem(fireball));
-            verticalMenu.Items.Add(spellToMenuItem(iceStorm));
-            verticalMenu.Items.Add(spellToMenuItem(diacute));
-            verticalMenu.Items.Add(spellToMenuItem(healing));
+            //verticalMenu.Items.Add(spellToMenuItem(fireball));
+            //verticalMenu.Items.Add(spellToMenuItem(iceStorm));
+            //verticalMenu.Items.Add(spellToMenuItem(diacute));
+            //verticalMenu.Items.Add(spellToMenuItem(healing));
 
             container.Widgets.Add(verticalMenu);
 
@@ -170,7 +283,8 @@ namespace GameStateTesting.States
                 double fleeSuccess = rand.Next(0, hp[1]) / hp[1];
                 string messagePrinted;
 
-                if (fleeChance > fleeSuccess) //flee was successful
+                //if (fleeChance > fleeSuccess) //flee was successful
+                if (false) //no fleeing for you
                 {
                     messagePrinted = player.Name + " got away!";
                     _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));

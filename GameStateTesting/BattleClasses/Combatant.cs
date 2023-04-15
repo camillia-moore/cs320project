@@ -17,6 +17,7 @@ namespace GameStateTesting.BattleClasses
         private int AttackMod;
         private int Defense;
         private int DefenseMod;
+        private bool defeated;
         
         public Combatant(string name, string description, int hp, int atk, int def) {
             Name = name;
@@ -27,6 +28,7 @@ namespace GameStateTesting.BattleClasses
             AttackMod = 0; 
             Defense = def;
             DefenseMod = 0;
+            defeated = false;
         }
 
         public int DealDamage()
@@ -37,6 +39,11 @@ namespace GameStateTesting.BattleClasses
         public void TakeDamage(int damage)
         {
             CurrentHP -= damage - (Defense + DefenseMod);
+            if(CurrentHP <= 0)
+            {
+                defeated = true;
+                CurrentHP = 0;
+            }
         }
 
         public int[] getStats()
@@ -62,6 +69,11 @@ namespace GameStateTesting.BattleClasses
         {
             AttackMod = 0;
             DefenseMod = 0;
+        }
+
+        public bool isDefeated()
+        {
+            return defeated;
         }
     }
 }

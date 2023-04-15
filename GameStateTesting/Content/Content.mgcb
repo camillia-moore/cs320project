@@ -109,6 +109,20 @@
 /processorParam:TextureFormat=Color
 /build:create-character-title.png
 
+#begin Fonts/FreakingTest.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/FreakingTest.spritefont
+
+#begin Fonts/TestFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/TestFont.spritefont
+
 #begin input-name-box.png
 /importer:TextureImporter
 /processor:TextureProcessor
