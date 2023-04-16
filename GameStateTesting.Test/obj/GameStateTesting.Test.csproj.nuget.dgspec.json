@@ -15,6 +15,10 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cmoor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< Updated upstream
+=======
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,6 +100,10 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cmoor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< Updated upstream
+=======
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

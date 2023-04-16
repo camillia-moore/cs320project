@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</SourceFile>
+<<<<<<< Updated upstream
   <SourceTime>2023-04-12T18:46:58.485858-07:00</SourceTime>
   <DestFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/Fonts/FreakingTest.xnb</DestFile>
   <DestTime>2023-04-13T13:26:26.1798685-07:00</DestTime>
+=======
+  <SourceTime>2023-04-15T22:27:24.3056092-07:00</SourceTime>
+  <DestFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/Fonts/FreakingTest.xnb</DestFile>
+  <DestTime>2023-04-15T22:30:43.3113153-07:00</DestTime>
+>>>>>>> Stashed changes
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2022-07-26T04:44:56-07:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
