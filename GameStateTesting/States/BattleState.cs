@@ -28,6 +28,14 @@ namespace GameStateTesting.States
         private int numSpells;
         private Boolean returnToMenu;
 
+        //graphics assets
+        private Texture2D KitkatSprite;
+        private Texture2D EnemySprite;
+        private Texture2D TextBox;
+
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
+
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             //player = new Combatant("Kit-Kat", "The Default Hero", 30, 9, 5);
@@ -111,6 +119,32 @@ namespace GameStateTesting.States
 
         public override void LoadContent()
         {
+            //graphics assets
+            _spriteBatch = new SpriteBatch(_graphicsDevice);
+
+            KitkatSprite = _content.Load<Texture2D>("cough-story-draft-mc");
+            TextBox = _content.Load<Texture2D>("cough-story-box-wide-2");
+
+            //load correct enemy sprite
+            switch (enemy.Name) {
+                case "Slime":
+                    EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    break;
+                case "Jellyfish":
+                    EnemySprite = _content.Load<Texture2D>("covjelly01");
+                    break;
+                case "Dragon":
+                    EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    break;
+                case "Boss":
+                    EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    break;
+                default:
+                    EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    break;
+            }
+
+
             MyraEnvironment.Game = _game;
             
 
@@ -318,7 +352,14 @@ namespace GameStateTesting.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            _graphicsDevice.Clear(Color.LightSlateGray);
+            _graphicsDevice.Clear(new Color(60, 60, 60));
+
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(KitkatSprite, new Vector2(0, 0), Color.White);
+            _spriteBatch.Draw(EnemySprite, new Vector2(360, 0), Color.White);
+            _spriteBatch.Draw(TextBox, new Vector2(0, 485), Color.White);
+            _spriteBatch.End();
+
             _desktop.Render();
         }
 

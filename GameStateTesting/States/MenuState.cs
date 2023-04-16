@@ -16,6 +16,9 @@ namespace GameStateTesting.States
     public class MenuState : State
     {
         private Desktop _desktop;
+        private Texture2D titleScreen;
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             
@@ -23,12 +26,17 @@ namespace GameStateTesting.States
 
         public override void LoadContent()
         {
+            _spriteBatch = new SpriteBatch(_graphicsDevice);
+            titleScreen = _content.Load<Texture2D>("cough-story-title-draft");
+
             MyraEnvironment.Game = _game;
 
             var grid = new Grid
             {
                 RowSpacing = 8,
-                ColumnSpacing = 8
+                ColumnSpacing = 8,
+                Top = 270,
+                Left = 920
             };
 
             grid.ColumnsProportions.Add(new Proportion(ProportionType.Auto));
@@ -132,6 +140,11 @@ namespace GameStateTesting.States
         {
             //throw new NotImplementedException();
             _graphicsDevice.Clear(Color.CornflowerBlue);
+
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(titleScreen, new Vector2(0, 0), Color.White);
+            _spriteBatch.End();
+
             _desktop.Render();
         }
 

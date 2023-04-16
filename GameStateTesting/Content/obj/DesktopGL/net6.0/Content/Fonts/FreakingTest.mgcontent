@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</SourceFile>
-  <SourceTime>2023-03-20T22:22:30.5088515-07:00</SourceTime>
-  <DestFile>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/Fonts/FreakingTest.xnb</DestFile>
-  <DestTime>2023-04-13T21:10:41.1392447-07:00</DestTime>
+  <SourceFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</SourceFile>
+  <SourceTime>2023-04-15T22:54:06.6092639-07:00</SourceTime>
+  <DestFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/Fonts/FreakingTest.xnb</DestFile>
+  <DestTime>2023-04-15T22:58:33.4249524-07:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2022-07-26T04:44:56-07:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
