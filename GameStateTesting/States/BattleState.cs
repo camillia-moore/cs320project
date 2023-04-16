@@ -84,7 +84,7 @@ namespace GameStateTesting.States
                     createEnemy("Dragon", "I FUDGING LOVBE BOWSDER, I WANMT TO BREAMTHE FIRE!!!!!!", 30, 10, 6);
                     break;
                 case 4:
-                    createEnemy("Boss", "So evil, we don't have a design yet", 40, 12, 8);
+                    createEnemy("Grim Reaper", "Not so evil, he has a design", 40, 12, 8);
                     break;
                 default:
                     createEnemy("Monster", "Generic Enemy", 20, 8, 4);
@@ -134,10 +134,10 @@ namespace GameStateTesting.States
                     EnemySprite = _content.Load<Texture2D>("covjelly01");
                     break;
                 case "Dragon":
-                    EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    EnemySprite = _content.Load<Texture2D>("covreaper");
                     break;
-                case "Boss":
-                    EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                case "Grim Reaper":
+                    EnemySprite = _content.Load<Texture2D>("covreaper");
                     break;
                 default:
                     EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
@@ -356,7 +356,7 @@ namespace GameStateTesting.States
 
             _spriteBatch.Begin();
             _spriteBatch.Draw(KitkatSprite, new Vector2(0, 0), Color.White);
-            _spriteBatch.Draw(EnemySprite, new Vector2(360, 0), Color.White);
+            _spriteBatch.Draw(EnemySprite, new Vector2(682, 0), Color.White);
             _spriteBatch.Draw(TextBox, new Vector2(0, 485), Color.White);
             _spriteBatch.End();
 

@@ -16,6 +16,7 @@
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-draft-slime.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-title-draft.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covjelly01.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covreaper.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/create-character-title.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</File>
@@ -23,6 +24,7 @@
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
