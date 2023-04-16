@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +23,11 @@ namespace GameStateTesting.Story
         {
             idPlacement = idPlacement + newstring;
             return idPlacement;
+        }
+
+        public static void MakeOriginalString()
+        {
+            idPlacement = "X";
         }
     }
 }

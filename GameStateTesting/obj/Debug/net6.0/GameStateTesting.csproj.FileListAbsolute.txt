@@ -175,8 +175,11 @@ C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part2.json
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part3.json
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> main
 C:\Users\lyynd\OneDrive\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part1.json
 C:\Users\lyynd\OneDrive\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part2.json
 C:\Users\lyynd\OneDrive\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part3.json
@@ -198,6 +201,7 @@ C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+<<<<<<< HEAD
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part1.json
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part2.json
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part3.json
@@ -253,3 +257,5 @@ C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\G
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\GameStateTesting.genruntimeconfig.cache
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\obj\Debug\net6.0\ref\GameStateTesting.dll
 >>>>>>> Stashed changes
+=======
+>>>>>>> main

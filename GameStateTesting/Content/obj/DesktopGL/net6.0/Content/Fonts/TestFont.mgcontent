@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</SourceFile>
 <<<<<<< Updated upstream
   <SourceTime>2023-04-13T13:24:02.1981676-07:00</SourceTime>
@@ -10,6 +11,12 @@
   <DestFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/Fonts/TestFont.xnb</DestFile>
   <DestTime>2023-04-15T22:30:43.328319-07:00</DestTime>
 >>>>>>> Stashed changes
+=======
+  <SourceFile>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</SourceFile>
+  <SourceTime>2023-04-14T11:31:05.2547187-07:00</SourceTime>
+  <DestFile>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/Fonts/TestFont.xnb</DestFile>
+  <DestTime>2023-04-14T11:31:06.3524546-07:00</DestTime>
+>>>>>>> main
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2022-07-26T04:44:56-07:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

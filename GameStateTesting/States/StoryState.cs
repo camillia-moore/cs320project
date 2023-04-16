@@ -56,16 +56,36 @@ namespace GameStateTesting.States
                 //This no longer just sends to menue state. will send back to story or battle
                 string isA = "A";
                 string placeinstoryA = Story.CheckString.ChangeString(isA);
-                int ourStringLen = placeinstoryA.Length;
-                if ((ourStringLen == 3) || (ourStringLen == 5) || (ourStringLen == 7))
+                int ourStringLenA = placeinstoryA.Length;
+                if ((ourStringLenA == 3) || (ourStringLenA == 5) || (ourStringLenA == 7))
                 {
-                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    //_game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                    if (ourStringLenA == 3)
+                    {
+                        nextState.setEnemy(1);
+                    }
+                    if (ourStringLenA == 5)
+                    {
+                        nextState.setEnemy(2);
+                    }
+                    if (ourStringLenA == 7)
+                    {
+                        nextState.setEnemy(3);
+                    }
+                    nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
+                    nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
+                    nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
+                    nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
+                    nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
+                    nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
+                    nextState.buffEnemy(0, 0, 0, 0);
+                    _game.ChangeState(nextState);
                 }
                 else
                 {
                     _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                 }
-
             };
 
             grid.Widgets.Add(buttonGood);
@@ -82,10 +102,32 @@ namespace GameStateTesting.States
                 //No longer goes to just the menu state
                 string isB = "B";
                 string placeinstoryB = Story.CheckString.ChangeString(isB);
-                int ourStringLen = placeinstoryB.Length;
-                if ((ourStringLen == 3) ||  (ourStringLen == 5) || (ourStringLen == 7))
+                int ourStringLenB = placeinstoryB.Length;
+                if ((ourStringLenB == 3) ||  (ourStringLenB == 5) || (ourStringLenB == 7))
                 {
-                    _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    //_game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
+                    BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
+                    if(ourStringLenB == 3)
+                    {
+                        nextState.setEnemy(1);
+                    }
+                    if(ourStringLenB == 5)
+                    {
+                        nextState.setEnemy(2);
+                    }
+                    if(ourStringLenB == 7)
+                    {
+                        nextState.setEnemy(3);
+                    }
+                    nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
+                    nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
+                    nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
+                    nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
+                    nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
+                    nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
+                    nextState.buffEnemy(0,0,0, 0);
+                    //last number relevant to spells
+                    _game.ChangeState(nextState);
                 }
                 else
                 {
@@ -96,7 +138,6 @@ namespace GameStateTesting.States
             };
 
             grid.Widgets.Add(buttonBad);
-
 
             _desktop = new Desktop();
             _desktop.Root = grid;
@@ -113,14 +154,17 @@ namespace GameStateTesting.States
 
             if (kstate.IsKeyDown(Keys.Up))
             {
+                Story.CheckString.MakeOriginalString();
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             }
             if (kstate.IsKeyDown(Keys.Left))
             {
+                Story.CheckString.MakeOriginalString();
                 _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
             }
             if (kstate.IsKeyDown(Keys.Right))
             {
+                Story.CheckString.MakeOriginalString();
                 _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
             }
         }
@@ -141,6 +185,7 @@ namespace GameStateTesting.States
                 //Draw test to the screen
                 spriteBatch.Begin();
                 //!!!!!!!!!!!!M.id == WILL EVENTUALLY BE THE CODE THAT COMES IN AFTER CHANGE OF id
+
                 spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Story}", new Vector2(0, 0), Color.Black); //draw the font 
                 //Draw good string
                 spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Good}", new Vector2(100, 550), Color.Black);
@@ -179,59 +224,6 @@ namespace GameStateTesting.States
             //spriteBatch.End();
 
             _desktop.Render();
-
-            
-
-
-
-            ///Just shit code that I want to reuse.
-            ///
-                        //doesn't work
-            //string fileIncoming = "Story/Part1.json";
-            //string fileIncoming = "C:\Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Story/Part1.json";
-
-            /*Doesn't work
-             * string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\Story\Part1.json");
-            string fileIncoming = Path.GetFullPath(sFile);*/
-
-            //string fileIncoming = Path.GetFullPath("Part1.json"); //THis doesn't work. This makes it null
-
-            //string jsonstring = File.ReadAllText(@"./Story/Part1.json"); //This doesn't work. IT still null
-            //string jsonstring = File.ReadAllText(fileIncoming); //This doesn't work
-
-            /*try   I need to read the whole file not line by line
-            {
-                var path = "Part1.txt";
-                using (StreamReader aa = new StreamReader(path))
-                {
-                    string[] line;
-                    while ((line = aa.ReadAllLines()) != null)
-                    {
-                        Console.
-                    }
-                }
-            }catch(Exception e)
-            {
-                Console.WriteLine("The file could not be read");
-                Console.WriteLine(e.Message);
-            }*/
-
-
-
-            ////
-            //string jsonstring = string.Empty; //not initialized in memory
-            //string jsonstring = "";// this one is.
-            /*string jsonstring = @"{
-                                   ""Id"" : 17,
-                                     ""MessageDescription"" : ""Hello World!""
-                                        }";*/
-            //string fileIncoming = "Part1.json";
-            // string jsonstring = File.ReadAllText(fileIncoming);
-            // Message? message = JsonSerializer.Deserialize<Message>(jsonstring);
         }
-
-
-
     }
 }
