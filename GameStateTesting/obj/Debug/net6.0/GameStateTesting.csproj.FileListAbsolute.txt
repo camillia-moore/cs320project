@@ -256,3 +256,5 @@ C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\C
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\cough-story-draft-slime.xnb
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\covjelly01.xnb
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\covreaper.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\covdragon.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\covjelly.xnb

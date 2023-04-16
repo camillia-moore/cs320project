@@ -131,16 +131,16 @@ namespace GameStateTesting.States
                     EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
                     break;
                 case "Jellyfish":
-                    EnemySprite = _content.Load<Texture2D>("covjelly01");
+                    EnemySprite = _content.Load<Texture2D>("covjelly");
                     break;
                 case "Dragon":
-                    EnemySprite = _content.Load<Texture2D>("covreaper");
+                    EnemySprite = _content.Load<Texture2D>("covdragon");
                     break;
                 case "Grim Reaper":
                     EnemySprite = _content.Load<Texture2D>("covreaper");
                     break;
                 default:
-                    EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    EnemySprite = _content.Load<Texture2D>("covreaper");
                     break;
             }
 
