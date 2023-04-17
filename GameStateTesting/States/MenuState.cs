@@ -87,7 +87,29 @@ namespace GameStateTesting.States
 
             _spriteBatch.Begin();
             _spriteBatch.Draw(titleScreen, new Vector2(0, 0), Color.White);
-            _spriteBatch.DrawString(font, "Go To Scene " + optionFocused, new Vector2(920, 570), Color.Black);
+
+            //draw the options
+            Color CCS = Color.Black;
+            Color SS = Color.Black;
+            Color BS = Color.Black;
+            switch (optionFocused)
+            {
+                case 0:
+                    CCS = Color.Red;
+                    break;
+                case 1:
+                    SS = Color.Red;
+                    break;
+                case 2:
+                    BS = Color.Red;
+                    break;
+                default:
+                    break;
+            }
+            _spriteBatch.DrawString(font, "Character Creation Scene", new Vector2(920, 250), CCS);
+            _spriteBatch.DrawString(font, "Story Scene", new Vector2(920, 300), SS);
+            _spriteBatch.DrawString(font, "Battle Scene", new Vector2(920, 350), BS);
+
             _spriteBatch.End();
 
         }
