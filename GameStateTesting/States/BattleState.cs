@@ -209,7 +209,14 @@ namespace GameStateTesting.States
                     }
                     else
                     {
-                        _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                        if(enemy.Name == "Dragon")
+                        {
+                            _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
+                        }
+                        else
+                        {
+                            _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                        }
                     }
                 }
                 else if (player.isDefeated())
@@ -226,7 +233,7 @@ namespace GameStateTesting.States
                     }
                     else
                     {
-                        _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                        _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
                     }
                 }
                 else

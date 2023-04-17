@@ -4,28 +4,28 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-left.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-right.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/char-base.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/char-body.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/char-face.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/char-head.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-box-wide-2.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-draft-mc.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-draft-slime.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-title-draft.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/covdragon.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/covjelly.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/covjelly01.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/covreaper.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/create-character-title.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/hp-bar-full.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/hp-bar.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/input-name-box.png</File>
-    <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-left.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-right.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-base.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-body.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-face.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-head.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-box-wide-2.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-draft-mc.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-draft-slime.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cough-story-title-draft.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covdragon.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covjelly.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covjelly01.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covreaper.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/create-character-title.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/hp-bar-full.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/hp-bar.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/input-name-box.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
