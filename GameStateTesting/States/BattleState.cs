@@ -549,15 +549,25 @@ namespace GameStateTesting.States
                     break;
                 case 8:
                     //player just chose a spell, determine if they can cast it, and either cast it, or display not enough mana
+                    //also, determine which spell they casted
                     //TODO: need to also have way to cancel casting a spell
-                    Boolean sufficentMana = true; //will eventually implement this
-                    if (sufficentMana)
+                    if (focusedArea[1] == numSpells)
                     {
-                        battleState = 9;
+                        //player selected cancel
+                        battleState = 0;
                     }
                     else
                     {
-                        battleState = 11;
+                        spellCasted = spellbook[focusedArea[1]]; //set spellCasted to be the spell that was chosen
+                        Boolean sufficentMana = true; //will eventually implement this
+                        if (sufficentMana)
+                        {
+                            battleState = 9;
+                        }
+                        else
+                        {
+                            battleState = 11;
+                        }
                     }
                     break;
                 case 9:
