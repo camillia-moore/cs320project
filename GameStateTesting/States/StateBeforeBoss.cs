@@ -45,7 +45,7 @@ namespace GameStateTesting.States
             {
                 GridColumn = 0,
                 GridRow = 8,
-                Text = "Click when your ready."
+                Text = "The Boss is the way."
             };
 
             goToBattle.Click += (s, a) =>
@@ -70,7 +70,6 @@ namespace GameStateTesting.States
         {
             //putting this in just for us to get through if need be.
             var kstate = Keyboard.GetState();
-
             if (kstate.IsKeyDown(Keys.Up))
             {
                 Story.CheckString.MakeOriginalString();
@@ -91,12 +90,11 @@ namespace GameStateTesting.States
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _graphicsDevice.Clear(Color.Red);
-
             //List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part3.json");
             //Draw test to the screen
             spriteBatch.Begin();
             spriteBatch.DrawString(TestFont, text: $"The peak of the fight is here. Moving forward is a big fight.", new Vector2(50, 50), Color.Black); //draw the font 
-            spriteBatch.DrawString(TestFont, text: $"Get ready!!! ", new Vector2(100, 50), Color.Black);
+            spriteBatch.DrawString(TestFont, text: $"The sickness has reached a peak. Get ready to fight for your life.", new Vector2(100, 50), Color.Black);
             //spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
             spriteBatch.End();
             _desktop.Render();
