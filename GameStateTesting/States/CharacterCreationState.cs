@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
+using GameStateTesting.Customization;
 
 namespace GameStateTesting.States
 {
@@ -18,7 +19,6 @@ namespace GameStateTesting.States
         private Texture2D selectionBox1;
         private Texture2D selectionBox2;
         private Texture2D selectionBox3;
-        private Texture2D nameInputBox;
         private Texture2D buttonContinue;
         private Texture2D buttonArrow1;
         private Texture2D buttonArrow2;
@@ -34,11 +34,12 @@ namespace GameStateTesting.States
         private Rectangle[] selectionBoxSource;
         private Rectangle[] arrowLeftSource;
         private Rectangle[] arrowRightSource;
+        private Rectangle[] pronounBoxSource;
         private Rectangle[] charHeadSource;
         private Rectangle[] charFaceSource;
         private Rectangle[] charBodySource;
 
-        // cycles up/down between 0-5 for box1>box2>box3>name>pronouns>continue
+        // cycles up/down between 0-5 for box1>box2>box3>pronouns>continue
         private int focusArea = 0;
 
         // cycles left/right in box1-3 for selecting custom parts
@@ -46,13 +47,20 @@ namespace GameStateTesting.States
         private int faceArea = 0;
         private int bodyArea = 0;
 
+        // color palette swap , 0 is default, 1 is alt color
+        private int baseAlt = 0;
+        private int headAlt = 0;
+        private int faceAlt = 0;
+        private int bodyAlt = 0;
+
+        private int pronounsArea = 0;
+
         // used to add delay to keypresses
         private KeyboardState oldState;
 
         private bool isLeftArrowDown = false;
         private bool isRightArrowDown = false;
 
-        private string entryName;
         private string entryPronouns;
 
         private GraphicsDeviceManager _graphics;
@@ -71,7 +79,6 @@ namespace GameStateTesting.States
             selectionBox2 = _content.Load<Texture2D>("selection-box");
             selectionBox3 = _content.Load<Texture2D>("selection-box");
             charTitle = _content.Load<Texture2D>("create-character-title");
-            nameInputBox = _content.Load<Texture2D>("input-name-box");
             buttonContinue = _content.Load<Texture2D>("button-continue-up");
             buttonArrow1 = _content.Load<Texture2D>("arrow-left");
             buttonArrow2 = _content.Load<Texture2D>("arrow-right");
@@ -116,6 +123,12 @@ namespace GameStateTesting.States
             charBodySource[1] = new Rectangle(0, 0, 364, 322);
             charBodySource[2] = new Rectangle(480, 0, 307, 243);
             charBodySource[3] = new Rectangle(98, 398, 198, 227);
+
+            pronounBoxSource = new Rectangle[4];
+            pronounBoxSource[0] = new Rectangle();
+            pronounBoxSource[1] = new Rectangle();
+            pronounBoxSource[2] = new Rectangle();
+            pronounBoxSource[3] = new Rectangle();
         }
 
         public override void Update(GameTime gameTime)
@@ -186,6 +199,13 @@ namespace GameStateTesting.States
                             bodyArea = 3;
                         }
                         break;
+                    case 3:
+                        pronounsArea--;
+                        if (pronounsArea < 0)
+                        {
+                            pronounsArea = 2;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -218,17 +238,24 @@ namespace GameStateTesting.States
                             bodyArea = 0;
                         }
                         break;
+                    case 3:
+                        pronounsArea++;
+                        if (pronounsArea > 2)
+                        {
+                            pronounsArea = 0;
+                        }
+                        break;
                     default:
                         break;
                 }
             }
 
             // move to next story screen; saves customization screen input then changes screen state
-            // TODO: add Continue button states and go only if focusArea > 4
-            if (focusArea > 2)
+            if (focusArea > 3)
             {
                 if (newState.IsKeyDown(Keys.Enter) || newState.IsKeyDown(Keys.Space))
                 {
+                    entryPronouns = "they";
                     _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                 }
             }
@@ -249,8 +276,14 @@ namespace GameStateTesting.States
 
             _spriteBatch.Begin();
             _spriteBatch.Draw(charTitle, new Vector2(781, 58), Color.White);
-            _spriteBatch.Draw(nameInputBox, new Vector2(851, 433), Color.White);
-            _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.White);
+
+            // draw pronoun selection box components
+
+            // draw continue button
+            if (focusArea == 4)
+                _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.GreenYellow);
+            else
+                _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.White);
 
             // selection box color logic for all three boxes based on focusArea
             switch (focusArea)
@@ -277,9 +310,10 @@ namespace GameStateTesting.States
                     break;
             }
 
+            // draw character base
             _spriteBatch.Draw(charBase, new Vector2(0,0), Color.White);
 
-            // TODO: finish charHead so placements are at the same location (like charFace)
+            // draw head area sprites
             switch (headArea)
             {
                 case 1:
@@ -296,9 +330,10 @@ namespace GameStateTesting.States
                     break;
             }
 
+            // draw face area sprites
             _spriteBatch.Draw(charFace, new Vector2(228, 166), charFaceSource[faceArea], Color.White);
 
-            // TODO: finish charBody so placements are at the same location (like charFace)
+            // draw body area sprites
             switch (bodyArea)
             {
                 case 1:

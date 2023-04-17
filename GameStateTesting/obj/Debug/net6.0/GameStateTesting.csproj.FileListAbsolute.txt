@@ -196,3 +196,16 @@ C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part1.json
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part2.json
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part3.json
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\TestFont.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\Fonts\FreakingTest.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\Fonts\TestFont.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\System.Drawing.Common.dll
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\acc-sheet.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\pronouns-sheet.xnb
