@@ -14,20 +14,20 @@
   },
   {
     "Id": "XBA",
-    "Story": "Since your at school but masked up you decide to get through the school day but your feeling worse as the day goes on. It is a long an brutal day.",
+    "Story": "Since your at school, but masked up, you decide to get through a full school day, however your feeling worse as the day goes on. It is a long and brutal day.",
     "Good": "Exhausted you skip your last class and go home to rest and take some medication. You have begun to cough.",
-    "Bad": "You stay and unmask in the lunch room, talking and laughing with all your friends talking about a presentation."
+    "Bad": "You stay at school and eat in the lunch room, talking and laughing with all your friends talking about a presentation."
   },
   {
     "Id": "XBB",
-    "Story": "Your feeling really exhausted at the club meeting but you greeted everyone with a smile. You began coughin at the end of the meeting and its recommended you go home. ",
-    "Good": "You agree with the recommendation and go home feeling really tired. You take some meds to help with an oncoming fever and a lowkey cough.",
-    "Bad": "Not thinking anything of it you decide that there is still more to do and go to that family dinner that was planned a week ago. "
+    "Story": "Your feeling really exhausted at the club meeting but you greeted everyone with a smile. You began coughing at the end of the meeting and its recommended you go home. ",
+    "Good": "You agree with the recommendation and go home feeling really tired. You take some meds to help with an oncoming fever.",
+    "Bad": "Not thinking anything of it you decide that there is still more to do and go to that family dinner that was planned a week ago."
   },
   //The begining of the next set
   {
     "Id": "XAAA",
-    "Story": "You went to urgent care and got tested to see if you have the flue or cold. The test comes back positive for the a new disease called COVID-19. You decide..",
+    "Story": "You went to urgent care and got tested to see if you have the flue or cold. The test comes back positive for the a new disease called COVID-19. You decide...",
     "Good": "to go home and follow all the doctors instructions for the next week.",
     "Bad": "to stop by the store to grab some groceries for the week, ignoring the doctors recommendation to stay secluded for a week."
   },
@@ -45,33 +45,33 @@
   },
   {
     "Id": "XABB",
-    "Story": "Out and about your throat is worse, and you begin to become more tired. Your friends are excited to see you and you hug everyone and party all night.",
-    "Good": "But in the end you leave early and go home to get some rest and take some cold meds.",
-    "Bad": "Bad choice to pick."
+    "Story": "Out and about your throat is worse, and you begin to become more tired. Your friends are excited to see you and you hug everyone and you try to party.",
+    "Good": "In the end you leave early overcome by exhaustion and go home to get some rest and take some cold meds.",
+    "Bad": "You party till the end. The burn of alcohol soothes your throat and you have a great low energy time."
   },
   {
     "Id": "XBAA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Leaving school earlier than intended your a little disapointed but now you can get some much need rest. You get a call from your mother reminding you of dinner plans. ",
+    "Good": "You tell her that you have come down with something and need to stay home. You take some cold meds and pass out on the bed.",
+    "Bad": "You decide to go to the dinner plans and enjoy an evening with your relatives and your great grandmother."
   },
   {
     "Id": "XBAB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "After lunch, you finish the school day out but now your throat is shards and you have a fever. Your mom calls to remind you of some dinner plans with the family.",
+    "Good": "You tell her that you're not feeling great and need to see Grandma Nan another day. Once home you take some cold meds and get some rest.",
+    "Bad": "Grandma Nan is really old and this is one of the few times you can see here since your so busy. You decide to go"
   },
   {
     "Id": "XBBA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You lowered the fever with some meds but you're not feeling any better. You contemplate going to Urgent care to see what virus you may have.",
+    "Good": "You decide to go to Urgent Care just in case this is more than a cold.",
+    "Bad": "The fever is reduced and you know you have more homework so you stay up late working on a project before going to bed."
   },
   {
     "Id": "XBBB",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "No matter how horrible you feel with a cough your so happy to see grandma Nan and your cousins. It's a lovely little family reunion that you will enjoy.",
+    "Good": "Knowing your not feeling well you try to keep your distance from everyone and stay masked up.",
+    "Bad": "You act like nothing is wrong and interact with everyone like normal. You don't want to seem sick infront of everyone."
   }  
 ]
   

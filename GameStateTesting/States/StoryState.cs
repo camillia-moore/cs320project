@@ -24,7 +24,6 @@ namespace GameStateTesting.States
         SpriteFont TestFont; //create sprite for font
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            //private string idStringToChange = "X"; 
         }
 
         public override void LoadContent()
@@ -64,14 +63,17 @@ namespace GameStateTesting.States
                     if (ourStringLenA == 3)
                     {
                         nextState.setEnemy(1);
+                        Story.CheckString.increaseMonsterCount(); //This increases every time we fight a new baddy. At three we fight the boss.
                     }
                     if (ourStringLenA == 5)
                     {
                         nextState.setEnemy(2);
+                        Story.CheckString.increaseMonsterCount();
                     }
                     if (ourStringLenA == 7)
                     {
                         nextState.setEnemy(3);
+                        Story.CheckString.increaseMonsterCount();
                     }
                     nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
                     nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);

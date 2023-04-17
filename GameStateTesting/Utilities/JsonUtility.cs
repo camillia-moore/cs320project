@@ -18,10 +18,7 @@ namespace GameStateTesting.Utilities
                 throw new Exception("This file is empty");
             }
             return JsonConvert.DeserializeObject<List<Message>>(jsonMessage);
-
             //return JsonSerializer.DeserializeObject<List<Message>>(jsonMessage);
-
-
         }
     }
 }
