@@ -6,12 +6,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Myra;
 using Myra.Graphics2D.UI;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text.Json;
 
 namespace GameStateTesting.States
 {
@@ -24,7 +20,6 @@ namespace GameStateTesting.States
         SpriteFont TestFont; //create sprite for font
         public StoryState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            //private string idStringToChange = "X"; 
         }
 
         public override void LoadContent()
@@ -64,22 +59,27 @@ namespace GameStateTesting.States
                     if (ourStringLenA == 3)
                     {
                         nextState.setEnemy(1);
+                        Story.CheckString.increaseMonsterCount(); //This increases every time we fight a new baddy. At three we fight the boss.
                     }
                     if (ourStringLenA == 5)
                     {
                         nextState.setEnemy(2);
+                        Story.CheckString.increaseMonsterCount();
                     }
                     if (ourStringLenA == 7)
                     {
                         nextState.setEnemy(3);
+                        Story.CheckString.increaseMonsterCount();
                     }
                     nextState.createPlayer("KitKat", "The Default Hero", 30, 9, 5, 10);
                     nextState.addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 3);
                     nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
                     nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
                     nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
-                    nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
-                    nextState.buffEnemy(0, 0, 0, 0);
+                    int Pbuff = Story.CheckString.returnbuffcountA(placeinstoryA);
+                    int EBuff = Story.CheckString.returnbuffcountB(placeinstoryA);
+                    nextState.buffPlayer(Pbuff, Pbuff, Pbuff, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
+                    nextState.buffEnemy(EBuff, EBuff, EBuff, 0); //ap//att//df//last one not used.
                     _game.ChangeState(nextState);
                 }
                 else
@@ -124,8 +124,10 @@ namespace GameStateTesting.States
                     nextState.addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 4);
                     nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
                     nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
-                    nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
-                    nextState.buffEnemy(0,0,0, 0);
+                    int Pbuff = Story.CheckString.returnbuffcountA(placeinstoryB);
+                    int EBuff = Story.CheckString.returnbuffcountB(placeinstoryB);
+                    nextState.buffPlayer(Pbuff,Pbuff, Pbuff, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
+                    nextState.buffEnemy(EBuff,EBuff,EBuff, 0); //ap//att//df//last one not used.
                     //last number relevant to spells
                     _game.ChangeState(nextState);
                 }

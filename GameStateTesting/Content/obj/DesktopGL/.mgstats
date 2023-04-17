@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cs_project_thing_4.wav","C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/cs_project_thing_4.xnb","SoundEffectProcessor","SoundEffectContent",1839542,1839441,0.243899
 "C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-left.png","C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/arrow-left.xnb","TextureProcessor","Texture2DContent",18840,81685,0.1179287
 "C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-right.png","C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/arrow-right.xnb","TextureProcessor","Texture2DContent",18765,81685,0.0054298
 "C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png","C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/button-continue-up.xnb","TextureProcessor","Texture2DContent",35679,238765,0.0079677

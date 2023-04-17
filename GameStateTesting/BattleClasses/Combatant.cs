@@ -36,14 +36,12 @@ namespace GameStateTesting.BattleClasses
             return Attack + AttackMod;
         }
 
-        public void TakeDamage(int damage)
+        public int TakeDamage(int damage)
         {
-            CurrentHP -= damage - (Defense + DefenseMod);
-            if(CurrentHP <= 0)
-            {
-                defeated = true;
-                CurrentHP = 0;
-            }
+            int damageTaken = damage - (Defense + DefenseMod);
+            CurrentHP -= damageTaken;
+            updateDefeated();
+            return damageTaken;
         }
 
         public int[] getStats()
@@ -63,6 +61,7 @@ namespace GameStateTesting.BattleClasses
             CurrentHP += HPModify;
             AttackMod += AttackModify;
             DefenseMod += DefenseModify;
+            updateDefeated();
         }
 
         public void ClearMods() 
@@ -74,6 +73,15 @@ namespace GameStateTesting.BattleClasses
         public bool isDefeated()
         {
             return defeated;
+        }
+
+        private void updateDefeated()
+        {
+            if (CurrentHP <= 0)
+            {
+                defeated = true;
+                CurrentHP = 0;
+            }
         }
     }
 }

@@ -23,7 +23,6 @@ namespace GameStateTesting.States
         SpriteFont TestFont; //create sprite for font
         public EndState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            //private string idStringToChange = "X"; 
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

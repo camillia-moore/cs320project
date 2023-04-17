@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cs_project_thing_4.wav</File>
     <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-left.png</File>
     <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-right.png</File>
     <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png</File>
@@ -18,17 +19,6 @@
     <File>C:/Users/Lyndsey/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>
