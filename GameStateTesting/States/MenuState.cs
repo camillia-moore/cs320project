@@ -24,7 +24,7 @@ namespace GameStateTesting.States
 
         //audio
         private SoundEffectInstance titleMusicInstance;
-        private Boolean MUTEAUDIO = true;
+        private Boolean MUTEAUDIO = false;
 
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {

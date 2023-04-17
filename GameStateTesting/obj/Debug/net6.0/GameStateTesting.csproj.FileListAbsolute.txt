@@ -273,3 +273,4 @@ C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\cough-story-box-small-2.xnb
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\cs_project_thing_4.xnb
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\cs_project_thing_4_looped.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\battle_music_test.xnb

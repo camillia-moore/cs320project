@@ -11,6 +11,7 @@ using GameStateTesting.States;
 using GameStateTesting.BattleClasses;
 using System.Text.Json;
 using System.Linq;
+using Microsoft.Xna.Framework.Audio;
 
 namespace GameStateTesting.States
 {
@@ -42,6 +43,9 @@ namespace GameStateTesting.States
         //animation variables
         private int playerHPCurrentWidth;
         private int enemyHPCurrentWidth;
+
+        //audio
+        private SoundEffectInstance battleMusicInstance;
 
         //control vars
         private KeyboardState oldKstate;
@@ -173,6 +177,12 @@ namespace GameStateTesting.States
                     EnemySprite = _content.Load<Texture2D>("covreaper");
                     break;
             }
+
+            //audio
+            SoundEffect battleMusic = _content.Load<SoundEffect>("battle_music_test");
+            battleMusicInstance = battleMusic.CreateInstance();
+            battleMusicInstance.IsLooped = true;
+            battleMusicInstance.Play();
         }
 
         public override void Update(GameTime gameTime)

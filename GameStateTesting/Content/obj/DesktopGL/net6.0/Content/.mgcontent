@@ -6,6 +6,7 @@
   <SourceFiles>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-left.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/arrow-right.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/battle_music_test.wav</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-base.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/char-body.png</File>
@@ -31,6 +32,7 @@
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
