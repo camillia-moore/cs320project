@@ -37,6 +37,12 @@
 /processorParam:TextureFormat=Color
 /build:arrow-right.png
 
+#begin battle_music_test_125_bpm.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:battle_music_test_125_bpm.wav
+
 #begin battle_music_test.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
