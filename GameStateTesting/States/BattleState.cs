@@ -183,6 +183,7 @@ namespace GameStateTesting.States
             battleMusicInstance = battleMusic.CreateInstance();
             battleMusicInstance.IsLooped = true;
             battleMusicInstance.Play();
+            
         }
 
         public override void Update(GameTime gameTime)
@@ -383,9 +384,14 @@ namespace GameStateTesting.States
                     break;
                 case 5:
                     //just showed that player died, go to the state before the boss, or the menu state
+                    battleMusicInstance.Stop();
                     if (returnToMenu)
                     {
                         _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else if (enemy.Name == "Grim Reaper")
+                    {
+                        _game.ChangeState(new EndState(_game, _graphicsDevice, _content));
                     }
                     else
                     {
@@ -394,6 +400,7 @@ namespace GameStateTesting.States
                     break;
                 case 6:
                     //just showed that the enemy died, go back to either the menu, story, or before boss state
+                    battleMusicInstance.Stop();
                     if (returnToMenu)
                     {
                         _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
@@ -401,6 +408,10 @@ namespace GameStateTesting.States
                     else if (enemy.Name == "Dragon")
                     {
                         _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
+                    }
+                    else if (enemy.Name == "Grim Reaper")
+                    {
+                        _game.ChangeState(new EndState(_game, _graphicsDevice, _content));
                     }
                     else
                     {
@@ -464,6 +475,7 @@ namespace GameStateTesting.States
                     break;
                 case 13:
                     //just showed that flee was successfull, exit to the correct state
+                    battleMusicInstance.Stop();
                     if (returnToMenu)
                     {
                         _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
