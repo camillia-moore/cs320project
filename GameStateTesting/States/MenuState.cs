@@ -52,10 +52,12 @@ namespace GameStateTesting.States
                 {
                     case 0:
                         //go to character creation state
+                        Story.CheckString.MakeOriginalString();   //reset story progress
                         _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
                         break;
                     case 1:
                         //go to story state
+                        Story.CheckString.MakeOriginalString();   //reset story progress
                         _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                         break;
                     case 2:

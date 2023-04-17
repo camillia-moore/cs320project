@@ -270,3 +270,4 @@ C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\covreaper.xnb
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\hp-bar-base.xnb
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\hp-bar-full.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\cough-story-box-small-2.xnb

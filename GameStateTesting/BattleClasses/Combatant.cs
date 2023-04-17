@@ -36,14 +36,16 @@ namespace GameStateTesting.BattleClasses
             return Attack + AttackMod;
         }
 
-        public void TakeDamage(int damage)
+        public int TakeDamage(int damage)
         {
-            CurrentHP -= damage - (Defense + DefenseMod);
+            int damageTaken = damage - (Defense + DefenseMod);
+            CurrentHP -= damageTaken;
             if(CurrentHP <= 0)
             {
                 defeated = true;
                 CurrentHP = 0;
             }
+            return damageTaken;
         }
 
         public int[] getStats()
