@@ -361,4 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/.vs/GameStateTesting/DesignTimeBuild/.dtbcache.v2
+/.vs/GameStateTesting/v17/.suo
+/GameStateTesting/obj/Debug/net6.0/GameStateTesting.csproj.AssemblyReference.cache
+/GameStateTesting/obj/Debug/net6.0/GameStateTesting.GeneratedMSBuildEditorConfig.editorconfig

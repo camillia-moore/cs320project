@@ -3144,19 +3144,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zhong\\.nuget\\packages\\": {}
+    "C:\\Users\\cmoor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+      "projectUniqueName": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
       "projectName": "GameStateTesting",
-      "projectPath": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
-      "packagesPath": "C:\\Users\\Zhong\\.nuget\\packages\\",
-      "outputPath": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\obj\\",
+      "projectPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+      "packagesPath": "C:\\Users\\cmoor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Zhong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cmoor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
