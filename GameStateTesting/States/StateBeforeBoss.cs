@@ -64,6 +64,11 @@ namespace GameStateTesting.States
                 _game.ChangeState(nextState); 
             };
             grid.Widgets.Add(goToBattle);
+
+            _desktop = new Desktop();
+            _desktop.Root = grid;
+
+            TestFont = _content.Load<SpriteFont>("Fonts/FreakingTest"); //
         }
 
         public override void Update(GameTime gameTime)
@@ -93,9 +98,8 @@ namespace GameStateTesting.States
             //List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part3.json");
             //Draw test to the screen
             spriteBatch.Begin();
-            spriteBatch.DrawString(TestFont, text: $"The peak of the fight is here. Moving forward is a big fight.", new Vector2(50, 50), Color.Black); //draw the font 
-            spriteBatch.DrawString(TestFont, text: $"The sickness has reached a peak. Get ready to fight for your life.", new Vector2(100, 50), Color.Black);
-            //spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
+            spriteBatch.DrawString(TestFont, text: $"{"The peak of the fight is here! Moving forward is a big fight."}", new Vector2(100, 150), Color.Black); //draw the font 
+            spriteBatch.DrawString(TestFont, text: $"{"The sickness has reached a peak. Get ready to fight for your life!"}", new Vector2(100, 200), Color.Black);
             spriteBatch.End();
             _desktop.Render();
 

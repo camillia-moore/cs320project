@@ -38,37 +38,37 @@
   },
   {
     "Id": "XABBA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "After taking meds at home and sleeping the night away, you feel worse in the morning. You call your mom for advice.",
+    "Good": "She tells you to go to the doctors and you take her advice.",
+    "Bad": "She says it's probably just a cold and you you should be fine in a few days. She will be over with some chicken soup."
   },
   {
     "Id": "XABBB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You stagger to bed, inebriated and feverish. The cough has gotten worse as the night has progressed.",
+    "Good": "You decide to take some meds and go to bed. You will go to the doctors in the morning.",
+    "Bad": "You stagger to bed and fall asleep on the couch. The couch is feels like heaven."
   },
   {
     "Id": "XBAAA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Getting some much needed sleep was a good idea but you wake up feeling worse. You have a test this morning and you don't want to miss it.",
+    "Good": "You call your teacher to let them know your going to the Urgent care to get tested because your not feeling well.",
+    "Bad": "You go to the class because taking the at a later date would be inconvenient. "
   },
   {
     "Id": "XBAAB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Seeing your Grandmother was great and lifted your spirits, however you felt worse as the dinner progressed.",
+    "Good": "You stayed masked the whole time at the event and left early to get some much needed rest at home.",
+    "Bad": "You made sure to give everyone a big hug and were a great part of the nights discussion. Eventually you went home."
   },
   {
     "Id": "XBABA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Going to bed was a great choice but you don't feel any better waking up. The cough is long and deep and the fever is fierce.",
+    "Good": "You decide to go the the Urgent care to get tested and take some meds to try and lower the fever.",
+    "Bad": "You go to bed again forgetting to take your meds. Sleeping for the rest of the day always helps."
   },
   {
     "Id": "XBABB",
-    "Story": "Second story message",
+    "Story": "You were very happy to see Grandma Nan. Everyone was very happy to see you stop by. ",
     "Good": "Good choice to pick.",
     "Bad": "Bad choice to pick."
   },
