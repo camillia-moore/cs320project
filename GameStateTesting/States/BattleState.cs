@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
 using GameStateTesting.BattleClasses;
 using System.Text.Json;
+using System.Linq;
 
 namespace GameStateTesting.States
 {
@@ -28,13 +29,19 @@ namespace GameStateTesting.States
         private int damageDelt;
         private string textToShow;
         private Spell spellCasted;
+        private Boolean DEBUG = false;
 
         //graphics assets
         private Texture2D KitkatSprite;
         private Texture2D EnemySprite;
         private Texture2D TextBox;
+        private Texture2D SubMenu;
         private Texture2D HPBarBase;
         private Texture2D HPBarFull;
+
+        //animation variables
+        private int playerHPCurrentWidth;
+        private int enemyHPCurrentWidth;
 
         //control vars
         private KeyboardState oldKstate;
@@ -142,6 +149,7 @@ namespace GameStateTesting.States
 
             KitkatSprite = _content.Load<Texture2D>("cough-story-draft-mc");
             TextBox = _content.Load<Texture2D>("cough-story-box-wide-2");
+            SubMenu = _content.Load<Texture2D>("cough-story-box-small-2");
             HPBarBase = _content.Load<Texture2D>("hp-bar-base");
             HPBarFull = _content.Load<Texture2D>("hp-bar-full");
 
@@ -209,20 +217,105 @@ namespace GameStateTesting.States
             _spriteBatch.Draw(HPBarBase, new Vector2(831, 475), Color.White);
 
             //draw HP bar based on how much hp both sides have
+            int hpAnimationSpeed = 4;
             int[] playerHP = player.getHP();
-            Rectangle playerHPBarLength = new Rectangle(0, 0, HPBarFull.Width * playerHP[0] / playerHP[1], HPBarFull.Height);
+            int playerHPTargetWidth = HPBarFull.Width * playerHP[0] / playerHP[1];
+            if (playerHPCurrentWidth > playerHPTargetWidth) { playerHPCurrentWidth -= hpAnimationSpeed; }    //decrease size of bar
+            else if (playerHPCurrentWidth < playerHPTargetWidth) { playerHPCurrentWidth += hpAnimationSpeed; }   //increase size of bar
+            if ((playerHPCurrentWidth <= playerHPTargetWidth + hpAnimationSpeed - 1) //edge case of really close
+                && (playerHPCurrentWidth >= playerHPTargetWidth - hpAnimationSpeed + 1))
+                { playerHPCurrentWidth = playerHPTargetWidth; }
+            Rectangle playerHPBarLength = new Rectangle(0, 0, playerHPCurrentWidth, HPBarFull.Height);
             _spriteBatch.Draw(HPBarFull, new Vector2(54, 480), playerHPBarLength, Color.White);
 
+            //same for enemy
             int[] enemyHP = enemy.getHP();
-            //Rectangle enemyHPBarLength = new Rectangle(((HPBarFull.Width * (enemyHP[1] - enemyHP[0])) / enemyHP[1]) + 0, 0, HPBarFull.Width, HPBarFull.Height);
-            Rectangle enemyHPBarLength = new Rectangle(0, 0, HPBarFull.Width * enemyHP[0] / enemyHP[1], HPBarFull.Height);
-            _spriteBatch.Draw(HPBarFull, new Vector2(836 + (HPBarFull.Width * (enemyHP[1] - enemyHP[0]) / enemyHP[1]), 480), enemyHPBarLength, Color.White);
+            int enemyHPTargetWidth = HPBarFull.Width * enemyHP[0] / enemyHP[1];
+            if (enemyHPCurrentWidth > enemyHPTargetWidth) { enemyHPCurrentWidth -= hpAnimationSpeed; } //decrease size of bar
+            else if (enemyHPCurrentWidth < enemyHPTargetWidth) { enemyHPCurrentWidth += hpAnimationSpeed; }  //increase size of bar
+            if ((enemyHPCurrentWidth <= enemyHPTargetWidth + hpAnimationSpeed - 1)  //edge case
+                && (enemyHPCurrentWidth >= enemyHPTargetWidth - hpAnimationSpeed + 1))
+                { enemyHPCurrentWidth = enemyHPTargetWidth; }
+            Rectangle enemyHPBarLength = new Rectangle(0, 0, enemyHPCurrentWidth, HPBarFull.Height);
+            _spriteBatch.Draw(HPBarFull, new Vector2(836 + HPBarFull.Width - enemyHPCurrentWidth, 480), enemyHPBarLength, Color.White);
 
             _spriteBatch.Draw(TextBox, new Vector2(0, 485), Color.White);
 
-            _spriteBatch.DrawString(font, "Focused Area: " + focusedArea[0] + ", " + focusedArea[1], new Vector2(50, 525), Color.White);
-            _spriteBatch.DrawString(font, "Battle State: " + battleState, new Vector2(50, 550), Color.White);
-            _spriteBatch.DrawString(font, textToShow, new Vector2(50, 575), Color.White);
+            if (DEBUG)
+            {
+                _spriteBatch.DrawString(font, "Focused Area: " + focusedArea[0] + ", " + focusedArea[1], new Vector2(50, 225), Color.Red);
+                _spriteBatch.DrawString(font, "Battle State: " + battleState, new Vector2(50, 250), Color.Red);
+                _spriteBatch.DrawString(font, textToShow, new Vector2(50, 275), Color.Red);
+            }
+            int[] textStates = { 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14 };
+            if (battleState == 0)
+            {
+                //display the main battle menu
+
+                //get color for the text
+                Color fightColor = Color.White;
+                Color spellsColor = Color.White;
+                Color statsColor = Color.White;
+                Color fleeColor = Color.White;
+                switch (focusedArea[0])
+                {
+                    case 0:
+                        fightColor = Color.Blue;
+                        break;
+                    case 1:
+                        spellsColor= Color.Blue;
+                        break;
+                    case 2:
+                        statsColor= Color.Blue;
+                        break;
+                    case 3:
+                        fleeColor = Color.Blue;
+                        break;
+                    default:
+                        break;
+                }
+
+                //print the text
+                _spriteBatch.DrawString(font, "FIGHT!", new Vector2(50, 575), fightColor);
+                _spriteBatch.DrawString(font, "SPELLS!", new Vector2(250, 575), spellsColor);
+                _spriteBatch.DrawString(font, "STATS!", new Vector2(450, 575), statsColor);
+                _spriteBatch.DrawString(font, "FLEE!", new Vector2(650, 575), fleeColor);
+            }
+            else if (textStates.Contains(battleState) )
+            {
+                //just display text in the text box
+                _spriteBatch.DrawString(font, textToShow, new Vector2(50, 600), Color.White);
+            }
+            else  if (battleState == 7)
+            {
+                //display the stats subscreen
+                _spriteBatch.DrawString(font, "Here's your stats ^-^", new Vector2(50, 600), Color.White);
+                _spriteBatch.Draw(SubMenu, new Vector2(467, 67), Color.White);
+                int[] playerStats = player.getStats();
+                _spriteBatch.DrawString(font, player.Name + 
+                    "\nAttack: " + playerStats[0] + " + " + playerStats[1] +
+                    "\nDefense: " + playerStats[2] + " + " + playerStats[3], new Vector2(500, 95), Color.White);
+            }
+            else if (battleState == 8)
+            {
+                //display the spells subscreen
+                _spriteBatch.Draw(SubMenu, new Vector2(467, 67), Color.White);
+
+                //get colors for text
+                Color unfocusedColor = Color.White;
+                Color focusedColor = Color.Blue;
+                Color textColor;
+
+                for (int i = 0; i < numSpells; i++)
+                {
+                    if (focusedArea[1] == i) { textColor = focusedColor; }
+                    else { textColor = unfocusedColor; }
+                    _spriteBatch.DrawString(font, spellbook[i]._name, new Vector2(500, 95 + i * 25), textColor);
+                }
+                if (focusedArea[1] == numSpells) { textColor = focusedColor; }
+                else { textColor = unfocusedColor; }
+                _spriteBatch.DrawString(font, "Cancel", new Vector2(500, 95 + numSpells * 25), textColor);
+            }
             _spriteBatch.End();
         }
 
