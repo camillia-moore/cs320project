@@ -22,6 +22,8 @@
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/create-character-title.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/hp-bar-full.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/hp-bar.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/input-name-box.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
@@ -44,6 +46,8 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>hp-bar-base.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

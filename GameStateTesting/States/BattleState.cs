@@ -32,6 +32,8 @@ namespace GameStateTesting.States
         private Texture2D KitkatSprite;
         private Texture2D EnemySprite;
         private Texture2D TextBox;
+        private Texture2D HPBarBase;
+        private Texture2D HPBarFull;
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
@@ -124,6 +126,8 @@ namespace GameStateTesting.States
 
             KitkatSprite = _content.Load<Texture2D>("cough-story-draft-mc");
             TextBox = _content.Load<Texture2D>("cough-story-box-wide-2");
+            HPBarBase = _content.Load<Texture2D>("hp-bar-base");
+            HPBarFull = _content.Load<Texture2D>("hp-bar-full");
 
             //load correct enemy sprite
             switch (enemy.Name) {
@@ -357,6 +361,19 @@ namespace GameStateTesting.States
             _spriteBatch.Begin();
             _spriteBatch.Draw(KitkatSprite, new Vector2(0, 0), Color.White);
             _spriteBatch.Draw(EnemySprite, new Vector2(682, 0), Color.White);
+            _spriteBatch.Draw(HPBarBase, new Vector2(49, 475), Color.White);
+            _spriteBatch.Draw(HPBarBase, new Vector2(831, 475), Color.White);
+
+            //draw HP bar based on how much hp both sides have
+            int[] playerHP = player.getHP();
+            Rectangle playerHPBarLength = new Rectangle(0, 0, HPBarFull.Width * playerHP[0] / playerHP[1], HPBarFull.Height);
+            _spriteBatch.Draw(HPBarFull, new Vector2(54, 480), playerHPBarLength, Color.White);
+
+            int[] enemyHP = enemy.getHP();
+            //Rectangle enemyHPBarLength = new Rectangle(((HPBarFull.Width * (enemyHP[1] - enemyHP[0])) / enemyHP[1]) + 0, 0, HPBarFull.Width, HPBarFull.Height);
+            Rectangle enemyHPBarLength = new Rectangle(0, 0, HPBarFull.Width * enemyHP[0] / enemyHP[1], HPBarFull.Height);
+            _spriteBatch.Draw(HPBarFull, new Vector2(836 + (HPBarFull.Width * (enemyHP[1] - enemyHP[0]) / enemyHP[1]), 480), enemyHPBarLength, Color.White);
+
             _spriteBatch.Draw(TextBox, new Vector2(0, 485), Color.White);
             _spriteBatch.End();
 
