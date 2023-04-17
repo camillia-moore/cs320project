@@ -2,73 +2,73 @@
 [
   {
     "Id": "XAAAA",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You have followed the doctors instructions and are staying secluded. Your mom wants to come over, make some chicken soup, and check on you.",
+    "Good": "You tell her that she can't visit but she can drop some food off at the door.",
+    "Bad": "You let her stop by and make you chicken soup. You are uplifted by her visit."
   },
   {
     "Id": "XAAAB",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Going to the grocery store was tiring but your set for the week. However your mom wants to check on you to see how you are.",
+    "Good": "You tell her that she can call you on the phone of skype at any time but visits are not allowed.",
+    "Bad": "You let her visit you and do what moms do. She even brought over some chicken soup for you."
   },
   {
     "Id": "XAABA",
-    "Story": "Second 1st story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "The Test came back positive and you have Covid. Doctors recommendation is to go home and stay away from others. However, you need gorceries..",
+    "Good": "You call your mom to let her know what is going on and ask her to go shopping for you.",
+    "Bad": "Going to the grocery story will be a short thing and being masked you shouldn't spread it to anyone."
   },
   {
     "Id": "XAABB",
-    "Story": "Second 1st story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Going to school was definetly not the best decision. Your brain is foggy and you definitely bombed the test. The coughing won't stop either.",
+    "Good": "You decide to leave the school and get tested because this feels worse than a cold.",
+    "Bad": "You stick school out and get through your classes. Eventually you get to go home but it is good to be responsible."
   },
   {
     "Id": "XABAA",
-    "Story": "Second 2nd story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "The test came back and you have Covid. The recommendation is to stay home and confine your self away from people. Your mother called...",
+    "Good": "And you let her know that you have Covid. When she asks to come over you refuse and tell her to stay away.",
+    "Bad": "And you let her know that you have Covid. When she asks to come over you let her come to check on you."
   },
   {
     "Id": "XABAB",
-    "Story": "Second 2nd story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You go to school in the morning and completely bomb the test. Your body aches and your exhausted.",
+    "Good": "You decide to leave the school early and get tested.",
+    "Bad": "You stay at the school and push through the rest of your classes. "
   },
   {
     "Id": "XABBA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "After taking meds at home and sleeping the night away, you feel worse in the morning. You call your mom for advice.",
+    "Good": "She tells you to go to the doctors and you take her advice.",
+    "Bad": "She says it's probably just a cold and you you should be fine in a few days. She will be over with some chicken soup."
   },
   {
     "Id": "XABBB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You stagger to bed, inebriated and feverish. The cough has gotten worse as the night has progressed.",
+    "Good": "You decide to take some meds and go to bed. You will go to the doctors in the morning.",
+    "Bad": "You stagger to bed and fall asleep on the couch. The couch is feels like heaven."
   },
   {
     "Id": "XBAAA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Getting some much needed sleep was a good idea but you wake up feeling worse. You have a test this morning and you don't want to miss it.",
+    "Good": "You call your teacher to let them know your going to the Urgent care to get tested because your not feeling well.",
+    "Bad": "You go to the class because taking the at a later date would be inconvenient. "
   },
   {
     "Id": "XBAAB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Seeing your Grandmother was great and lifted your spirits, however you felt worse as the dinner progressed.",
+    "Good": "You stayed masked the whole time at the event and left early to get some much needed rest at home.",
+    "Bad": "You made sure to give everyone a big hug and were a great part of the nights discussion. Eventually you went home."
   },
   {
     "Id": "XBABA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Going to bed was a great choice but you don't feel any better waking up. The cough is long and deep and the fever is fierce.",
+    "Good": "You decide to go the the Urgent care to get tested and take some meds to try and lower the fever.",
+    "Bad": "You go to bed again forgetting to take your meds. Sleeping for the rest of the day always helps."
   },
   {
     "Id": "XBABB",
-    "Story": "Second story message",
+    "Story": "You were very happy to see Grandma Nan. Everyone was very happy to see you stop by. ",
     "Good": "Good choice to pick.",
     "Bad": "Bad choice to pick."
   },
@@ -99,15 +99,15 @@
   ////The next wave starts here
   {
     "Id": "XAAAAA",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Full of tasty soup and armed with meds you are ready to take on this virus and everything it can throw at you.",
+    "Good": "You sleep regularly and take your meds on time every day. You also drink lots of water.",
+    "Bad": "Playing some games on the side couldn't hurt anyone. Having free time is rare and it's a shame to spend it in bed."
   },
   {
     "Id": "XAAAAB",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "The chicken soup was great but you do feel guilty that you let her in when she wasn't supposed to visit.",
+    "Good": "Hoping for the best you decide to do everything right this time. You rest, take medication, and stay away from everyone.",
+    "Bad": "Hoping for the best, you relax at home occasionally letting your mother come over to check on you."
   },
   {
     "Id": "XAAABA",
