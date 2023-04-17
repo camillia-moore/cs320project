@@ -15,13 +15,13 @@ using System.Text.Json;
 
 namespace GameStateTesting.States
 {
-    public class EndState : State
+    public class StateBeforeBoss : State
 
     {
         private Desktop _desktop;
 
         SpriteFont TestFont; //create sprite for font
-        public EndState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
+        public StateBeforeBoss(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
         }
 
