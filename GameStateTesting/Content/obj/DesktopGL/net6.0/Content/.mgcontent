@@ -21,6 +21,8 @@
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covjelly01.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/covreaper.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/create-character-title.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cs_project_thing_4_looped.wav</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/cs_project_thing_4.wav</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/FreakingTest.spritefont</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/Fonts/TestFont.spritefont</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/hp-bar-full.png</File>
@@ -29,6 +31,8 @@
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -217,6 +217,18 @@
 /processorParam:TextureFormat=Color
 /build:create-character-title.png
 
+#begin cs_project_thing_4_looped.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:cs_project_thing_4_looped.wav
+
+#begin cs_project_thing_4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:cs_project_thing_4.wav
+
 #begin Fonts/FreakingTest.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

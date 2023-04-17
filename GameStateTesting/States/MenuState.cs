@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace GameStateTesting.States
 {
@@ -19,6 +21,11 @@ namespace GameStateTesting.States
         private SpriteFont font;
         private int optionFocused;
         private KeyboardState oldKstate;
+
+        //audio
+        private SoundEffectInstance titleMusicInstance;
+        private Boolean MUTEAUDIO = true;
+
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             optionFocused = 0;
@@ -29,6 +36,13 @@ namespace GameStateTesting.States
             _spriteBatch = new SpriteBatch(_graphicsDevice);
             titleScreen = _content.Load<Texture2D>("cough-story-title-draft");
             font = _content.Load<SpriteFont>("TestFont");
+
+            //audio
+            SoundEffect titleMusic = _content.Load<SoundEffect>("cs_project_thing_4_looped");
+            titleMusicInstance = titleMusic.CreateInstance();
+            titleMusicInstance.IsLooped = true;
+            if (!MUTEAUDIO) { titleMusicInstance.Play(); }
+            
         }
 
         public override void Update(GameTime gameTime)
@@ -48,6 +62,8 @@ namespace GameStateTesting.States
             if (optionFocused == -1) { optionFocused = 2; }
             if (newKstate.IsKeyDown(Keys.Enter) || newKstate.IsKeyDown(Keys.Space)) 
             {
+                //stop music
+                titleMusicInstance.Stop();
                 switch (optionFocused)
                 {
                     case 0:
