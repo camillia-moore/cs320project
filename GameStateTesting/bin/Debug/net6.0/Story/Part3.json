@@ -68,33 +68,33 @@
   },
   {
     "Id": "XBABB",
-    "Story": "You were very happy to see Grandma Nan. Everyone was very happy to see you stop by. ",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You were very happy to see Grandma Nan and you chatted with family for a long time until it was time to go home.",
+    "Good": "Going home you remebered to take meds and drink lots of water before bed.",
+    "Bad": "You hugged everyone and then went home going directly to bed."
   },
   {
     "Id": "XBBAA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You went to Urgent Care and found out you have Covid. The doctor recommends staying secluded for a week and resting.",
+    "Good": "You go home and tell everyone at the club meeting that they may have come in contact with the virus and what signs to look for.",
+    "Bad": "You go home and stay secluded. Your mom wants to come over to make you some chicken soup."
   },
   {
     "Id": "XBBAB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You wake up the next moring feeling the worse you ever have. You are a little delirious with fever and the coughing won't give you a second to breathe.",
+    "Good": "You go to the emergency room to figure out what this could be.",
+    "Bad": "You call your mom and let her know that your really sick so she can take care of you."
   },
   {
     "Id": "XBBBA",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You felt responsible being masked up and talking with everyone but your condition is worsening. You break out in fever at some point.",
+    "Good": "You go to the emergency room since it is late to see what this could possibly be.",
+    "Bad": "You take the medication that your mother gives you and go home."
   },
   {
     "Id": "XBBBB",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You break out in fever during dinner with the family. The coughing is getting far worse and your bones are aching.",
+    "Good": "You have your mother take you to the emergency room.",
+    "Bad": "You stick it out to the very end acting like you got a mild cold. Eventually you begin to head home."
   },
   ////The next wave starts here
   {
@@ -279,14 +279,14 @@
   },
   {
     "Id": "XBBBBA",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "As you get to the emergency room you begin to cough so bad you can't get breathe. The medical workers begin to move quickly.",
+    "Good": "You ask your mother to go home and stay away from others. ",
+    "Bad": "You ask your mom to stay with you because your nervous and scared."
   },
   {
     "Id": "XBBBBB",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "On the way home your vision began to blur and you passed out....   You ....... the car......  a scream... lights.",
+    "Good": "........ sorry ....",
+    "Bad": "..... grandma ........."
   }
 ]
