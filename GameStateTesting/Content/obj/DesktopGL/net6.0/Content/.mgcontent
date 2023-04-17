@@ -8,6 +8,7 @@
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/arrow-left.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/arrow-right.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/button-continue-up.png</File>
+    <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-base-new.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-base.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-body.png</File>
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/char-face.png</File>
@@ -20,6 +21,7 @@
     <File>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

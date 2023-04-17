@@ -61,6 +61,30 @@
 /processorParam:TextureFormat=Color
 /build:button-continue-up.png
 
+#begin char-base-new.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:char-base-new.png
+
+#begin char-base.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:char-base.png
+
 #begin char-base.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -146,18 +170,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:input-name-box.png
-
-#begin pronouns-sheet.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:pronouns-sheet.png
 
 #begin pronouns-sheet.png
 /importer:TextureImporter
