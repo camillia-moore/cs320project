@@ -11,6 +11,8 @@ using GameStateTesting.States;
 using Myra;
 using Myra.Graphics2D.UI;
 using GameStateTesting.BattleClasses;
+using System.Text.Json;
+//using System.Drawing;
 
 namespace GameStateTesting.States
 {
@@ -27,6 +29,9 @@ namespace GameStateTesting.States
         private Spell[] spellbook = new Spell[10];
         private int numSpells;
         private Boolean returnToMenu;
+        private int damageDelt;
+        private string textToShow;
+        private Spell spellCasted;
 
         //graphics assets
         private Texture2D KitkatSprite;
@@ -34,6 +39,13 @@ namespace GameStateTesting.States
         private Texture2D TextBox;
         private Texture2D HPBarBase;
         private Texture2D HPBarFull;
+
+        //control vars
+        private KeyboardState oldKstate;
+        private int[] focusedArea;
+        private int[] menuSize;
+        private int battleState; //probably should be enum
+        private SpriteFont font;
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
@@ -57,6 +69,14 @@ namespace GameStateTesting.States
             createPlayer("Kitkat", "The Default Hero", 30, 9, 5, 10);
             setEnemy(0);
             rand = new Random();
+            focusedArea = new int[2];
+            focusedArea[0] = 0; //x
+            focusedArea[1] = 0; //y
+            menuSize = new int[2];
+            menuSize[0] = 4; //x
+            menuSize[1] = 1; //y
+            battleState = 0;
+            textToShow = "Text not shown yet";
         }
 
         public void createPlayer(String name, String description, int hp, int atk, int def, int mana)
@@ -68,7 +88,7 @@ namespace GameStateTesting.States
         public void createEnemy(String name, String description, int hp, int atk, int def)
         {
             //function for outside states to create stats for the enemy
-            enemy = new Combatant(name, description,hp, atk, def);
+            enemy = new Combatant(name, description, hp, atk, def);
         }
 
         public void setEnemy(int id)
@@ -129,6 +149,8 @@ namespace GameStateTesting.States
             HPBarBase = _content.Load<Texture2D>("hp-bar-base");
             HPBarFull = _content.Load<Texture2D>("hp-bar-full");
 
+            font = _content.Load<SpriteFont>("TestFont");
+
             //load correct enemy sprite
             switch (enemy.Name) {
                 case "Slime":
@@ -150,7 +172,7 @@ namespace GameStateTesting.States
 
 
             MyraEnvironment.Game = _game;
-            
+
 
             var grid = new Grid
             {
@@ -203,13 +225,13 @@ namespace GameStateTesting.States
                                         enemy.Name + " has defeated " + player.Name + "!\n";
                     var messageBox = Dialog.CreateMessageBox("Fight", messagePrinted);
                     messageBox.ShowModal(_desktop);
-                    if(returnToMenu)
+                    if (returnToMenu)
                     {
                         _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
                     }
                     else
                     {
-                        if(enemy.Name == "Dragon")
+                        if (enemy.Name == "Dragon")
                         {
                             _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
                         }
@@ -266,7 +288,7 @@ namespace GameStateTesting.States
             var titleLabel = new Label
             {
                 Text = "Spells",
-                HorizontalAlignment= HorizontalAlignment.Center
+                HorizontalAlignment = HorizontalAlignment.Center
             };
 
             titleContainer.Widgets.Add(titleLabel);
@@ -274,11 +296,11 @@ namespace GameStateTesting.States
 
             var verticalMenu = new VerticalMenu();
 
-            for(int i = 0; i < numSpells; i++)
+            for (int i = 0; i < numSpells; i++)
             {
                 verticalMenu.Items.Add(spellToMenuItem(spellbook[i]));
             }
-            
+
             //verticalMenu.Items.Add(spellToMenuItem(fireball));
             //verticalMenu.Items.Add(spellToMenuItem(iceStorm));
             //verticalMenu.Items.Add(spellToMenuItem(diacute));
@@ -302,7 +324,7 @@ namespace GameStateTesting.States
                 int[] hp = player.getHP();
                 int[] stats = player.getStats();
                 int[] enemyHP = enemy.getHP();
-                string toDisplay =  enemy.Name + " HP: " + enemyHP[0] + "/" + enemyHP[1] + "\n" +
+                string toDisplay = enemy.Name + " HP: " + enemyHP[0] + "/" + enemyHP[1] + "\n" +
                                     player.Name + " HP: " + hp[0] + "/" + hp[1] + "\n" +
                                     "Atk: " + stats[0] + " + " + stats[1] + "\n" +
                                     "Def: " + stats[2] + " + " + stats[3];
@@ -338,7 +360,7 @@ namespace GameStateTesting.States
                 else  //couldn't flee
                 {
                     messagePrinted = "Couldn't get away!";
-                }    
+                }
 
                 var messageBox = Dialog.CreateMessageBox("Flee", messagePrinted);
                 messageBox.ShowModal(_desktop);
@@ -349,16 +371,39 @@ namespace GameStateTesting.States
             // Add it to the desktop
             _desktop = new Desktop();
             _desktop.Root = grid;
-            
+
 
         }
 
         public override void Update(GameTime gameTime)
         {
-            var kstate = Keyboard.GetState();
+            var newKstate = Keyboard.GetState();
 
-            //I'm not implementing keyboard controls rn
+            if (newKstate.IsKeyDown(Keys.Up) && oldKstate.IsKeyUp(Keys.Up))
+            {
+                focusedArea[1] += -1;
+            }
+            if (newKstate.IsKeyDown(Keys.Down) && oldKstate.IsKeyUp(Keys.Down))
+            {
+                focusedArea[1] += +1;
+            }
+            if (newKstate.IsKeyDown(Keys.Left) && oldKstate.IsKeyUp(Keys.Left))
+            {
+                focusedArea[0] += -1;
+            }
+            if (newKstate.IsKeyDown(Keys.Right) && oldKstate.IsKeyUp(Keys.Right))
+            {
+                focusedArea[0] += +1;
+            }
+            //resize selection into the menu size
+            if (focusedArea[0] < 0) { focusedArea[0] = menuSize[0] - 1; }
+            if (focusedArea[0] > menuSize[0] - 1) { focusedArea[0] = 0; }
+            if (focusedArea[1] < 0) { focusedArea[1] = menuSize[1] - 1; }
+            if (focusedArea[1] > menuSize[1] - 1) { focusedArea[1] = 0; }
 
+            if (newKstate.IsKeyDown(Keys.Z) && oldKstate.IsKeyUp(Keys.Z)) { doOption(); initBattleState(); }
+
+            oldKstate = newKstate;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -382,6 +427,10 @@ namespace GameStateTesting.States
             _spriteBatch.Draw(HPBarFull, new Vector2(836 + (HPBarFull.Width * (enemyHP[1] - enemyHP[0]) / enemyHP[1]), 480), enemyHPBarLength, Color.White);
 
             _spriteBatch.Draw(TextBox, new Vector2(0, 485), Color.White);
+
+            _spriteBatch.DrawString(font, "Focused Area: " + focusedArea[0] + ", " + focusedArea[1], new Vector2(50, 525), Color.White);
+            _spriteBatch.DrawString(font, "Battle State: " + battleState, new Vector2(50, 550), Color.White);
+            _spriteBatch.DrawString(font, textToShow, new Vector2(50, 575), Color.White);
             _spriteBatch.End();
 
             _desktop.Render();
@@ -414,6 +463,250 @@ namespace GameStateTesting.States
             };
 
             return menuSpell;
+        }
+
+        private void doOption()
+        {
+            //function to handle game flow between differrent game states
+            switch (battleState)
+            {
+                case 0:
+                    //current state: menu
+                    //find out where the player wants to go, go there
+                    switch (focusedArea[0])
+                    {
+                        case 0:
+                            //attack
+                            battleState = 1;
+                            break;
+                        case 1:
+                            //spells
+                            battleState = 8;
+                            break;
+                        case 2:
+                            //stats
+                            battleState = 7;
+                            break;
+                        case 3:
+                            //flee
+                            battleState = 12;
+                            break;
+                    }
+                    break;
+                case 1:
+                    //just displayed that the player attacks, go to displaying damage
+                    battleState = 2;
+                    break;
+                case 2:
+                    //just displayed player dealt damage, figure out if enemy gets turn or was defeated
+                    if (enemy.isDefeated())
+                    {
+                        battleState = 6;
+                    }
+                    else { battleState = 3; }
+                    break;
+                case 3:
+                    //just said that enemy attacks, go to displaying their damage
+                    battleState = 4;
+                    break;
+                case 4:
+                    //just displayed the damage the enemy dealt, determine if player lived
+                    if (player.isDefeated())
+                    {
+                        battleState = 5;
+                    }
+                    else { battleState = 0; }
+                    break;
+                case 5:
+                    //just showed that player died, go to the state before the boss, or the menu state
+                    if (returnToMenu)
+                    {
+                        _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else
+                    {
+                        _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
+                    }
+                    break;
+                case 6:
+                    //just showed that the enemy died, go back to either the menu, story, or before boss state
+                    if (returnToMenu)
+                    {
+                        _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else if (enemy.Name == "Dragon")
+                    {
+                        _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
+                    }
+                    else
+                    {
+                        _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                    }
+                    break;
+                case 7:
+                    //just showed the stats subscreen, go back to the main battle menu
+                    battleState = 0;
+                    break;
+                case 8:
+                    //player just chose a spell, determine if they can cast it, and either cast it, or display not enough mana
+                    //TODO: need to also have way to cancel casting a spell
+                    Boolean sufficentMana = true; //will eventually implement this
+                    if (sufficentMana)
+                    {
+                        battleState = 9;
+                    }
+                    else
+                    {
+                        battleState = 11;
+                    }
+                    break;
+                case 9:
+                    //just showed which spell kit kat casted, go to displaying the effects
+                    battleState = 10;
+                    break;
+                case 10:
+                    //just showed the spell effects, determine if enemy gets turn
+                    if (enemy.isDefeated())
+                    {
+                        battleState = 6;
+                    }
+                    else { battleState = 3; }
+                    break;
+                case 11:
+                    //just showed that there was not enough mana, go back to the spell screen
+                    battleState = 8;
+                    break;
+                case 12:
+                    //player just tried to flee, determine if successful or not
+                    Boolean fleeSuccesful = false; //will implement this eventually
+                    if (fleeSuccesful)
+                    {
+                        battleState = 13;
+                    }
+                    else
+                    {
+                        battleState = 14;
+                    }
+                    break;
+                case 13:
+                    //just showed that flee was successfull, exit to the correct state
+                    if (returnToMenu)
+                    {
+                        _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                    }
+                    else
+                    {
+                        _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
+                    }
+                    break;
+                case 14:
+                    //just showed the flee failed, go to the enemy's turn
+                    battleState = 3;
+                    break;
+                default:
+                    //placeholder
+                    break;
+
+            }
+        }
+    
+        private void initBattleState()
+        {
+            //code to run when starting new battle state
+            switch (battleState)
+            {
+                case 0:
+                    //just arrived at main battle menu, need to size it and set starting point
+                    menuSize[0] = 4;
+                    menuSize[1] = 1;
+                    focusedArea[0] = 0;
+                    focusedArea[1] = 0;
+                    break;
+                case 1:
+                    //just displaying text
+                    menuSize[0] = 1;
+                    menuSize[1] = 1;
+                    textToShow = player.Name + " Attacks!";
+                    break;
+                case 2:
+                    //displaying damage from player, need to calc damage
+                    damageDelt = enemy.TakeDamage(player.DealDamage());
+                    textToShow = player.Name + " deals " + damageDelt + " damage!";
+                    break;
+                case 3:
+                    //enemy's turn, just displaying text that the enemy attacks
+                    textToShow = enemy.Name + " Attacks!";
+                    break;
+                case 4:
+                    //displaying damage from enemy, need to calc it
+                    damageDelt = player.TakeDamage(enemy.DealDamage());
+                    textToShow = enemy.Name + " deals " + damageDelt + " damage!";
+                    break;
+                case 5:
+                    //just showing text that says player died
+                    textToShow = player.Name + " was defeated!";
+                    break;
+                case 6:
+                    //just showing text that says enemy died
+                    textToShow = enemy.Name + " was defeated!";
+                    break;
+                case 7:
+                    //showing the stats screen
+                    menuSize[0] = 1; //setting these because of a hack Imma do
+                    menuSize[1] = 2;
+                    break;
+                case 8:
+                    //showing spell chosing screen
+                    menuSize[0] = 1;
+                    menuSize[1] = numSpells + 1;
+                    focusedArea[0] = 0;
+                    focusedArea[1] = 0;
+                    break;
+                case 9:
+                    //displaying text that shows which spell player casts
+                    menuSize[0] = 1;
+                    menuSize[1] = 1;
+                    textToShow = player.Name + " casts " + spellCasted._name + "!";
+                    break;
+                case 10:
+                    //displaying the spell effect, need to actually cast the spell
+                    int[] spellEffect = spellCasted.cast();
+                    if (spellEffect[3] == 0)
+                    {
+                        //buff player
+                        player.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                        textToShow = player.Name + " casts " + spellCasted._name + " on themselves!\n" + spellCasted._description;
+                    }
+                    else //spellEffect[3] == 1
+                    {
+                        //nerf enemy
+                        enemy.ModifyStats(spellEffect[0], spellEffect[1], spellEffect[2]);
+                        textToShow = player.Name + " casts " + spellCasted._name + " on " + enemy.Name + "!\n" + spellCasted._description;
+                    }
+                    break;
+                case 11:
+                    //display that there was not enough mana
+                    menuSize[0] = 1;
+                    menuSize[1] = 1;
+                    textToShow = "Not Enough Mana!";
+                    break;
+                case 12:
+                    //display that player tries to flee
+                    menuSize[0] = 1;
+                    menuSize[1] = 1;
+                    textToShow = player.Name + " tries to flee";
+                    break;
+                case 13:
+                    //display that the player was successful in fleeing
+                    textToShow = player.Name + " fled";
+                    break;
+                case 14:
+                    //display that the player failed to flee
+                    textToShow = player.Name + " fails";
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
