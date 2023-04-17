@@ -30,7 +30,9 @@ namespace GameStateTesting.States
         private int damageDelt;
         private string textToShow;
         private Spell spellCasted;
-        private Boolean DEBUG = false;
+        private int currentMana;
+        private int maxMana;
+        private Boolean DEBUG = true;
 
         //graphics assets
         private Texture2D KitkatSprite;
@@ -46,6 +48,17 @@ namespace GameStateTesting.States
 
         //audio
         private SoundEffectInstance battleMusicInstance;
+        private int bpm;
+        private int millisecondsPerBeat;
+        private int beatNumber;
+        private int beatError;
+        private int msInBeat;
+        private Boolean onBeat;
+        int lowerBound;
+        int upperBound;
+        private TimeSpan startTime;
+        private TimeSpan elapsedTime;
+        private Boolean startTimeInitialized;
 
         //control vars
         private KeyboardState oldKstate;
@@ -84,6 +97,9 @@ namespace GameStateTesting.States
             menuSize[1] = 1; //y
             battleState = 0;
             textToShow = "Text not shown yet";
+            startTimeInitialized = false;
+            currentMana = 0;
+            maxMana = 5;
         }
 
         public void createPlayer(String name, String description, int hp, int atk, int def, int mana)
@@ -136,12 +152,12 @@ namespace GameStateTesting.States
             returnToMenu = fromMenu;
         }
 
-        public void buffPlayer(int HP, int atk, int def, int hd)
+        public void buffPlayer(int HP, int atk, int def, int _)
         {
             //function to buff the stats of the player
         }
 
-        public void buffEnemy(int HP, int atk, int def, int hd)
+        public void buffEnemy(int HP, int atk, int def, int _)
         {
             //function to buff the stats of the enemy
         }
@@ -179,11 +195,19 @@ namespace GameStateTesting.States
             }
 
             //audio
-            SoundEffect battleMusic = _content.Load<SoundEffect>("battle_music_test");
+            SoundEffect battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
             battleMusicInstance = battleMusic.CreateInstance();
             battleMusicInstance.IsLooped = true;
             battleMusicInstance.Play();
-            
+            //startTime = gameTime.ElapsedTime;
+            bpm = 125;
+            millisecondsPerBeat = 60000 / bpm;
+            beatNumber = 1;
+            onBeat = true;
+            beatError = 45;
+            lowerBound = millisecondsPerBeat - beatError;
+            upperBound = beatError;
+
         }
 
         public override void Update(GameTime gameTime)
@@ -212,7 +236,29 @@ namespace GameStateTesting.States
             if (focusedArea[1] < 0) { focusedArea[1] = menuSize[1] - 1; }
             if (focusedArea[1] > menuSize[1] - 1) { focusedArea[1] = 0; }
 
-            if (newKstate.IsKeyDown(Keys.Z) && oldKstate.IsKeyUp(Keys.Z)) { doOption(); initBattleState(); }
+            if (newKstate.IsKeyDown(Keys.Z) && oldKstate.IsKeyUp(Keys.Z)) { elapsedTime = gameTime.TotalGameTime;  doOption(); initBattleState(); }
+
+            if (DEBUG)
+            {
+                if(newKstate.IsKeyDown(Keys.M) && oldKstate.IsKeyUp(Keys.M)) { 
+                    currentMana += 1; 
+                    if (currentMana > maxMana) { currentMana = maxMana; }
+                }
+            }
+
+            if (!startTimeInitialized) { startTime = gameTime.TotalGameTime; startTimeInitialized = true;  }
+
+            msInBeat = (int)((Math.Truncate(gameTime.TotalGameTime.TotalMilliseconds - startTime.TotalMilliseconds)) % millisecondsPerBeat);
+            if ((msInBeat < upperBound) || (msInBeat > lowerBound))
+            {
+                if (!onBeat)
+                {
+                    beatNumber += 1;
+                    if (beatNumber == 5) { beatNumber = 1; }
+                    onBeat = true;
+                }
+            }
+            else { onBeat = false; }
 
             oldKstate = newKstate;
         }
@@ -254,9 +300,17 @@ namespace GameStateTesting.States
 
             if (DEBUG)
             {
-                _spriteBatch.DrawString(font, "Focused Area: " + focusedArea[0] + ", " + focusedArea[1], new Vector2(50, 225), Color.Red);
-                _spriteBatch.DrawString(font, "Battle State: " + battleState, new Vector2(50, 250), Color.Red);
-                _spriteBatch.DrawString(font, textToShow, new Vector2(50, 275), Color.Red);
+                _spriteBatch.DrawString(font, "Focused Area: " + focusedArea[0] + ", " + focusedArea[1], new Vector2(50, 25), Color.Red);
+                _spriteBatch.DrawString(font, "Battle State: " + battleState, new Vector2(50, 50), Color.Red);
+                _spriteBatch.DrawString(font, textToShow, new Vector2(50, 75), Color.Red);
+                _spriteBatch.DrawString(font, "Start Time: " + startTime.TotalMilliseconds, new Vector2(50, 100), Color.Red);
+                _spriteBatch.DrawString(font, "Elapsed Time: " + elapsedTime.TotalMilliseconds, new Vector2(50, 125), Color.Red);
+                _spriteBatch.DrawString(font, "Mana: " + currentMana + "/" + maxMana, new Vector2(50, 150), Color.Red);
+                _spriteBatch.DrawString(font, "Beat: " + beatNumber, new Vector2(50, 175), Color.Red);
+                _spriteBatch.DrawString(font, "MS in Beat: " + msInBeat, new Vector2(50, 200), Color.Red);
+                _spriteBatch.DrawString(font, "On Beat: " + onBeat, new Vector2(50, 225), Color.Red);
+                _spriteBatch.DrawString(font, "Upper Bound: " + upperBound, new Vector2(50, 250), Color.Red);
+                _spriteBatch.DrawString(font, "Lower Bound: " + lowerBound, new Vector2(50, 275), Color.Red);
             }
             int[] textStates = { 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14 };
             if (battleState == 0)
@@ -446,7 +500,7 @@ namespace GameStateTesting.States
                     }
                     break;
                 case 9:
-                    //just showed which spell kit kat casted, go to displaying the effects
+                    //just showed which spell the player casted, go to displaying the effects
                     battleState = 10;
                     break;
                 case 10:
@@ -516,6 +570,12 @@ namespace GameStateTesting.States
                     break;
                 case 2:
                     //displaying damage from player, need to calc damage
+                    //also need to calc if player get mana or not
+                    if(onBeat && (beatNumber == 4))
+                    {
+                        currentMana += 1;
+                        if (currentMana > maxMana) { currentMana = maxMana; }
+                    }
                     damageDelt = enemy.TakeDamage(player.DealDamage());
                     textToShow = player.Name + " deals " + damageDelt + " damage!";
                     break;
