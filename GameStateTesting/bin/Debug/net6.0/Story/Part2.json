@@ -15,7 +15,7 @@
   {
     "Id": "XBA",
     "Story": "Since your at school, but masked up, you decide to get through a full school day, however your feeling worse as the day goes on. It is a long and brutal day.",
-    "Good": "Exhausted you skip your last class and go home to rest and take some medication. You have begun to cough.",
+    "Good": "Exhausted you skip your last class and go home to rest and take some medication. Warm tea feels good on your throat.",
     "Bad": "You stay at school and eat in the lunch room, talking and laughing with all your friends talking about a presentation."
   },
   {
@@ -39,7 +39,7 @@
   },
   {
     "Id": "XABA",
-    "Story": "Staying home you stopped other people from contracting what you have and you stay in bed. The next morning your throat is on fire.",
+    "Story": "Staying home, you stopped other people from contracting what you have and you stay in bed. The next morning your throat is on fire.",
     "Good": "This feels much different than the average cold. You decide to go to a local testing center and get tested for a new disease that is making its rounds.",
     "Bad": "Although your throat is on fire and your beyond exhausted the a test is VERY important and you have to go take that test!"
   },
