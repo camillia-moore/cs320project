@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -37,5 +38,29 @@ namespace GameStateTesting.Story
 
         public static void MakeZeroMonCount()
         { monsterCounter = 0; }
+        //Counts how many A's are in the story string 
+        public static int returnbuffcountA(string letscountstringA)
+        {
+            char charA = 'A';
+            int countA = 0;
+            for (int n = 0; n < letscountstringA.Length; n++)
+            {
+                if (letscountstringA[n] == charA)
+                    countA++;
+            }
+            return countA;
+        }
+        //counts how many B's are in the story string
+        public static int returnbuffcountB(string letscountstringB)
+        {
+            char charB = 'B';
+            int countB = 0;
+            for (int n = 0; n < letscountstringB.Length; n++)
+            {
+                if (letscountstringB[n] == charB)
+                    countB++;
+            }
+            return countB;
+        }
     }
 }
