@@ -50,6 +50,7 @@ namespace GameStateTesting.States
 
             goToBattle.Click += (s, a) =>
             {
+                string placeinstory = Story.CheckString.StoryCheckString();
                 BattleState nextState = new BattleState(_game, _graphicsDevice, _content);
                 nextState.setEnemy(4);
                 Story.CheckString.MakeZeroMonCount(); //This lowers the monster count to zero again because end game
@@ -59,8 +60,10 @@ namespace GameStateTesting.States
                 nextState.addSpell("Diacute", "Buffs the user's stats", 0, +2, +2, 0, 5);
                 nextState.addSpell("Healing", "Heals the user", +5, 0, 0, 0, 6);
 
-                nextState.buffPlayer(0, 0, 0, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
-                nextState.buffEnemy(0, 0, 0, 0);
+                int Pbuff = Story.CheckString.returnbuffcountA(placeinstory);
+                int EBuff = Story.CheckString.returnbuffcountB(placeinstory);
+                nextState.buffPlayer(Pbuff, Pbuff, Pbuff, 0); ///dEPENDING ON WHATS PLACED IN HERE WILL BUFF THE 
+                nextState.buffEnemy(EBuff, EBuff, EBuff, 0); //ap//att//df//last one not used
                 _game.ChangeState(nextState); 
             };
             grid.Widgets.Add(goToBattle);

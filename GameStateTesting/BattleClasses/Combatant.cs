@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameStateTesting.BattleClasses
 {
-    internal class Combatant
+    public class Combatant
     {
         public string Name;
         public string Description;

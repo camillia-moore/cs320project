@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GameStateTesting.BattleClasses
 {
-    internal class Effect
+    public class Effect
     {
-        private int _HPMod;
-        private int _AttackMod;
-        private int _DefenseMod;
-        private int _healOrDeal; //bool to track if the spell buffs the user or nerfs the oponent
+        public int _HPMod;
+        public int _AttackMod;
+        public int _DefenseMod;
+        public int _healOrDeal; //bool to track if the spell buffs the user or nerfs the oponent
                                        // 0 = buff user, 1 = nerf enemy
         
         public Effect(int HP, int atk, int def, int hd) {

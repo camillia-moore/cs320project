@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
+using GameStateTesting.Customization;
 
 namespace GameStateTesting.States
 {
@@ -18,7 +19,7 @@ namespace GameStateTesting.States
         private Texture2D selectionBox1;
         private Texture2D selectionBox2;
         private Texture2D selectionBox3;
-        private Texture2D nameInputBox;
+        private Texture2D pronounBox;
         private Texture2D buttonContinue;
         private Texture2D buttonArrow1;
         private Texture2D buttonArrow2;
@@ -34,17 +35,24 @@ namespace GameStateTesting.States
         private Rectangle[] selectionBoxSource;
         private Rectangle[] arrowLeftSource;
         private Rectangle[] arrowRightSource;
+        private Rectangle[] pronounBoxSource;
         private Rectangle[] charHeadSource;
         private Rectangle[] charFaceSource;
         private Rectangle[] charBodySource;
 
-        // cycles up/down between 0-5 for box1>box2>box3>name>pronouns>continue
+        // cycles up/down between 0-5 for box1>box2>box3>pronouns>continue
         private int focusArea = 0;
 
         // cycles left/right in box1-3 for selecting custom parts
         private int headArea = 0;
         private int faceArea = 0;
         private int bodyArea = 0;
+
+        // color palette swap , 5 color options from 0 - 4
+        private int baseAlt = 0;
+
+        // pronoun selection, 0: they, 1: he, 2: she
+        private int pronounsArea = 0;
 
         // used to add delay to keypresses
         private KeyboardState oldState;
@@ -54,7 +62,6 @@ namespace GameStateTesting.States
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
 
         public CharacterCreationState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -68,8 +75,8 @@ namespace GameStateTesting.States
             selectionBox1 = _content.Load<Texture2D>("selection-box");
             selectionBox2 = _content.Load<Texture2D>("selection-box");
             selectionBox3 = _content.Load<Texture2D>("selection-box");
+            pronounBox = _content.Load<Texture2D>("pronouns-sheet");
             charTitle = _content.Load<Texture2D>("create-character-title");
-            nameInputBox = _content.Load<Texture2D>("input-name-box");
             buttonContinue = _content.Load<Texture2D>("button-continue-up");
             buttonArrow1 = _content.Load<Texture2D>("arrow-left");
             buttonArrow2 = _content.Load<Texture2D>("arrow-right");
@@ -77,7 +84,7 @@ namespace GameStateTesting.States
             buttonArrow4 = _content.Load<Texture2D>("arrow-right");
             buttonArrow5 = _content.Load<Texture2D>("arrow-left");
             buttonArrow6 = _content.Load<Texture2D>("arrow-right");
-            charBase = _content.Load<Texture2D>("char-base");
+            charBase = _content.Load<Texture2D>("char-base-new");
             charHead = _content.Load<Texture2D>("char-head");
             charFace = _content.Load<Texture2D>("char-face");
             charBody = _content.Load<Texture2D>("char-body");
@@ -114,6 +121,13 @@ namespace GameStateTesting.States
             charBodySource[1] = new Rectangle(0, 0, 364, 322);
             charBodySource[2] = new Rectangle(480, 0, 307, 243);
             charBodySource[3] = new Rectangle(98, 398, 198, 227);
+
+            pronounBoxSource = new Rectangle[5];
+            pronounBoxSource[0] = new Rectangle(0, 0, 420, 128); // default bg color
+            pronounBoxSource[1] = new Rectangle(426, 0, 420, 128); // focused bg color
+            pronounBoxSource[2] = new Rectangle(63, 162, 330, 68); // words
+            pronounBoxSource[3] = new Rectangle(464, 168, 36, 52); // arrow
+            pronounBoxSource[4] = new Rectangle(516, 226, 338, 35); // text on bottom screen for color selection
         }
 
         public override void Update(GameTime gameTime)
@@ -184,6 +198,13 @@ namespace GameStateTesting.States
                             bodyArea = 3;
                         }
                         break;
+                    case 3:
+                        pronounsArea--;
+                        if (pronounsArea < 0)
+                        {
+                            pronounsArea = 2;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -216,17 +237,34 @@ namespace GameStateTesting.States
                             bodyArea = 0;
                         }
                         break;
+                    case 3:
+                        pronounsArea++;
+                        if (pronounsArea > 2)
+                        {
+                            pronounsArea = 0;
+                        }
+                        break;
                     default:
                         break;
                 }
             }
 
-            // move to next story screen
-            // TODO: add Continue button states and go only if focusArea > 4
-            if (focusArea > 2)
+            // changes color palette of cat base
+            if (oldState.IsKeyUp(Keys.C) && newState.IsKeyDown(Keys.C))
+            {
+                baseAlt++;
+                if (baseAlt > 4) 
+                {
+                    baseAlt = 0;
+                }
+            }
+
+            // move to next story screen; saves customization screen input then changes screen state
+            if (focusArea > 3)
             {
                 if (newState.IsKeyDown(Keys.Enter) || newState.IsKeyDown(Keys.Space))
                 {
+                    CharacterCustom customHero = new CharacterCustom(pronounsArea, headArea, faceArea, bodyArea, baseAlt);
                     _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                 }
             }
@@ -247,8 +285,34 @@ namespace GameStateTesting.States
 
             _spriteBatch.Begin();
             _spriteBatch.Draw(charTitle, new Vector2(781, 58), Color.White);
-            _spriteBatch.Draw(nameInputBox, new Vector2(851, 433), Color.White);
-            _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.White);
+            _spriteBatch.Draw(pronounBox, new Vector2(10, 680), pronounBoxSource[4], Color.White);
+            _spriteBatch.Draw(pronounBox, new Vector2(797, 420), pronounBoxSource[0], Color.White);
+
+            // draw pronoun selection box components
+            if (focusArea == 3)
+            {
+                _spriteBatch.Draw(pronounBox, new Vector2(797, 420), pronounBoxSource[1], Color.White);
+                switch (pronounsArea)
+                {
+                    case 1:
+                        _spriteBatch.Draw(pronounBox, new Vector2(960, 457), pronounBoxSource[3], Color.White);
+                        break;
+                    case 2:
+                        _spriteBatch.Draw(pronounBox, new Vector2(1083, 457), pronounBoxSource[3], Color.White);
+                        break;
+                    default:
+                        _spriteBatch.Draw(pronounBox, new Vector2(815, 457), pronounBoxSource[3], Color.White);
+                        break;
+                }
+            }
+
+            _spriteBatch.Draw(pronounBox, new Vector2(855, 448), pronounBoxSource[2], Color.White);
+
+            // draw continue button
+            if (focusArea == 4)
+                _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.GreenYellow);
+            else
+                _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.White);
 
             // selection box color logic for all three boxes based on focusArea
             switch (focusArea)
@@ -275,9 +339,27 @@ namespace GameStateTesting.States
                     break;
             }
 
-            _spriteBatch.Draw(charBase, new Vector2(0,0), Color.White);
+            // draw character base
+            switch (baseAlt)
+            {
+                case 1:
+                    _spriteBatch.Draw(charBase, new Vector2(0, 0), Color.OrangeRed);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charBase, new Vector2(0, 0), Color.HotPink);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charBase, new Vector2(0, 0), Color.Coral);
+                    break;
+                case 4:
+                    _spriteBatch.Draw(charBase, new Vector2(0, 0), Color.Blue);
+                    break;
+                default:
+                    _spriteBatch.Draw(charBase, new Vector2(0, 0), Color.White);
+                    break;
+            }
 
-            // TODO: finish charHead so placements are at the same location (like charFace)
+            // draw head area sprites
             switch (headArea)
             {
                 case 1:
@@ -294,9 +376,10 @@ namespace GameStateTesting.States
                     break;
             }
 
+            // draw face area sprites
             _spriteBatch.Draw(charFace, new Vector2(228, 166), charFaceSource[faceArea], Color.White);
 
-            // TODO: finish charBody so placements are at the same location (like charFace)
+            // draw body area sprites
             switch (bodyArea)
             {
                 case 1:
