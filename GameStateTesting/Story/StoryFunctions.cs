@@ -81,5 +81,14 @@ namespace GameStateTesting.Story
         public static void revertLost()
         { lostbattle = false; }
 
+        public static void revertALL() //This will revert everything to a fresh start
+        {
+            revertLost();
+            revertEnd();
+            MakeZeroMonCount();
+            MakeOriginalString();
+        }
+
+
     }
 }
