@@ -31,6 +31,19 @@ namespace GameStateTesting.States
         private Texture2D charFace;
         private Texture2D charBody;
 
+        // clickable region mapping
+        private Rectangle baseClickable = new Rectangle(188, 103, 386, 573);
+        private Rectangle arrow1Clickable = new Rectangle(63, 44, 68, 100);
+        private Rectangle arrow2Clickable = new Rectangle(607, 44, 68, 100);
+        private Rectangle arrow3Clickable = new Rectangle(63, 205, 68, 100);
+        private Rectangle arrow4Clickable = new Rectangle(607, 205, 68, 100);
+        private Rectangle arrow5Clickable = new Rectangle(63, 362, 68, 100);
+        private Rectangle arrow6Clickable = new Rectangle(607, 362, 68, 100);
+        private Rectangle pronoun1Clickable = new Rectangle(844, 445, 105, 80);
+        private Rectangle pronoun2Clickable = new Rectangle(971, 445, 105, 72);
+        private Rectangle pronoun3Clickable = new Rectangle(1094, 437, 109, 88);
+        private Rectangle continueButtonClickable = new Rectangle(780, 546, 448, 135);
+
         // sprite sheet source areas for each changeable image
         private Rectangle[] selectionBoxSource;
         private Rectangle[] arrowLeftSource;
@@ -56,6 +69,7 @@ namespace GameStateTesting.States
 
         // used to add delay to keypresses
         private KeyboardState oldState;
+        private MouseState oldMouseState;
 
         private bool isLeftArrowDown = false;
         private bool isRightArrowDown = false;
@@ -132,8 +146,11 @@ namespace GameStateTesting.States
 
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add support for mouse states in conjunction with keyboard states
             var newState = Keyboard.GetState();
+            var mouseState = Mouse.GetState();
+            var mousePosition = new Point(mouseState.X, mouseState.Y);
+
+            Mouse.SetCursor(MouseCursor.Arrow);
 
             // controls left arrow color change when keyboard is pressed down
             if (focusArea < 3 && newState.IsKeyDown(Keys.Left))
@@ -258,6 +275,140 @@ namespace GameStateTesting.States
                     baseAlt = 0;
                 }
             }
+            if (baseClickable.Contains(mousePosition))
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    baseAlt++;
+                    if (baseAlt > 4)
+                    {
+                        baseAlt = 0;
+                    }
+                }
+            }
+
+            // mouse click events for arrows
+            if (arrow1Clickable.Contains(mousePosition)) // previous head
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    headArea--;
+                    if (headArea < 0)
+                    {
+                        headArea = 3;
+                    }
+                }
+            }
+
+            if (arrow2Clickable.Contains(mousePosition)) // next head
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    headArea++;
+                    if (headArea > 3)
+                    {
+                        headArea = 0;
+                    }
+                }
+            }
+
+            if (arrow3Clickable.Contains(mousePosition)) // previous face
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    faceArea--;
+                    if (faceArea < 0)
+                    {
+                        faceArea = 3;
+                    }
+                }
+            }
+
+            if (arrow4Clickable.Contains(mousePosition)) // next face
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    faceArea++;
+                    if (faceArea > 3)
+                    {
+                        faceArea = 0;
+                    }
+                }
+            }
+
+            if (arrow5Clickable.Contains(mousePosition)) // previous body
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    bodyArea--;
+                    if (bodyArea < 0)
+                    {
+                        bodyArea = 3;
+                    }
+                }
+            }
+
+            if (arrow6Clickable.Contains(mousePosition)) // next body
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    bodyArea++;
+                    if (bodyArea > 3)
+                    {
+                        bodyArea = 0;
+                    }
+                }
+            }
+
+            // clickable area for pronouns
+            if (pronoun1Clickable.Contains(mousePosition)) // they
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    pronounsArea = 0;
+                }
+            }
+
+            if (pronoun2Clickable.Contains(mousePosition)) // he
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    pronounsArea = 1;
+                }
+            }
+
+            if (pronoun3Clickable.Contains(mousePosition)) // she
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (oldMouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    pronounsArea = 2;
+                }
+            }
+
+            // continue button click
+            if (continueButtonClickable.Contains(mousePosition)) 
+            {
+                Mouse.SetCursor(MouseCursor.Hand);
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    Mouse.SetCursor(MouseCursor.Arrow);
+
+                    Customization.CharacterCustom.setPronouns(pronounsArea);
+                    Customization.CharacterCustom.setCustomization(headArea, faceArea, bodyArea, baseAlt);
+
+                    _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
+                }
+            }
 
             // move to next story screen; saves customization screen input then changes screen state
             if (focusArea > 3)
@@ -279,6 +430,7 @@ namespace GameStateTesting.States
 
             // change oldState to newState to allow reaction only on first key press
             oldState = newState;
+            oldMouseState = mouseState;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
