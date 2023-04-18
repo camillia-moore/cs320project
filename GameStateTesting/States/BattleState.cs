@@ -165,6 +165,7 @@ namespace GameStateTesting.States
         private void createSpellBook()
         {
             //function to create the default spellbook
+            //spell names are a reference to Puyo Puyo
             addSpell("Fireball", "Deals damage to the opponent", -12, 0, 0, 1, 4);
             addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 2);
             addSpell("Diacute", "Buffs the user's stats", 0, +3, +3, 0, 3);
@@ -512,7 +513,7 @@ namespace GameStateTesting.States
                 _spriteBatch.DrawString(font, player.Name + 
                     "\nAttack: " + playerStats[0] + " + " + playerStats[1] +
                     "\nDefense: " + playerStats[2] + " + " + playerStats[3], new Vector2(500, 95), Color.CornflowerBlue);
-                int[] enemyStats = player.getStats();
+                int[] enemyStats = enemy.getStats();
                 _spriteBatch.DrawString(font, enemy.Name + "\n" + enemy.Description +
                     "\nAttack: ? + " + enemyStats[1] +
                     "\nDefense: ? + " + enemyStats[3], new Vector2(500, 195), Color.PaleVioletRed);
