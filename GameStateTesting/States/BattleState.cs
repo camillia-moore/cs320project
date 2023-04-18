@@ -117,7 +117,7 @@ namespace GameStateTesting.States
             player = new Combatant(name, description, hp, atk, def);
         }
 
-        public void setPlayerApperance(CharacterCustom hero) { customHero = hero; }
+        //public void setPlayerApperance(CharacterCustom hero) { customHero = hero; }
 
         private void _setPlayerApperance(int pronouns, int head, int face, int body, int bodyColor)
         {
@@ -127,7 +127,7 @@ namespace GameStateTesting.States
             charCustomization[3] = bodyColor;
         }
 
-        private void setDefaultApperance() { setPlayerApperance(new CharacterCustom(0, 1, 1, 1, 1)); }
+        //private void setDefaultApperance() { setPlayerApperance(new CharacterCustom(0, 1, 1, 1, 1)); }
         private void _setDefaultApperance() { _setPlayerApperance(0, 0, 0, 0, 0); }
 
         public void createEnemy(String name, String description, int hp, int atk, int def)
@@ -487,7 +487,7 @@ namespace GameStateTesting.States
         {
             //function code from June, used to draw the player's sprite
             // draw character base
-            int[] charCustomization = { 0, 0, 0, 0 }; //customHero.charCustomization;
+            //int[] charCustomization = { 0, 0, 0, 0 }; //customHero.charCustomization;
             switch (charCustomization[3])
             {
                 case 1:
