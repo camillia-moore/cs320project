@@ -24,10 +24,10 @@ public class MockBattleScreen
 	{
         player = new Combatant("KitKat", "The Default Hero", 30, 9, 5);
         enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
-        fireball = new Spell("Fireball", "Deals damage to the opponent", new GameStateTesting.BattleClasses.Effect(-10, 0, 0, 1));
-        iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new GameStateTesting.BattleClasses.Effect(0, -2, -2, 1));
-        diacute = new Spell("Diacute", "Buffs the user's stats", new GameStateTesting.BattleClasses.Effect(0, +2, +2, 0));
-        healing = new Spell("Healing", "Heals the user", new GameStateTesting.BattleClasses.Effect(+5, 0, 0, 0));
+        fireball = new Spell("Fireball", "Deals damage to the opponent", new GameStateTesting.BattleClasses.Effect(-10, 0, 0, 1), 2);
+        iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new GameStateTesting.BattleClasses.Effect(0, -2, -2, 1), 3);
+        diacute = new Spell("Diacute", "Buffs the user's stats", new GameStateTesting.BattleClasses.Effect(0, +2, +2, 0), 4);
+        healing = new Spell("Healing", "Heals the user", new GameStateTesting.BattleClasses.Effect(+5, 0, 0, 0), 5);
 
         rand = new Random();
     }

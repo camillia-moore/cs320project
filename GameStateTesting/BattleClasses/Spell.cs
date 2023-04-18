@@ -10,15 +10,11 @@ namespace GameStateTesting.BattleClasses
     {
         public string _name;
         public string _description;
-<<<<<<< HEAD
         private Effect _effect;
         public int _manaCost;
+
         public Spell(string name, string description, Effect effect, int manaCost)
         {
-=======
-        public Effect _effect;
-        public Spell(string name, string description, Effect effect) {
->>>>>>> main
             _name = name;
             _description = description;
             _effect = effect;

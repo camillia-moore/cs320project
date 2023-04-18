@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/input-name-box.png</SourceFile>
   <SourceTime>2023-04-15T22:54:06.6932828-07:00</SourceTime>
   <DestFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/input-name-box.xnb</DestFile>
-  <DestTime>2023-04-17T22:52:43.6789068-07:00</DestTime>
-=======
-  <SourceFile>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/input-name-box.png</SourceFile>
-  <SourceTime>2023-04-13T18:52:17.8508532-07:00</SourceTime>
-  <DestFile>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/input-name-box.xnb</DestFile>
-  <DestTime>2023-04-17T16:55:23.9229548-07:00</DestTime>
->>>>>>> main
+  <DestTime>2023-04-18T00:50:17.811897-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T04:44:56-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

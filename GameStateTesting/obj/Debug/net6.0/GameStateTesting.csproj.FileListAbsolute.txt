@@ -290,13 +290,6 @@ C:\Users\lyynd\OneDrive\Documents\GitHub\cs320project\GameStateTesting\bin\Debug
 C:\Users\lyynd\OneDrive\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\lyynd\OneDrive\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\battle_music_test_125_bpm.xnb
-<<<<<<< HEAD
-C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\debug-background.xnb
-C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full.xnb
-C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar.xnb
-C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full-2.xnb
-C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\battle_song_2.xnb
-=======
 E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part1.json
 E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part2.json
 E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Story\Part3.json
@@ -326,4 +319,11 @@ E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Newtonsoft.Js
 E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\System.Drawing.Common.dll
 E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
->>>>>>> main
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\acc-sheet.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\char-base-new.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\pronouns-sheet.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\battle_song_2.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\debug-background.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full-2.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar.xnb

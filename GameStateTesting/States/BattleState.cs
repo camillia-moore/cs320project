@@ -9,8 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
 using GameStateTesting.BattleClasses;
+using GameStateTesting.Customization;
 using System.Text.Json;
-using System.Linq;
 using Microsoft.Xna.Framework.Audio;
 
 namespace GameStateTesting.States
@@ -72,6 +72,18 @@ namespace GameStateTesting.States
         private int battleState; //probably should be enum
         private SpriteFont font;
 
+        //displaying June's custom characters, this block was by June
+        private Texture2D charBase;
+        private Texture2D charHead;
+        private Texture2D charFace;
+        private Texture2D charBody;
+        private Rectangle[] charHeadSource;
+        private Rectangle[] charFaceSource;
+        private Rectangle[] charBodySource;
+        private CharacterCustom customHero;
+        private int[] charCustomization = new int[4];
+        //back to my code -Camillia
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -96,6 +108,7 @@ namespace GameStateTesting.States
             spellBookMade = false;
             createSpellBook();
             spellBookMade = true;
+            _setDefaultApperance();
         }
 
         public void createPlayer(String name, String description, int hp, int atk, int def, int mana)
@@ -103,6 +116,19 @@ namespace GameStateTesting.States
             //function for outside states to create stats for the player
             player = new Combatant(name, description, hp, atk, def);
         }
+
+        public void setPlayerApperance(CharacterCustom hero) { customHero = hero; }
+
+        private void _setPlayerApperance(int pronouns, int head, int face, int body, int bodyColor)
+        {
+            charCustomization[0] = head;
+            charCustomization[1] = face;
+            charCustomization[2] = body;
+            charCustomization[3] = bodyColor;
+        }
+
+        private void setDefaultApperance() { setPlayerApperance(new CharacterCustom(0, 1, 1, 1, 1)); }
+        private void _setDefaultApperance() { _setPlayerApperance(0, 0, 0, 0, 0); }
 
         public void createEnemy(String name, String description, int hp, int atk, int def)
         {
@@ -183,6 +209,32 @@ namespace GameStateTesting.States
             ManaBarBase = _content.Load<Texture2D>("mana-bar");
             ManaBarFull = _content.Load<Texture2D>("mana-bar-full-2");
             DebugBackground = _content.Load<Texture2D>("debug-background");
+
+            //loading content june made, next 4 blocks are june's code
+            charBase = _content.Load<Texture2D>("char-base-new");
+            charHead = _content.Load<Texture2D>("char-head");
+            charFace = _content.Load<Texture2D>("char-face");
+            charBody = _content.Load<Texture2D>("char-body");
+
+            charHeadSource = new Rectangle[4];
+            charHeadSource[0] = new Rectangle(0, 0, 1, 1);
+            charHeadSource[1] = new Rectangle(0, 0, 183, 133);
+            charHeadSource[2] = new Rectangle(233, 46, 123, 103);
+            charHeadSource[3] = new Rectangle(0, 206, 199, 144);
+
+            charFaceSource = new Rectangle[4];
+            charFaceSource[0] = new Rectangle(0, 0, 287, 205);
+            charFaceSource[1] = new Rectangle(288, 0, 287, 205);
+            charFaceSource[2] = new Rectangle(0, 206, 287, 205);
+            charFaceSource[3] = new Rectangle(288, 206, 287, 205);
+
+            charBodySource = new Rectangle[4];
+            charBodySource[0] = new Rectangle(0, 0, 1, 1);
+            charBodySource[1] = new Rectangle(0, 0, 364, 322);
+            charBodySource[2] = new Rectangle(480, 0, 307, 243);
+            charBodySource[3] = new Rectangle(98, 398, 198, 227);
+
+            //back to my code -Camillia
 
 
             font = _content.Load<SpriteFont>("TestFont");
@@ -291,12 +343,17 @@ namespace GameStateTesting.States
             _graphicsDevice.Clear(new Color(60, 60, 60));
 
             //sprite offset for player and enemy for the on beats
-            int spriteOffset = 0;
-            if (onBeat) { spriteOffset = 2; }
+            int musicSpriteOffset = 0;
+            if (onBeat) { musicSpriteOffset = 2; }
+
+            //sprite offsets for june's code
+            int xOffset = 0;
+            int yOffset = 0;
 
             _spriteBatch.Begin();
-            _spriteBatch.Draw(KitkatSprite, new Vector2(0, 0 + spriteOffset), Color.White);
-            _spriteBatch.Draw(EnemySprite, new Vector2(682, 0 + spriteOffset), Color.White);
+            //_spriteBatch.Draw(KitkatSprite, new Vector2(0, 0 + musicSpriteOffset), Color.White);
+            drawKitKat(xOffset, yOffset + musicSpriteOffset);
+            _spriteBatch.Draw(EnemySprite, new Vector2(682, 0 + musicSpriteOffset), Color.White);
             _spriteBatch.Draw(ManaBarBase, new Vector2(49, 448), Color.White);
             _spriteBatch.Draw(HPBarBase, new Vector2(49, 475), Color.White);
             _spriteBatch.Draw(HPBarBase, new Vector2(831, 475), Color.White);
@@ -426,6 +483,68 @@ namespace GameStateTesting.States
             _spriteBatch.End();
         }
 
+        private void drawKitKat(int xOffset, int yOffset)
+        {
+            //function code from June, used to draw the player's sprite
+            // draw character base
+            int[] charCustomization = { 0, 0, 0, 0 }; //customHero.charCustomization;
+            switch (charCustomization[3])
+            {
+                case 1:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.OrangeRed);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.HotPink);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.Coral);
+                    break;
+                case 4:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.Blue);
+                    break;
+                default:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.White);
+                    break;
+            }
+
+            // draw head area sprites
+            switch (charCustomization[0])
+            {
+                case 1:
+                    _spriteBatch.Draw(charHead, new Vector2(263 + xOffset, 30 + yOffset), charHeadSource[1], Color.White);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charHead, new Vector2(238 + xOffset, 125 + yOffset), charHeadSource[2], Color.White);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charHead, new Vector2(278 + xOffset, 53 + yOffset), charHeadSource[3], Color.White);
+                    break;
+                default:
+                    _spriteBatch.Draw(charHead, new Vector2(0 + xOffset, 0 + yOffset), charHeadSource[0], Color.White);
+                    break;
+            }
+
+            // draw face area sprites
+            _spriteBatch.Draw(charFace, new Vector2(228 + xOffset, 166 + yOffset), charFaceSource[charCustomization[1]], Color.White);
+
+            // draw body area sprites
+            switch (charCustomization[2])
+            {
+                case 1:
+                    _spriteBatch.Draw(charBody, new Vector2(197 + xOffset, 364 + yOffset), charBodySource[1], Color.White);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charBody, new Vector2(223 + xOffset, 364 + yOffset), charBodySource[2], Color.White);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charBody, new Vector2(291 + xOffset, 364 + yOffset), charBodySource[3], Color.White);
+                    break;
+                default:
+                    _spriteBatch.Draw(charBody, new Vector2(0 + xOffset, 0 + yOffset), charBodySource[0], Color.White);
+                    break;
+            }
+
+        }
         private void doOption()
         {
             //function to handle game flow between differrent game states
