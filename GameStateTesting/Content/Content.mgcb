@@ -49,6 +49,12 @@
 /processorParam:Quality=Best
 /build:battle_music_test.wav
 
+#begin battle_song_2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:battle_song_2.wav
+
 #begin button-continue-up.png
 /importer:TextureImporter
 /processor:TextureProcessor

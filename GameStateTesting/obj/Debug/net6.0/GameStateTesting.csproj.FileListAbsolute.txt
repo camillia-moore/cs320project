@@ -294,3 +294,4 @@ C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\C
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full.xnb
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar.xnb
 C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full-2.xnb
+C:\Users\cmoor\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\battle_song_2.xnb

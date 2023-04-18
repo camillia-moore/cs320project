@@ -187,32 +187,42 @@ namespace GameStateTesting.States
 
             font = _content.Load<SpriteFont>("TestFont");
 
-            //load correct enemy sprite
+            SoundEffect battleMusic;
+
+            //load correct enemy sprite and music
             switch (enemy.Name) {
                 case "Slime":
                     EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
+                    bpm = 125;
                     break;
                 case "Jellyfish":
                     EnemySprite = _content.Load<Texture2D>("covjelly");
+                    battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
+                    bpm = 125;
                     break;
                 case "Dragon":
                     EnemySprite = _content.Load<Texture2D>("covdragon");
+                    battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
+                    bpm = 125;
                     break;
                 case "Grim Reaper":
                     EnemySprite = _content.Load<Texture2D>("covreaper");
+                    battleMusic = _content.Load<SoundEffect>("battle_song_2");
+                    bpm = 160;
                     break;
                 default:
                     EnemySprite = _content.Load<Texture2D>("covreaper");
+                    battleMusic = _content.Load<SoundEffect>("battle_song_2");
+                    bpm = 160;
                     break;
             }
 
             //audio
-            SoundEffect battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
             battleMusicInstance = battleMusic.CreateInstance();
             battleMusicInstance.IsLooped = true;
             battleMusicInstance.Play();
             //startTime = gameTime.ElapsedTime;
-            bpm = 125;
             millisecondsPerBeat = 60000 / bpm;
             beatNumber = 1;
             onBeat = true;
@@ -280,9 +290,13 @@ namespace GameStateTesting.States
         {
             _graphicsDevice.Clear(new Color(60, 60, 60));
 
+            //sprite offset for player and enemy for the on beats
+            int spriteOffset = 0;
+            if (onBeat) { spriteOffset = 2; }
+
             _spriteBatch.Begin();
-            _spriteBatch.Draw(KitkatSprite, new Vector2(0, 0), Color.White);
-            _spriteBatch.Draw(EnemySprite, new Vector2(682, 0), Color.White);
+            _spriteBatch.Draw(KitkatSprite, new Vector2(0, 0 + spriteOffset), Color.White);
+            _spriteBatch.Draw(EnemySprite, new Vector2(682, 0 + spriteOffset), Color.White);
             _spriteBatch.Draw(ManaBarBase, new Vector2(49, 448), Color.White);
             _spriteBatch.Draw(HPBarBase, new Vector2(49, 475), Color.White);
             _spriteBatch.Draw(HPBarBase, new Vector2(831, 475), Color.White);
