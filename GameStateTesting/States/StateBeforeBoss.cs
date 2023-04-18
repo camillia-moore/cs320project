@@ -16,7 +16,6 @@ using System.Text.Json;
 namespace GameStateTesting.States
 {
     public class StateBeforeBoss : State
-
     {
         private Desktop _desktop;
 
@@ -67,39 +66,18 @@ namespace GameStateTesting.States
                 _game.ChangeState(nextState); 
             };
             grid.Widgets.Add(goToBattle);
-
             _desktop = new Desktop();
             _desktop.Root = grid;
-
             TestFont = _content.Load<SpriteFont>("Fonts/FreakingTest"); //
         }
 
         public override void Update(GameTime gameTime)
-        {
-            //putting this in just for us to get through if need be.
-            var kstate = Keyboard.GetState();
-            if (kstate.IsKeyDown(Keys.Up))
-            {
-                Story.CheckString.MakeOriginalString();
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
-            }
-            if (kstate.IsKeyDown(Keys.Left))
-            {
-                Story.CheckString.MakeOriginalString();
-                _game.ChangeState(new CharacterCreationState(_game, _graphicsDevice, _content));
-            }
-            if (kstate.IsKeyDown(Keys.Right))
-            {
-                Story.CheckString.MakeOriginalString();
-                _game.ChangeState(new BattleState(_game, _graphicsDevice, _content));
-            }
+        {//throw new NotImplementedException();
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _graphicsDevice.Clear(Color.Red);
-            //List<Message> message = JsonUtility.GetJsonStringMessageFromJSON("Story/Part3.json");
-            //Draw test to the screen
             spriteBatch.Begin();
             spriteBatch.DrawString(TestFont, text: $"{"The peak of the fight is here!"}", new Vector2(450, 150), Color.Black); //draw the font 
             spriteBatch.DrawString(TestFont, text: $"{"The sickness has reached a peak. Get ready to fight for your life!"}", new Vector2(180, 200), Color.Black);
