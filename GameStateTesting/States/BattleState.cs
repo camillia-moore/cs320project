@@ -329,6 +329,26 @@ namespace GameStateTesting.States
             if (focusedArea[0] > menuSize[0] - 1) { focusedArea[0] = 0; }
             if (focusedArea[1] < 0) { focusedArea[1] = menuSize[1] - 1; }
             if (focusedArea[1] > menuSize[1] - 1) { focusedArea[1] = 0; }
+            
+            if(newKstate.IsKeyDown(Keys.X) && oldKstate.IsKeyUp(Keys.X))
+            {
+                //back button on sub menus
+                switch (battleState)
+                {
+                    case 7:
+                        //stats to main
+                        battleState = 0;
+                        initBattleState();
+                        break;
+                    case 8:
+                        //spells to main
+                        battleState = 0;
+                        initBattleState();
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             if (newKstate.IsKeyDown(Keys.Z) && oldKstate.IsKeyUp(Keys.Z)) { elapsedTime = gameTime.TotalGameTime;  doOption(); initBattleState(); }
 
@@ -491,14 +511,14 @@ namespace GameStateTesting.States
 
                 //get colors for text
                 Color unfocusedColor = Color.White;
-                Color focusedColor = Color.Blue;
+                Color focusedColor = Color.CornflowerBlue;
                 Color textColor;
 
                 for (int i = 0; i < numSpells; i++)
                 {
                     if (focusedArea[1] == i) { textColor = focusedColor; }
                     else { textColor = unfocusedColor; }
-                    _spriteBatch.DrawString(font, spellbook[i]._name, new Vector2(500, 95 + i * 25), textColor);
+                    _spriteBatch.DrawString(font, spellbook[i]._name + ": " + spellbook[i]._manaCost + " Mana", new Vector2(500, 95 + i * 25), textColor);
                 }
                 if (focusedArea[1] == numSpells) { textColor = focusedColor; }
                 else { textColor = unfocusedColor; }
