@@ -8,5 +8,6 @@ namespace GameStateTesting.BattleClasses
 {
     internal class Item
     {
+        //unused class
     }
 }

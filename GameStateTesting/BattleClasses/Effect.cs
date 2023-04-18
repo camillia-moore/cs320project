@@ -15,6 +15,7 @@ namespace GameStateTesting.BattleClasses
                                        // 0 = buff user, 1 = nerf enemy
         
         public Effect(int HP, int atk, int def, int hd) {
+            //constructor
             _HPMod = HP;
             _AttackMod = atk;
             _DefenseMod = def;
@@ -23,6 +24,7 @@ namespace GameStateTesting.BattleClasses
 
         public int[] getEffect()
         {
+            //returns data
             int[] ret = {_HPMod, _AttackMod, _DefenseMod, _healOrDeal};
             return ret;
         }

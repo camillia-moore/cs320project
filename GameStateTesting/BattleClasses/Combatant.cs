@@ -20,6 +20,7 @@ namespace GameStateTesting.BattleClasses
         private bool defeated;
         
         public Combatant(string name, string description, int hp, int atk, int def) {
+            //constructor
             Name = name;
             Description= description;
             MaxHP = hp;
@@ -33,32 +34,37 @@ namespace GameStateTesting.BattleClasses
 
         public int DealDamage()
         {
+            //returns the amount of damage this combatant deals rn
             return Attack + AttackMod;
         }
 
         public int TakeDamage(int damage)
         {
+            //has the combatant take the given damage
             int damageTaken = damage - (Defense + DefenseMod);
             if ( damageTaken < 1 ) { damageTaken = 1; } //should not be healed by attacks, min damage is 1
             CurrentHP -= damageTaken;
             updateDefeated();
-            return damageTaken;
+            return damageTaken;  //returns damage taken so it can be displayed
         }
 
         public int[] getStats()
         {
+            //returns an array of stats
             int[] stats = { Attack, AttackMod, Defense, DefenseMod };
             return stats;
         }
 
         public int[] getHP()
         {
+            //returns the current hp stats
             int[] hp = { CurrentHP, MaxHP };
             return hp;
         }
 
         public void ModifyStats(int HPModify, int AttackModify, int DefenseModify)
         {
+            //modifies the stat mods
             CurrentHP += HPModify;
             AttackMod += AttackModify;
             DefenseMod += DefenseModify;
@@ -68,17 +74,20 @@ namespace GameStateTesting.BattleClasses
 
         public void ClearMods() 
         {
+            //clears any stat mods, unused
             AttackMod = 0;
             DefenseMod = 0;
         }
 
         public bool isDefeated()
         {
+            //returns if the combatant is defeated
             return defeated;
         }
 
         private void updateDefeated()
         {
+            //checks if the combatant should be dead
             if (CurrentHP <= 0)
             {
                 defeated = true;

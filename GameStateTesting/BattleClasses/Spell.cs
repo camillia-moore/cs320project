@@ -15,6 +15,7 @@ namespace GameStateTesting.BattleClasses
 
         public Spell(string name, string description, Effect effect, int manaCost)
         {
+            //constructor
             _name = name;
             _description = description;
             _effect = effect;
@@ -23,6 +24,7 @@ namespace GameStateTesting.BattleClasses
 
         public int[] cast()
         {
+            //returns the given effect's data
             return _effect.getEffect();
         }
 
