@@ -17,6 +17,8 @@ namespace GameStateTesting.Story
     {
         private static string idPlacement = "X";
         private static int monsterCounter = 0;
+        private static bool isend = false;
+        private static bool lostbattle = false;
 
         public static string StoryCheckString()
         { return idPlacement; }
@@ -62,5 +64,22 @@ namespace GameStateTesting.Story
             }
             return countB;
         }
+
+        public static void changeEnd() //THis bool using to move between the end restponse and credits 
+        { isend = true; }
+
+        public static bool returnEnd() { return isend; }    
+
+        public static void revertEnd()
+        { isend = false; }
+
+        public static void changeLostBoss() //if lose to boss battle change to true
+        { lostbattle = true; }
+
+        public static bool returnLostBattle() { return lostbattle; }
+
+        public static void revertLost()
+        { lostbattle = false; }
+
     }
 }
