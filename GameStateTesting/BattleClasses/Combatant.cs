@@ -62,6 +62,7 @@ namespace GameStateTesting.BattleClasses
             CurrentHP += HPModify;
             AttackMod += AttackModify;
             DefenseMod += DefenseModify;
+            if (CurrentHP > MaxHP) { CurrentHP = MaxHP; }
             updateDefeated();
         }
 

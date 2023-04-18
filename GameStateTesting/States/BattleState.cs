@@ -763,7 +763,7 @@ namespace GameStateTesting.States
                     }
                     else { SE_4.Play(); }
                     damageDelt = enemy.TakeDamage(player.DealDamage());
-                    textToShow = player.Name + " deals " + damageDelt + " damage!";
+                    textToShow = CharacterCustom.getPronouns() + " deals " + damageDelt + " damage!";
                     break;
                 case 3:
                     //enemy's turn, just displaying text that the enemy attacks
