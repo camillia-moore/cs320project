@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
 using GameStateTesting.BattleClasses;
 using GameStateTesting.Customization;
+using GameStateTesting.Story;
 using System.Text.Json;
 using Microsoft.Xna.Framework.Audio;
 
@@ -155,7 +156,8 @@ namespace GameStateTesting.States
                     createEnemy("Jellyfish", "Oooh, spooky jelly", 20, 8, 4);
                     break;
                 case 3:
-                    createEnemy("Dragon", "I FUDGING LOVBE BOWSDER, I WANMT TO BREAMTHE FIRE!!!!!!", 30, 10, 6);
+                    createEnemy("Dragon", "I FUCKING LOVE BOWDER, \nI WANT TO BREATHEF FIRRE!!!!!!", 30, 10, 6);
+                    //description is reference to https://youtu.be/6qZp_LoNnso?t=287
                     break;
                 case 4:
                     createEnemy("Grim Reaper", "Not so evil, he has a design", 40, 12, 8);
@@ -181,10 +183,10 @@ namespace GameStateTesting.States
         private void createSpellBook()
         {
             //function to create the default spellbook
-            addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 2);
-            addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 3);
-            addSpell("Diacute", "Buffs the user's stats", 0, +3, +3, 0, 4);
-            addSpell("Healing", "Heals the user", +15, 0, 0, 0, 5);
+            addSpell("Fireball", "Deals damage to the opponent", -12, 0, 0, 1, 4);
+            addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 2);
+            addSpell("Diacute", "Buffs the user's stats", 0, +3, +3, 0, 3);
+            addSpell("Healing", "Heals the user", +20, 0, 0, 0, 5);
         }
 
         public void fromMenu(Boolean fromMenu)
@@ -357,6 +359,18 @@ namespace GameStateTesting.States
                 if(newKstate.IsKeyDown(Keys.M) && oldKstate.IsKeyUp(Keys.M)) { 
                     currentMana += 1; 
                     if (currentMana > maxMana) { currentMana = maxMana; }
+                }
+                if(newKstate.IsKeyDown(Keys.W) && oldKstate.IsKeyUp(Keys.W))
+                {
+                    enemy.ModifyStats(-10000, 0, 0);
+                    battleState = 6;
+                    initBattleState();
+                }
+                if (newKstate.IsKeyDown(Keys.L) && oldKstate.IsKeyUp(Keys.L))
+                {
+                    player.ModifyStats(-10000, 0, 0);
+                    battleState = 5;
+                    initBattleState();
                 }
             }
             if(newKstate.IsKeyDown(Keys.D) && oldKstate.IsKeyUp(Keys.D)) { DEBUG = !DEBUG; }
@@ -646,14 +660,17 @@ namespace GameStateTesting.States
                     battleMusicInstance.Stop();
                     if (returnToMenu)
                     {
+                        CheckString.revertLost();
                         _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
                     }
                     else if (enemy.Name == "Grim Reaper")
                     {
+                        CheckString.changeLostBoss();
                         _game.ChangeState(new EndState(_game, _graphicsDevice, _content));
                     }
                     else
                     {
+                        CheckString.changeLostBoss();
                         _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
                     }
                     break;
@@ -662,18 +679,22 @@ namespace GameStateTesting.States
                     battleMusicInstance.Stop();
                     if (returnToMenu)
                     {
+                        CheckString.revertLost();
                         _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
                     }
                     else if (enemy.Name == "Dragon")
                     {
+                        CheckString.revertLost();
                         _game.ChangeState(new StateBeforeBoss(_game, _graphicsDevice, _content));
                     }
                     else if (enemy.Name == "Grim Reaper")
                     {
+                        CheckString.revertLost();
                         _game.ChangeState(new EndState(_game, _graphicsDevice, _content));
                     }
                     else
                     {
+                        CheckString.revertLost();
                         _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                     }
                     break;
