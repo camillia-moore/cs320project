@@ -11,8 +11,6 @@ using System.Linq;
 
 namespace GameStateTesting.States
 {
-
-
     public class StoryState : State
     {
         private Desktop _desktop;
@@ -135,8 +133,6 @@ namespace GameStateTesting.States
                 {
                     _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                 }
-
-
             };
 
             grid.Widgets.Add(buttonBad);
@@ -146,7 +142,6 @@ namespace GameStateTesting.States
 
             TestFont = _content.Load<SpriteFont>("Fonts/TestFont"); //load the font into the current content manager
         }
-
 
         //overide from story to get to the other states while testing.
         public override void Update(GameTime gameTime)
@@ -174,8 +169,6 @@ namespace GameStateTesting.States
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _graphicsDevice.Clear(Color.LightGreen);
-
-
             string placeinstory = Story.CheckString.StoryCheckString();
             int lengthOfPlace = placeinstory.Length;
 
@@ -222,9 +215,6 @@ namespace GameStateTesting.States
                 spriteBatch.DrawString(TestFont, text: $"{message.First(m => m.Id == placeinstory).Bad}", new Vector2(100, 640), Color.Black);
                 spriteBatch.End();
             }
-
-            //spriteBatch.End();
-
             _desktop.Render();
         }
     }

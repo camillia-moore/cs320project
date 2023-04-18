@@ -99,16 +99,12 @@ namespace GameStateTesting.States
             }
         }
 
-
-
         public override void LoadContent()
         { //throw new NotImplementedException();
         }
 
-
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-
             string placeinstory = Story.CheckString.StoryCheckString();
             int countOfA = Story.CheckString.returnbuffcountA(placeinstory);
             int countOfB = Story.CheckString.returnbuffcountB(placeinstory);
@@ -122,7 +118,7 @@ namespace GameStateTesting.States
                     _graphicsDevice.Clear(Color.Red);
                     spriteBatch.Begin();
                     spriteBatch.DrawString(TestFont, text: $"{"Unfortunately, your body gave out during your life and death battle with illness."}", new Vector2(100, 150), Color.Black); //draw the font 
-                    spriteBatch.DrawString(TestFont, text: $"{"If there is a next time, may fate fancy you in a bright light."}", new Vector2(110, 200), Color.Black);
+                    spriteBatch.DrawString(TestFont, text: $"{"If there is a next time, may fate fancy you in a bright light."}", new Vector2(200, 200), Color.Black);
                     spriteBatch.End();
                     _desktop.Render();
                 }
