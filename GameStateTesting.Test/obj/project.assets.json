@@ -6557,19 +6557,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cmoor\\.nuget\\packages\\": {}
+    "C:\\Users\\Zhong\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting.Test\\GameStateTesting.Test.csproj",
+      "projectUniqueName": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting.Test\\GameStateTesting.Test.csproj",
       "projectName": "GameStateTesting.Test",
-      "projectPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting.Test\\GameStateTesting.Test.csproj",
-      "packagesPath": "C:\\Users\\cmoor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting.Test\\obj\\",
+      "projectPath": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting.Test\\GameStateTesting.Test.csproj",
+      "packagesPath": "C:\\Users\\Zhong\\.nuget\\packages\\",
+      "outputPath": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cmoor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Zhong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6583,8 +6583,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj": {
-              "projectPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj"
+            "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj": {
+              "projectPath": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj"
             }
           }
         }

@@ -60,8 +60,6 @@ namespace GameStateTesting.States
         private bool isLeftArrowDown = false;
         private bool isRightArrowDown = false;
 
-        private string entryPronouns;
-
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -266,7 +264,7 @@ namespace GameStateTesting.States
             {
                 if (newState.IsKeyDown(Keys.Enter) || newState.IsKeyDown(Keys.Space))
                 {
-                    entryPronouns = "they";
+                    CharacterCustom customHero = new CharacterCustom(pronounsArea, headArea, faceArea, bodyArea, baseAlt);
                     _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                 }
             }

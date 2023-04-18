@@ -28,7 +28,6 @@ namespace GameStateTesting.Customization
         private Texture2D charHead;
         private Texture2D charFace;
         private Texture2D charBody;
-        */
 
         private Rectangle[] charHeadSource;
         private Rectangle[] charFaceSource;
@@ -37,12 +36,25 @@ namespace GameStateTesting.Customization
         private GraphicsDeviceManager _graphics;
         private GraphicsDevice _graphicsDevice;
         private SpriteBatch charSpriteBatch;
-        
 
-        public CharacterCustom(string pronouns, int head, int face, int body) 
+        */
+
+        public CharacterCustom(int pronouns, int head, int face, int body, int bodyColor) 
         {
-            charPronouns = pronouns;
-            int[] charCustomization = { head, face, body };
+            int[] charCustomization = { head, face, body, bodyColor };
+
+            switch(pronouns)
+            {
+                case 1:
+                    charPronouns = "he";
+                    break;
+                case 2:
+                    charPronouns = "she";
+                    break;
+                default:
+                    charPronouns = "they";
+                    break;
+            }
         }
         // call this in the LoadContent() in a scene first before drawing
         public void DrawCharSpriteInitialize()
@@ -83,8 +95,6 @@ namespace GameStateTesting.Customization
             /*
             xOffset = x;
             yOffset = y;
-
-            String baseColor = "White";
 
             _spriteBatch.Begin();
 

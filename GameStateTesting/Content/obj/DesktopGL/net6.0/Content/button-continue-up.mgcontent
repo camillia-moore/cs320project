@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/button-continue-up.png</SourceFile>
-  <SourceTime>2023-04-12T18:46:58.5838597-07:00</SourceTime>
-  <DestFile>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/button-continue-up.xnb</DestFile>
-  <DestTime>2023-04-17T12:11:31.7189568-07:00</DestTime>
+  <SourceFile>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/button-continue-up.png</SourceFile>
+  <SourceTime>2023-04-13T18:52:17.8448646-07:00</SourceTime>
+  <DestFile>E:/Schoolwork/Repos/cs320project/GameStateTesting/Content/bin/DesktopGL/Content/button-continue-up.xnb</DestFile>
+  <DestTime>2023-04-17T16:55:22.9345964-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T04:44:56-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
