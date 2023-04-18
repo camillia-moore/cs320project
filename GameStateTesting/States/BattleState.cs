@@ -69,6 +69,8 @@ namespace GameStateTesting.States
         private SoundEffect SE_1;
         private SoundEffect SE_2;
         private SoundEffect SE_3;
+        private SoundEffect SE_4;
+        private SoundEffect SE_5;
 
         //control vars
         private KeyboardState oldKstate;
@@ -85,7 +87,7 @@ namespace GameStateTesting.States
         private Rectangle[] charHeadSource;
         private Rectangle[] charFaceSource;
         private Rectangle[] charBodySource;
-        private CharacterCustom customHero;
+        //private CharacterCustom customHero;
         private int[] charCustomization = new int[4];
         //back to my code -Camillia
 
@@ -125,7 +127,7 @@ namespace GameStateTesting.States
         //public void setPlayerApperance(CharacterCustom hero) { customHero = hero; }
 
         private void _setPlayerApperance(int pronouns, int head, int face, int body, int bodyColor)
-        {
+        {  //deprecate
             charCustomization[0] = head;
             charCustomization[1] = face;
             charCustomization[2] = body;
@@ -133,7 +135,7 @@ namespace GameStateTesting.States
         }
 
         //private void setDefaultApperance() { setPlayerApperance(new CharacterCustom(0, 1, 1, 1, 1)); }
-        private void _setDefaultApperance() { _setPlayerApperance(0, 0, 0, 0, 0); }
+        private void _setDefaultApperance() { _setPlayerApperance(0, 0, 0, 0, 0); } //deprecate
 
         public void createEnemy(String name, String description, int hp, int atk, int def)
         {
@@ -194,11 +196,13 @@ namespace GameStateTesting.States
         public void buffPlayer(int HP, int atk, int def, int _)
         {
             //function to buff the stats of the player
+            player.ModifyStats(HP, atk, def);
         }
 
         public void buffEnemy(int HP, int atk, int def, int _)
         {
             //function to buff the stats of the enemy
+            enemy.ModifyStats(HP, atk, def);
         }
 
         public override void LoadContent()
@@ -291,6 +295,8 @@ namespace GameStateTesting.States
             SE_1 = _content.Load<SoundEffect>("SE-1");
             SE_2 = _content.Load<SoundEffect>("SE-2");
             SE_3 = _content.Load<SoundEffect>("SE-3");
+            SE_4 = _content.Load<SoundEffect>("SE-4");
+            SE_5 = _content.Load<SoundEffect>("SE-5");
 
         }
 
@@ -501,7 +507,7 @@ namespace GameStateTesting.States
         {
             //function code from June, used to draw the player's sprite
             // draw character base
-            //int[] charCustomization = { 0, 0, 0, 0 }; //customHero.charCustomization;
+            int[] charCustomization = CharacterCustom.getCustomization();
             switch (charCustomization[3])
             {
                 case 1:
@@ -733,6 +739,7 @@ namespace GameStateTesting.States
             {
                 case 0:
                     //just arrived at main battle menu, need to size it and set starting point
+                    SE_2.Play();
                     menuSize[0] = 4;
                     menuSize[1] = 1;
                     focusedArea[0] = 0;
@@ -752,9 +759,9 @@ namespace GameStateTesting.States
                     {
                         currentMana += 1;
                         if (currentMana > maxMana) { currentMana = maxMana; }
-                        SE_3.Play();
+                        SE_5.Play();
                     }
-                    else { SE_2.Play(); }
+                    else { SE_4.Play(); }
                     damageDelt = enemy.TakeDamage(player.DealDamage());
                     textToShow = player.Name + " deals " + damageDelt + " damage!";
                     break;
@@ -765,7 +772,7 @@ namespace GameStateTesting.States
                     break;
                 case 4:
                     //displaying damage from enemy, need to calc it
-                    SE_2.Play();
+                    SE_4.Play();
                     damageDelt = player.TakeDamage(enemy.DealDamage());
                     textToShow = enemy.Name + " deals " + damageDelt + " damage!";
                     break;

@@ -399,6 +399,18 @@
 /processorParam:Quality=Best
 /build:SE-3.wav
 
+#begin SE-4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SE-4.wav
+
+#begin SE-5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SE-5.wav
+
 #begin selection-box.png
 /importer:TextureImporter
 /processor:TextureProcessor
