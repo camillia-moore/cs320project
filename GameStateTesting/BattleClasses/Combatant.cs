@@ -39,6 +39,7 @@ namespace GameStateTesting.BattleClasses
         public int TakeDamage(int damage)
         {
             int damageTaken = damage - (Defense + DefenseMod);
+            if ( damageTaken < 1 ) { damageTaken = 1; } //should not be healed by attacks, min damage is 1
             CurrentHP -= damageTaken;
             updateDefeated();
             return damageTaken;
