@@ -3144,19 +3144,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zhong\\.nuget\\packages\\": {}
+    "C:\\Users\\cmoor\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+      "projectUniqueName": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
       "projectName": "GameStateTesting",
-      "projectPath": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
-      "packagesPath": "C:\\Users\\Zhong\\.nuget\\packages\\",
-      "outputPath": "E:\\Schoolwork\\Repos\\cs320project\\GameStateTesting\\obj\\",
+      "projectPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\GameStateTesting.csproj",
+      "packagesPath": "C:\\Users\\cmoor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Zhong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cmoor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3164,6 +3169,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3222,5 +3228,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\cmoor\\Documents\\GitHub\\cs320project\\GameStateTesting\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

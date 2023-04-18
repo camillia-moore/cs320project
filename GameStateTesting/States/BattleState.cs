@@ -9,8 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using GameStateTesting.States;
 using GameStateTesting.BattleClasses;
+using GameStateTesting.Customization;
 using System.Text.Json;
-using System.Linq;
 using Microsoft.Xna.Framework.Audio;
 
 namespace GameStateTesting.States
@@ -32,7 +32,8 @@ namespace GameStateTesting.States
         private Spell spellCasted;
         private int currentMana;
         private int maxMana;
-        private Boolean DEBUG = true;
+        private Boolean spellBookMade;
+        private Boolean DEBUG = false;
 
         //graphics assets
         private Texture2D KitkatSprite;
@@ -41,10 +42,14 @@ namespace GameStateTesting.States
         private Texture2D SubMenu;
         private Texture2D HPBarBase;
         private Texture2D HPBarFull;
+        private Texture2D ManaBarBase;
+        private Texture2D ManaBarFull;
+        private Texture2D DebugBackground;
 
         //animation variables
         private int playerHPCurrentWidth;
         private int enemyHPCurrentWidth;
+        private int manaBarCurrentWidth;
 
         //audio
         private SoundEffectInstance battleMusicInstance;
@@ -67,24 +72,24 @@ namespace GameStateTesting.States
         private int battleState; //probably should be enum
         private SpriteFont font;
 
+        //displaying June's custom characters, this block was by June
+        private Texture2D charBase;
+        private Texture2D charHead;
+        private Texture2D charFace;
+        private Texture2D charBody;
+        private Rectangle[] charHeadSource;
+        private Rectangle[] charFaceSource;
+        private Rectangle[] charBodySource;
+        private CharacterCustom customHero;
+        private int[] charCustomization = new int[4];
+        //back to my code -Camillia
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
         public BattleState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            //player = new Combatant("Kit-Kat", "The Default Hero", 30, 9, 5);
-            //enemy = new Combatant("Monster", "Generic Enemy", 20, 8, 4);
             numSpells = 0;
-            //spellbook[0] = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
-            //spellbook[1] = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
-            //spellbook[2] = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
-            //spellbook[3] = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
-            //numSpells = 4;
-
-            //fireball = new Spell("Fireball", "Deals damage to the opponent", new BattleClasses.Effect(-10, 0, 0, 1));
-            //iceStorm = new Spell("Ice Storm", "Uses Ice to Weaken the enemy", new BattleClasses.Effect(0, -2, -2, 1));
-            //diacute = new Spell("Diacute", "Buffs the user's stats", new BattleClasses.Effect(0, +2, +2, 0));
-            //healing = new Spell("Healing", "Heals the user", new BattleClasses.Effect(+5, 0, 0, 0));
             returnToMenu = false;
             createPlayer("Kitkat", "The Default Hero", 30, 9, 5, 10);
             setEnemy(0);
@@ -99,7 +104,11 @@ namespace GameStateTesting.States
             textToShow = "Text not shown yet";
             startTimeInitialized = false;
             currentMana = 0;
-            maxMana = 5;
+            maxMana = 6;
+            spellBookMade = false;
+            createSpellBook();
+            spellBookMade = true;
+            _setDefaultApperance();
         }
 
         public void createPlayer(String name, String description, int hp, int atk, int def, int mana)
@@ -107,6 +116,19 @@ namespace GameStateTesting.States
             //function for outside states to create stats for the player
             player = new Combatant(name, description, hp, atk, def);
         }
+
+        //public void setPlayerApperance(CharacterCustom hero) { customHero = hero; }
+
+        private void _setPlayerApperance(int pronouns, int head, int face, int body, int bodyColor)
+        {
+            charCustomization[0] = head;
+            charCustomization[1] = face;
+            charCustomization[2] = body;
+            charCustomization[3] = bodyColor;
+        }
+
+        //private void setDefaultApperance() { setPlayerApperance(new CharacterCustom(0, 1, 1, 1, 1)); }
+        private void _setDefaultApperance() { _setPlayerApperance(0, 0, 0, 0, 0); }
 
         public void createEnemy(String name, String description, int hp, int atk, int def)
         {
@@ -142,8 +164,20 @@ namespace GameStateTesting.States
         {
             //function for other states to give Kitkat spells
             //please do not add more than 10 spells
-            spellbook[numSpells] = new Spell(name, description, new BattleClasses.Effect(HP, atk, def, hd));
-            numSpells++;
+            if(!spellBookMade)
+            {
+                spellbook[numSpells] = new Spell(name, description, new BattleClasses.Effect(HP, atk, def, hd), manaCost);
+                numSpells++;
+            }
+        }
+
+        private void createSpellBook()
+        {
+            //function to create the default spellbook
+            addSpell("Fireball", "Deals damage to the opponent", -10, 0, 0, 1, 2);
+            addSpell("Ice Storm", "Uses Ice to Weaken the enemy", 0, -2, -2, 1, 3);
+            addSpell("Diacute", "Buffs the user's stats", 0, +3, +3, 0, 4);
+            addSpell("Healing", "Heals the user", +15, 0, 0, 0, 5);
         }
 
         public void fromMenu(Boolean fromMenu)
@@ -172,35 +206,75 @@ namespace GameStateTesting.States
             SubMenu = _content.Load<Texture2D>("cough-story-box-small-2");
             HPBarBase = _content.Load<Texture2D>("hp-bar-base");
             HPBarFull = _content.Load<Texture2D>("hp-bar-full");
+            ManaBarBase = _content.Load<Texture2D>("mana-bar");
+            ManaBarFull = _content.Load<Texture2D>("mana-bar-full-2");
+            DebugBackground = _content.Load<Texture2D>("debug-background");
+
+            //loading content june made, next 4 blocks are june's code
+            charBase = _content.Load<Texture2D>("char-base-new");
+            charHead = _content.Load<Texture2D>("char-head");
+            charFace = _content.Load<Texture2D>("char-face");
+            charBody = _content.Load<Texture2D>("char-body");
+
+            charHeadSource = new Rectangle[4];
+            charHeadSource[0] = new Rectangle(0, 0, 1, 1);
+            charHeadSource[1] = new Rectangle(0, 0, 183, 133);
+            charHeadSource[2] = new Rectangle(233, 46, 123, 103);
+            charHeadSource[3] = new Rectangle(0, 206, 199, 144);
+
+            charFaceSource = new Rectangle[4];
+            charFaceSource[0] = new Rectangle(0, 0, 287, 205);
+            charFaceSource[1] = new Rectangle(288, 0, 287, 205);
+            charFaceSource[2] = new Rectangle(0, 206, 287, 205);
+            charFaceSource[3] = new Rectangle(288, 206, 287, 205);
+
+            charBodySource = new Rectangle[4];
+            charBodySource[0] = new Rectangle(0, 0, 1, 1);
+            charBodySource[1] = new Rectangle(0, 0, 364, 322);
+            charBodySource[2] = new Rectangle(480, 0, 307, 243);
+            charBodySource[3] = new Rectangle(98, 398, 198, 227);
+
+            //back to my code -Camillia
+
 
             font = _content.Load<SpriteFont>("TestFont");
 
-            //load correct enemy sprite
+            SoundEffect battleMusic;
+
+            //load correct enemy sprite and music
             switch (enemy.Name) {
                 case "Slime":
                     EnemySprite = _content.Load<Texture2D>("cough-story-draft-slime");
+                    battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
+                    bpm = 125;
                     break;
                 case "Jellyfish":
                     EnemySprite = _content.Load<Texture2D>("covjelly");
+                    battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
+                    bpm = 125;
                     break;
                 case "Dragon":
                     EnemySprite = _content.Load<Texture2D>("covdragon");
+                    battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
+                    bpm = 125;
                     break;
                 case "Grim Reaper":
                     EnemySprite = _content.Load<Texture2D>("covreaper");
+                    battleMusic = _content.Load<SoundEffect>("battle_song_2");
+                    bpm = 160;
                     break;
                 default:
                     EnemySprite = _content.Load<Texture2D>("covreaper");
+                    battleMusic = _content.Load<SoundEffect>("battle_song_2");
+                    bpm = 160;
                     break;
             }
 
             //audio
-            SoundEffect battleMusic = _content.Load<SoundEffect>("battle_music_test_125_bpm");
             battleMusicInstance = battleMusic.CreateInstance();
             battleMusicInstance.IsLooped = true;
             battleMusicInstance.Play();
             //startTime = gameTime.ElapsedTime;
-            bpm = 125;
             millisecondsPerBeat = 60000 / bpm;
             beatNumber = 1;
             onBeat = true;
@@ -245,6 +319,7 @@ namespace GameStateTesting.States
                     if (currentMana > maxMana) { currentMana = maxMana; }
                 }
             }
+            if(newKstate.IsKeyDown(Keys.D) && oldKstate.IsKeyUp(Keys.D)) { DEBUG = !DEBUG; }
 
             if (!startTimeInitialized) { startTime = gameTime.TotalGameTime; startTimeInitialized = true;  }
 
@@ -267,11 +342,33 @@ namespace GameStateTesting.States
         {
             _graphicsDevice.Clear(new Color(60, 60, 60));
 
+            //sprite offset for player and enemy for the on beats
+            int musicSpriteOffset = 0;
+            if (onBeat) { musicSpriteOffset = 2; }
+
+            //sprite offsets for june's code
+            int xOffset = 0;
+            int yOffset = 0;
+
             _spriteBatch.Begin();
-            _spriteBatch.Draw(KitkatSprite, new Vector2(0, 0), Color.White);
-            _spriteBatch.Draw(EnemySprite, new Vector2(682, 0), Color.White);
+            //_spriteBatch.Draw(KitkatSprite, new Vector2(0, 0 + musicSpriteOffset), Color.White);
+            drawKitKat(xOffset, yOffset + musicSpriteOffset);
+            _spriteBatch.Draw(EnemySprite, new Vector2(682, 0 + musicSpriteOffset), Color.White);
+            _spriteBatch.Draw(ManaBarBase, new Vector2(49, 448), Color.White);
             _spriteBatch.Draw(HPBarBase, new Vector2(49, 475), Color.White);
             _spriteBatch.Draw(HPBarBase, new Vector2(831, 475), Color.White);
+            
+
+            //draw mana bar based on how much mana is left, with animations
+            int manaSpeed = 4;
+            int manaBarTargetWidth = ManaBarFull.Width * currentMana / maxMana;
+            if(manaBarCurrentWidth > manaBarTargetWidth) { manaBarCurrentWidth -= manaSpeed; }   //decrease bar size
+            else if (manaBarCurrentWidth < manaBarTargetWidth) { manaBarCurrentWidth += manaSpeed; }   //increase bar size
+            if ((manaBarCurrentWidth <= manaBarTargetWidth + manaSpeed - 1) //edge case of really close
+                && (manaBarCurrentWidth >= manaBarTargetWidth - manaSpeed + 1))
+            { manaBarCurrentWidth = manaBarTargetWidth; }
+            Rectangle manaBarLength = new Rectangle(0, 0, manaBarCurrentWidth, (ManaBarFull.Height - 3));
+            _spriteBatch.Draw(ManaBarFull, new Vector2(54, 452), manaBarLength, Color.White);
 
             //draw HP bar based on how much hp both sides have
             int hpAnimationSpeed = 4;
@@ -296,10 +393,12 @@ namespace GameStateTesting.States
             Rectangle enemyHPBarLength = new Rectangle(0, 0, enemyHPCurrentWidth, HPBarFull.Height);
             _spriteBatch.Draw(HPBarFull, new Vector2(836 + HPBarFull.Width - enemyHPCurrentWidth, 480), enemyHPBarLength, Color.White);
 
+
             _spriteBatch.Draw(TextBox, new Vector2(0, 485), Color.White);
 
             if (DEBUG)
-            {
+            {   //print out a little debug menu
+                _spriteBatch.Draw(DebugBackground, new Vector2(0, 0), new Rectangle(0, 0, 300, 300), Color.White);
                 _spriteBatch.DrawString(font, "Focused Area: " + focusedArea[0] + ", " + focusedArea[1], new Vector2(50, 25), Color.Red);
                 _spriteBatch.DrawString(font, "Battle State: " + battleState, new Vector2(50, 50), Color.Red);
                 _spriteBatch.DrawString(font, textToShow, new Vector2(50, 75), Color.Red);
@@ -384,6 +483,68 @@ namespace GameStateTesting.States
             _spriteBatch.End();
         }
 
+        private void drawKitKat(int xOffset, int yOffset)
+        {
+            //function code from June, used to draw the player's sprite
+            // draw character base
+            //int[] charCustomization = { 0, 0, 0, 0 }; //customHero.charCustomization;
+            switch (charCustomization[3])
+            {
+                case 1:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.OrangeRed);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.HotPink);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.Coral);
+                    break;
+                case 4:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.Blue);
+                    break;
+                default:
+                    _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.White);
+                    break;
+            }
+
+            // draw head area sprites
+            switch (charCustomization[0])
+            {
+                case 1:
+                    _spriteBatch.Draw(charHead, new Vector2(263 + xOffset, 30 + yOffset), charHeadSource[1], Color.White);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charHead, new Vector2(238 + xOffset, 125 + yOffset), charHeadSource[2], Color.White);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charHead, new Vector2(278 + xOffset, 53 + yOffset), charHeadSource[3], Color.White);
+                    break;
+                default:
+                    _spriteBatch.Draw(charHead, new Vector2(0 + xOffset, 0 + yOffset), charHeadSource[0], Color.White);
+                    break;
+            }
+
+            // draw face area sprites
+            _spriteBatch.Draw(charFace, new Vector2(228 + xOffset, 166 + yOffset), charFaceSource[charCustomization[1]], Color.White);
+
+            // draw body area sprites
+            switch (charCustomization[2])
+            {
+                case 1:
+                    _spriteBatch.Draw(charBody, new Vector2(197 + xOffset, 364 + yOffset), charBodySource[1], Color.White);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(charBody, new Vector2(223 + xOffset, 364 + yOffset), charBodySource[2], Color.White);
+                    break;
+                case 3:
+                    _spriteBatch.Draw(charBody, new Vector2(291 + xOffset, 364 + yOffset), charBodySource[3], Color.White);
+                    break;
+                default:
+                    _spriteBatch.Draw(charBody, new Vector2(0 + xOffset, 0 + yOffset), charBodySource[0], Color.White);
+                    break;
+            }
+
+        }
         private void doOption()
         {
             //function to handle game flow between differrent game states
@@ -488,10 +649,11 @@ namespace GameStateTesting.States
                     else
                     {
                         spellCasted = spellbook[focusedArea[1]]; //set spellCasted to be the spell that was chosen
-                        Boolean sufficentMana = true; //will eventually implement this
+                        Boolean sufficentMana = spellCasted._manaCost <= currentMana;
                         if (sufficentMana)
                         {
                             battleState = 9;
+                            currentMana -= spellCasted._manaCost; //deplete the mana
                         }
                         else
                         {
