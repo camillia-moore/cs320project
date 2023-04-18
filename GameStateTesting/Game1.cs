@@ -25,7 +25,7 @@ namespace GameStateTesting
             // TODO: Add your initialization logic here
 
             this.Window.AllowUserResizing = false;
-            this.Window.Title = "Coughing Story: Alpha 0.0.1";
+            this.Window.Title = "Coughing Story: Final Alpha Version";
             _graphics.PreferredBackBufferWidth = 1280;
             _graphics.PreferredBackBufferHeight = 720;
             _graphics.IsFullScreen = false;

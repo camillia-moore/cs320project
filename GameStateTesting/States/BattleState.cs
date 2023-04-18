@@ -20,10 +20,6 @@ namespace GameStateTesting.States
     {
         private Combatant player;
         private Combatant enemy;
-        //private Spell fireball;
-        //private Spell iceStorm;
-        //private Spell diacute;
-        //private Spell healing;
         private Random rand;
         private Spell[] spellbook = new Spell[10];
         private int numSpells;
@@ -88,8 +84,6 @@ namespace GameStateTesting.States
         private Rectangle[] charHeadSource;
         private Rectangle[] charFaceSource;
         private Rectangle[] charBodySource;
-        //private CharacterCustom customHero;
-        private int[] charCustomization = new int[4];
         //back to my code -Camillia
 
         private GraphicsDeviceManager _graphics;
@@ -116,31 +110,19 @@ namespace GameStateTesting.States
             spellBookMade = false;
             createSpellBook();
             spellBookMade = true;
-            _setDefaultApperance();
         }
 
         public void createPlayer(String name, String description, int hp, int atk, int def, int mana)
         {
             //function for outside states to create stats for the player
+            //should deprecate
             player = new Combatant(name, description, hp, atk, def);
         }
-
-        //public void setPlayerApperance(CharacterCustom hero) { customHero = hero; }
-
-        private void _setPlayerApperance(int pronouns, int head, int face, int body, int bodyColor)
-        {  //deprecate
-            charCustomization[0] = head;
-            charCustomization[1] = face;
-            charCustomization[2] = body;
-            charCustomization[3] = bodyColor;
-        }
-
-        //private void setDefaultApperance() { setPlayerApperance(new CharacterCustom(0, 1, 1, 1, 1)); }
-        private void _setDefaultApperance() { _setPlayerApperance(0, 0, 0, 0, 0); } //deprecate
 
         public void createEnemy(String name, String description, int hp, int atk, int def)
         {
             //function for outside states to create stats for the enemy
+            //should deprecate
             enemy = new Combatant(name, description, hp, atk, def);
         }
 
@@ -166,13 +148,13 @@ namespace GameStateTesting.States
                     createEnemy("Monster", "Generic Enemy", 20, 8, 4);
                     break;
             }
-
         }
 
         public void addSpell(String name, String description, int HP, int atk, int def, int hd, int manaCost)
         {
             //function for other states to give Kitkat spells
             //please do not add more than 10 spells
+            //function should be made private, and this if should be removed, along with it's boolean
             if(!spellBookMade)
             {
                 spellbook[numSpells] = new Spell(name, description, new BattleClasses.Effect(HP, atk, def, hd), manaCost);
@@ -197,13 +179,15 @@ namespace GameStateTesting.States
 
         public void buffPlayer(int HP, int atk, int def, int _)
         {
-            //function to buff the stats of the player
+            //function to buff the stats of the player before the battle
+            //last parameter should be removed
             player.ModifyStats(HP, atk, def);
         }
 
         public void buffEnemy(int HP, int atk, int def, int _)
         {
-            //function to buff the stats of the enemy
+            //function to buff the stats of the enemy before the battle
+            //last parameter should be removed
             enemy.ModifyStats(HP, atk, def);
         }
 
@@ -244,7 +228,6 @@ namespace GameStateTesting.States
             charBodySource[1] = new Rectangle(0, 0, 364, 322);
             charBodySource[2] = new Rectangle(480, 0, 307, 243);
             charBodySource[3] = new Rectangle(98, 398, 198, 227);
-
             //back to my code -Camillia
 
 
@@ -281,11 +264,10 @@ namespace GameStateTesting.States
                     break;
             }
 
-            //audio
+            //audio control variable initialization
             battleMusicInstance = battleMusic.CreateInstance();
             battleMusicInstance.IsLooped = true;
             battleMusicInstance.Play();
-            //startTime = gameTime.ElapsedTime;
             millisecondsPerBeat = 60000 / bpm;
             beatNumber = 1;
             onBeat = true;
@@ -306,6 +288,7 @@ namespace GameStateTesting.States
         {
             var newKstate = Keyboard.GetState();
 
+            //direction keys
             if (newKstate.IsKeyDown(Keys.Up) && oldKstate.IsKeyUp(Keys.Up))
             {
                 focusedArea[1] += -1;
@@ -326,6 +309,7 @@ namespace GameStateTesting.States
                 focusedArea[0] += +1;
                 SE_1.Play();
             }
+
             //resize selection into the menu size
             if (focusedArea[0] < 0) { focusedArea[0] = menuSize[0] - 1; }
             if (focusedArea[0] > menuSize[0] - 1) { focusedArea[0] = 0; }
@@ -352,48 +336,60 @@ namespace GameStateTesting.States
                 }
             }
 
+            //main function key, selects current option
             if (newKstate.IsKeyDown(Keys.Z) && oldKstate.IsKeyUp(Keys.Z)) { elapsedTime = gameTime.TotalGameTime;  doOption(); initBattleState(); }
 
             if (DEBUG)
             {
+                //keystrokes only accepted in debug mode
                 if(newKstate.IsKeyDown(Keys.M) && oldKstate.IsKeyUp(Keys.M)) { 
+                    //give player 1 mana
                     currentMana += 1; 
                     if (currentMana > maxMana) { currentMana = maxMana; }
                 }
                 if(newKstate.IsKeyDown(Keys.W) && oldKstate.IsKeyUp(Keys.W))
                 {
+                    //trigger a win
                     enemy.ModifyStats(-10000, 0, 0);
                     battleState = 6;
                     initBattleState();
                 }
                 if (newKstate.IsKeyDown(Keys.L) && oldKstate.IsKeyUp(Keys.L))
                 {
+                    //trigger a loss
                     player.ModifyStats(-10000, 0, 0);
                     battleState = 5;
                     initBattleState();
                 }
             }
-            if(newKstate.IsKeyDown(Keys.D) && oldKstate.IsKeyUp(Keys.D)) { DEBUG = !DEBUG; }
+            if(newKstate.IsKeyDown(Keys.D) && oldKstate.IsKeyUp(Keys.D)) { DEBUG = !DEBUG; }  //swaps debug state
 
+
+            //grabs the start time on the first frame
             if (!startTimeInitialized) { startTime = gameTime.TotalGameTime; startTimeInitialized = true;  }
 
+            //calculates how many milliseconds it's been since the last music beat
             msInBeat = (int)((Math.Truncate(gameTime.TotalGameTime.TotalMilliseconds - startTime.TotalMilliseconds)) % millisecondsPerBeat);
-            if ((msInBeat < upperBound) || (msInBeat > lowerBound))
+            
+            if ((msInBeat < upperBound) || (msInBeat > lowerBound))  //if the current time is within the error bounds
             {
-                if (!onBeat)
+                if (!onBeat)  //if we were not already on the beat
                 {
+                    //increment beat number, handle wrap around, and say we are on the beat
                     beatNumber += 1;
                     if (beatNumber == 5) { beatNumber = 1; }
                     onBeat = true;
                 }
             }
-            else { onBeat = false; }
+            else { onBeat = false; }   //else, we are not on the beat, so say we are not on the beat
 
+            //put keyboard state into old keyboard state
             oldKstate = newKstate;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            //clear screen
             _graphicsDevice.Clear(new Color(60, 60, 60));
 
             //sprite offset for player and enemy for the on beats
@@ -405,6 +401,8 @@ namespace GameStateTesting.States
             int yOffset = 0;
 
             _spriteBatch.Begin();
+
+            //drawing main sprites
             //_spriteBatch.Draw(KitkatSprite, new Vector2(0, 0 + musicSpriteOffset), Color.White);
             drawKitKat(xOffset, yOffset + musicSpriteOffset);
             _spriteBatch.Draw(EnemySprite, new Vector2(682, 0 + musicSpriteOffset), Color.White);
@@ -412,7 +410,7 @@ namespace GameStateTesting.States
             _spriteBatch.Draw(HPBarBase, new Vector2(49, 475), Color.White);
             _spriteBatch.Draw(HPBarBase, new Vector2(831, 475), Color.White);
             
-
+            //these next three blocks could probably be three function calls
             //draw mana bar based on how much mana is left, with animations
             int manaSpeed = 4;
             int manaBarTargetWidth = ManaBarFull.Width * currentMana / maxMana;
@@ -421,7 +419,7 @@ namespace GameStateTesting.States
             if ((manaBarCurrentWidth <= manaBarTargetWidth + manaSpeed - 1) //edge case of really close
                 && (manaBarCurrentWidth >= manaBarTargetWidth - manaSpeed + 1))
             { manaBarCurrentWidth = manaBarTargetWidth; }
-            Rectangle manaBarLength = new Rectangle(0, 0, manaBarCurrentWidth, (ManaBarFull.Height - 3));
+            Rectangle manaBarLength = new Rectangle(0, 0, manaBarCurrentWidth, (ManaBarFull.Height - 3));  //calculate rectangle to display bar in
             _spriteBatch.Draw(ManaBarFull, new Vector2(54, 452), manaBarLength, Color.White);
 
             //draw HP bar based on how much hp both sides have
@@ -433,7 +431,7 @@ namespace GameStateTesting.States
             if ((playerHPCurrentWidth <= playerHPTargetWidth + hpAnimationSpeed - 1) //edge case of really close
                 && (playerHPCurrentWidth >= playerHPTargetWidth - hpAnimationSpeed + 1))
                 { playerHPCurrentWidth = playerHPTargetWidth; }
-            Rectangle playerHPBarLength = new Rectangle(0, 0, playerHPCurrentWidth, HPBarFull.Height);
+            Rectangle playerHPBarLength = new Rectangle(0, 0, playerHPCurrentWidth, HPBarFull.Height);   //calculate rectangle to display bar in
             _spriteBatch.Draw(HPBarFull, new Vector2(54, 480), playerHPBarLength, Color.White);
 
             //same for enemy
@@ -444,10 +442,10 @@ namespace GameStateTesting.States
             if ((enemyHPCurrentWidth <= enemyHPTargetWidth + hpAnimationSpeed - 1)  //edge case
                 && (enemyHPCurrentWidth >= enemyHPTargetWidth - hpAnimationSpeed + 1))
                 { enemyHPCurrentWidth = enemyHPTargetWidth; }
-            Rectangle enemyHPBarLength = new Rectangle(0, 0, enemyHPCurrentWidth, HPBarFull.Height);
+            Rectangle enemyHPBarLength = new Rectangle(0, 0, enemyHPCurrentWidth, HPBarFull.Height);   //calculate rectangle to display bar in
             _spriteBatch.Draw(HPBarFull, new Vector2(836 + HPBarFull.Width - enemyHPCurrentWidth, 480), enemyHPBarLength, Color.White);
 
-
+            //draw the textbox
             _spriteBatch.Draw(TextBox, new Vector2(0, 485), Color.White);
 
             if (DEBUG)
@@ -477,6 +475,7 @@ namespace GameStateTesting.States
                 Color fleeColor = Color.White;
                 switch (focusedArea[0])
                 {
+                    //switch case to find the focused area
                     case 0:
                         fightColor = Color.CornflowerBlue;
                         break;
@@ -528,16 +527,17 @@ namespace GameStateTesting.States
                 Color focusedColor = Color.CornflowerBlue;
                 Color textColor;
 
-                for (int i = 0; i < numSpells; i++)
+                for (int i = 0; i < numSpells; i++)  //loop thru each spell in the spell book
                 {
-                    if (focusedArea[1] == i) { textColor = focusedColor; }
+                    if (focusedArea[1] == i) { textColor = focusedColor; }   //if else to determin focus
                     else { textColor = unfocusedColor; }
                     _spriteBatch.DrawString(font, spellbook[i]._name + ": " + spellbook[i]._manaCost + " Mana", new Vector2(500, 95 + i * 25), textColor);
                 }
-                if (focusedArea[1] == numSpells) { textColor = focusedColor; }
+                if (focusedArea[1] == numSpells) { textColor = focusedColor; }   //if else to determine focus for cancel option
                 else { textColor = unfocusedColor; }
                 _spriteBatch.DrawString(font, "Cancel", new Vector2(500, 95 + numSpells * 25), textColor);
             }
+
             _spriteBatch.End();
         }
 
