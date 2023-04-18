@@ -103,18 +103,6 @@
 /processorParam:TextureFormat=Color
 /build:char-base.png
 
-#begin char-base.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:char-base.png
-
 #begin char-body.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -345,9 +333,18 @@
 /processorParam:TextureFormat=Color
 /build:input-name-box.png
 
-
 #begin mana-bar-full-2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
 /build:mana-bar-full-2.png
+
 #begin mana-bar-full.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -383,6 +380,24 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:pronouns-sheet.png
+
+#begin SE-1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SE-1.wav
+
+#begin SE-2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SE-2.wav
+
+#begin SE-3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SE-3.wav
 
 #begin selection-box.png
 /importer:TextureImporter

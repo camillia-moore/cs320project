@@ -65,6 +65,11 @@ namespace GameStateTesting.States
         private TimeSpan elapsedTime;
         private Boolean startTimeInitialized;
 
+        //sound effects
+        private SoundEffect SE_1;
+        private SoundEffect SE_2;
+        private SoundEffect SE_3;
+
         //control vars
         private KeyboardState oldKstate;
         private int[] focusedArea;
@@ -282,6 +287,11 @@ namespace GameStateTesting.States
             lowerBound = millisecondsPerBeat - beatError;
             upperBound = beatError;
 
+            //sound effects
+            SE_1 = _content.Load<SoundEffect>("SE-1");
+            SE_2 = _content.Load<SoundEffect>("SE-2");
+            SE_3 = _content.Load<SoundEffect>("SE-3");
+
         }
 
         public override void Update(GameTime gameTime)
@@ -291,18 +301,22 @@ namespace GameStateTesting.States
             if (newKstate.IsKeyDown(Keys.Up) && oldKstate.IsKeyUp(Keys.Up))
             {
                 focusedArea[1] += -1;
+                SE_1.Play();
             }
             if (newKstate.IsKeyDown(Keys.Down) && oldKstate.IsKeyUp(Keys.Down))
             {
                 focusedArea[1] += +1;
+                SE_1.Play();
             }
             if (newKstate.IsKeyDown(Keys.Left) && oldKstate.IsKeyUp(Keys.Left))
             {
                 focusedArea[0] += -1;
+                SE_1.Play();
             }
             if (newKstate.IsKeyDown(Keys.Right) && oldKstate.IsKeyUp(Keys.Right))
             {
                 focusedArea[0] += +1;
+                SE_1.Play();
             }
             //resize selection into the menu size
             if (focusedArea[0] < 0) { focusedArea[0] = menuSize[0] - 1; }
@@ -347,7 +361,7 @@ namespace GameStateTesting.States
             if (onBeat) { musicSpriteOffset = 2; }
 
             //sprite offsets for june's code
-            int xOffset = 0;
+            int xOffset = -75;
             int yOffset = 0;
 
             _spriteBatch.Begin();
@@ -726,6 +740,7 @@ namespace GameStateTesting.States
                     break;
                 case 1:
                     //just displaying text
+                    SE_2.Play();
                     menuSize[0] = 1;
                     menuSize[1] = 1;
                     textToShow = player.Name + " Attacks!";
@@ -737,34 +752,42 @@ namespace GameStateTesting.States
                     {
                         currentMana += 1;
                         if (currentMana > maxMana) { currentMana = maxMana; }
+                        SE_3.Play();
                     }
+                    else { SE_2.Play(); }
                     damageDelt = enemy.TakeDamage(player.DealDamage());
                     textToShow = player.Name + " deals " + damageDelt + " damage!";
                     break;
                 case 3:
                     //enemy's turn, just displaying text that the enemy attacks
+                    SE_2.Play();
                     textToShow = enemy.Name + " Attacks!";
                     break;
                 case 4:
                     //displaying damage from enemy, need to calc it
+                    SE_2.Play();
                     damageDelt = player.TakeDamage(enemy.DealDamage());
                     textToShow = enemy.Name + " deals " + damageDelt + " damage!";
                     break;
                 case 5:
                     //just showing text that says player died
+                    SE_2.Play();
                     textToShow = player.Name + " was defeated!";
                     break;
                 case 6:
                     //just showing text that says enemy died
+                    SE_2.Play();
                     textToShow = enemy.Name + " was defeated!";
                     break;
                 case 7:
                     //showing the stats screen
+                    SE_2.Play();
                     menuSize[0] = 1; //setting these because of a hack Imma do
                     menuSize[1] = 2;
                     break;
                 case 8:
                     //showing spell chosing screen
+                    SE_2.Play();
                     menuSize[0] = 1;
                     menuSize[1] = numSpells + 1;
                     focusedArea[0] = 0;
@@ -772,12 +795,14 @@ namespace GameStateTesting.States
                     break;
                 case 9:
                     //displaying text that shows which spell player casts
+                    SE_2.Play();
                     menuSize[0] = 1;
                     menuSize[1] = 1;
                     textToShow = player.Name + " casts " + spellCasted._name + "!";
                     break;
                 case 10:
                     //displaying the spell effect, need to actually cast the spell
+                    SE_2.Play();
                     int[] spellEffect = spellCasted.cast();
                     if (spellEffect[3] == 0)
                     {
@@ -794,22 +819,26 @@ namespace GameStateTesting.States
                     break;
                 case 11:
                     //display that there was not enough mana
+                    SE_2.Play();
                     menuSize[0] = 1;
                     menuSize[1] = 1;
                     textToShow = "Not Enough Mana!";
                     break;
                 case 12:
                     //display that player tries to flee
+                    SE_2.Play();
                     menuSize[0] = 1;
                     menuSize[1] = 1;
                     textToShow = player.Name + " tries to flee";
                     break;
                 case 13:
                     //display that the player was successful in fleeing
+                    SE_2.Play();
                     textToShow = player.Name + " fled";
                     break;
                 case 14:
                     //display that the player failed to flee
+                    SE_2.Play();
                     textToShow = player.Name + " fails";
                     break;
                 default:

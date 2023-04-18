@@ -25,6 +25,8 @@ namespace GameStateTesting.States
         //audio
         private SoundEffectInstance titleMusicInstance;
         private Boolean MUTEAUDIO = false;
+        private SoundEffect SE_1;
+        private SoundEffect SE_2;
 
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -42,7 +44,10 @@ namespace GameStateTesting.States
             titleMusicInstance = titleMusic.CreateInstance();
             titleMusicInstance.IsLooped = true;
             if (!MUTEAUDIO) { titleMusicInstance.Play(); }
-            
+
+            SE_1 = _content.Load<SoundEffect>("SE-1");
+            SE_2 = _content.Load<SoundEffect>("SE-2");
+
         }
 
         public override void Update(GameTime gameTime)
@@ -53,10 +58,12 @@ namespace GameStateTesting.States
             if(newKstate.IsKeyDown(Keys.Down) && oldKstate.IsKeyUp(Keys.Down))
             {
                 optionFocused += 1;
+                SE_1.Play();
             }
             if (newKstate.IsKeyDown(Keys.Up) && oldKstate.IsKeyUp(Keys.Up))
             {
                 optionFocused += -1;
+                SE_1.Play();
             }
             if (optionFocused == 3) { optionFocused = 0; }
             if (optionFocused == -1) { optionFocused = 2; }
@@ -64,6 +71,7 @@ namespace GameStateTesting.States
             {
                 //stop music
                 titleMusicInstance.Stop();
+                SE_2.Play();
                 switch (optionFocused)
                 {
                     case 0:

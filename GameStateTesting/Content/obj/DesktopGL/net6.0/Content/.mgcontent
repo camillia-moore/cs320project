@@ -38,6 +38,9 @@
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/mana-bar-full.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/mana-bar.png</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/pronouns-sheet.png</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/SE-1.wav</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/SE-2.wav</File>
+    <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/SE-3.wav</File>
     <File>C:/Users/cmoor/Documents/GitHub/cs320project/GameStateTesting/Content/selection-box.png</File>
   </SourceFiles>
   <DestFiles>
@@ -70,6 +73,9 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>hp-bar-base.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
