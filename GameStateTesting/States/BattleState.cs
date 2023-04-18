@@ -444,16 +444,16 @@ namespace GameStateTesting.States
                 switch (focusedArea[0])
                 {
                     case 0:
-                        fightColor = Color.Blue;
+                        fightColor = Color.CornflowerBlue;
                         break;
                     case 1:
-                        spellsColor= Color.Blue;
+                        spellsColor= Color.CornflowerBlue;
                         break;
                     case 2:
-                        statsColor= Color.Blue;
+                        statsColor= Color.CornflowerBlue;
                         break;
                     case 3:
-                        fleeColor = Color.Blue;
+                        fleeColor = Color.CornflowerBlue;
                         break;
                     default:
                         break;
@@ -478,7 +478,11 @@ namespace GameStateTesting.States
                 int[] playerStats = player.getStats();
                 _spriteBatch.DrawString(font, player.Name + 
                     "\nAttack: " + playerStats[0] + " + " + playerStats[1] +
-                    "\nDefense: " + playerStats[2] + " + " + playerStats[3], new Vector2(500, 95), Color.White);
+                    "\nDefense: " + playerStats[2] + " + " + playerStats[3], new Vector2(500, 95), Color.CornflowerBlue);
+                int[] enemyStats = player.getStats();
+                _spriteBatch.DrawString(font, enemy.Name + "\n" + enemy.Description +
+                    "\nAttack: ? + " + enemyStats[1] +
+                    "\nDefense: ? + " + enemyStats[3], new Vector2(500, 195), Color.PaleVioletRed);
             }
             else if (battleState == 8)
             {
@@ -790,7 +794,7 @@ namespace GameStateTesting.States
                     //showing the stats screen
                     SE_2.Play();
                     menuSize[0] = 1; //setting these because of a hack Imma do
-                    menuSize[1] = 2;
+                    menuSize[1] = 2; //I never did this hack
                     break;
                 case 8:
                     //showing spell chosing screen
