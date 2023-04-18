@@ -264,13 +264,15 @@ namespace GameStateTesting.States
             {
                 if (newState.IsKeyDown(Keys.Enter) || newState.IsKeyDown(Keys.Space))
                 {
-                    CharacterCustom customHero = new CharacterCustom(pronounsArea, headArea, faceArea, bodyArea, baseAlt);
+                    Customization.CharacterCustom.setPronouns(pronounsArea);
+                    Customization.CharacterCustom.setCustomization(headArea, faceArea, bodyArea, baseAlt);
+
                     _game.ChangeState(new StoryState(_game, _graphicsDevice, _content));
                 }
             }
 
-            // go back to the main menu screen
-            if (newState.IsKeyDown(Keys.Back))
+            // go back to the main menu screen if at beginning
+            if (focusArea == 0 && newState.IsKeyDown(Keys.Back))
             {
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
             }
@@ -292,25 +294,26 @@ namespace GameStateTesting.States
             if (focusArea == 3)
             {
                 _spriteBatch.Draw(pronounBox, new Vector2(797, 420), pronounBoxSource[1], Color.White);
-                switch (pronounsArea)
-                {
-                    case 1:
-                        _spriteBatch.Draw(pronounBox, new Vector2(960, 457), pronounBoxSource[3], Color.White);
-                        break;
-                    case 2:
-                        _spriteBatch.Draw(pronounBox, new Vector2(1083, 457), pronounBoxSource[3], Color.White);
-                        break;
-                    default:
-                        _spriteBatch.Draw(pronounBox, new Vector2(815, 457), pronounBoxSource[3], Color.White);
-                        break;
-                }
             }
 
             _spriteBatch.Draw(pronounBox, new Vector2(855, 448), pronounBoxSource[2], Color.White);
 
+            switch (pronounsArea)
+            {
+                case 1:
+                    _spriteBatch.Draw(pronounBox, new Vector2(960, 457), pronounBoxSource[3], Color.White);
+                    break;
+                case 2:
+                    _spriteBatch.Draw(pronounBox, new Vector2(1083, 457), pronounBoxSource[3], Color.White);
+                    break;
+                default:
+                    _spriteBatch.Draw(pronounBox, new Vector2(815, 457), pronounBoxSource[3], Color.White);
+                    break;
+            }
+
             // draw continue button
             if (focusArea == 4)
-                _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.GreenYellow);
+                _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.Cyan);
             else
                 _spriteBatch.Draw(buttonContinue, new Vector2(784, 547), Color.White);
 

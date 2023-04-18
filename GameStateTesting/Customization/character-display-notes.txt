@@ -1,0 +1,109 @@
+// copy and paste this code into your State to display the customized character
+// the variable names
+
+private Texture2D charBase;
+private Texture2D charHead;
+private Texture2D charFace;
+private Texture2D charBody;
+
+private Rectangle[] charHeadSource;
+private Rectangle[] charFaceSource;
+private Rectangle[] charBodySource;
+
+
+
+// use the section below in your LoadContent() class
+
+_spriteBatch = new SpriteBatch(_graphicsDevice);
+
+charBase = _content.Load<Texture2D>("char-base-new");
+charHead = _content.Load<Texture2D>("char-head");
+charFace = _content.Load<Texture2D>("char-face");
+charBody = _content.Load<Texture2D>("char-body");
+
+charHeadSource = new Rectangle[4];
+charHeadSource[0] = new Rectangle(0, 0, 1, 1);
+charHeadSource[1] = new Rectangle(0, 0, 183, 133);
+charHeadSource[2] = new Rectangle(233, 46, 123, 103);
+charHeadSource[3] = new Rectangle(0, 206, 199, 144);
+
+charFaceSource = new Rectangle[4];
+charFaceSource[0] = new Rectangle(0, 0, 287, 205);
+charFaceSource[1] = new Rectangle(288, 0, 287, 205);
+charFaceSource[2] = new Rectangle(0, 206, 287, 205);
+charFaceSource[3] = new Rectangle(288, 206, 287, 205);
+
+charBodySource = new Rectangle[4];
+charBodySource[0] = new Rectangle(0, 0, 1, 1);
+charBodySource[1] = new Rectangle(0, 0, 364, 322);
+charBodySource[2] = new Rectangle(480, 0, 307, 243);
+charBodySource[3] = new Rectangle(98, 398, 198, 227);
+
+
+
+// use the section below in your Draw() class, you can offset the pixel positions
+// the charCustomization is from a CharacterCustom object called customHero
+
+int xOffset = 0;
+int yOffset = 0;
+
+_spriteBatch.Begin();
+
+// draw character base
+switch (customHero.charCustomization[3])
+{
+    case 1:
+        _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.OrangeRed);
+        break;
+    case 2:
+        _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.HotPink);
+        break;
+    case 3:
+        _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.Coral);
+        break;
+    case 4:
+        _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.Blue);
+        break;
+    default:
+        _spriteBatch.Draw(charBase, new Vector2(0 + xOffset, 0 + yOffset), Color.White);
+        break;
+}
+
+// draw head area sprites
+switch (customHero.charCustomization[0])
+{
+    case 1:
+        _spriteBatch.Draw(charHead, new Vector2(263 + xOffset, 30 + yOffset), charHeadSource[1], Color.White);
+        break;
+    case 2:
+        _spriteBatch.Draw(charHead, new Vector2(238 + xOffset, 125 + yOffset), charHeadSource[2], Color.White);
+        break;
+    case 3:
+        _spriteBatch.Draw(charHead, new Vector2(278 + xOffset, 53 + yOffset), charHeadSource[3], Color.White);
+        break;
+    default:
+        _spriteBatch.Draw(charHead, new Vector2(0 + xOffset, 0 + yOffset), charHeadSource[0], Color.White);
+        break;
+}
+
+// draw face area sprites
+_spriteBatch.Draw(charFace, new Vector2(228 + xOffset, 166 + yOffset), charFaceSource[charCustomization[1]], Color.White);
+
+// draw body area sprites
+switch (customHero.charCustomization[2])
+{
+    case 1:
+        _spriteBatch.Draw(charBody, new Vector2(197 + xOffset, 364 + yOffset), charBodySource[1], Color.White);
+        break;
+    case 2:
+        _spriteBatch.Draw(charBody, new Vector2(223 + xOffset, 364 + yOffset), charBodySource[2], Color.White);
+        break;
+    case 3:
+        _spriteBatch.Draw(charBody, new Vector2(291 + xOffset, 364 + yOffset), charBodySource[3], Color.White);
+        break;
+    default:
+        _spriteBatch.Draw(charBody, new Vector2(0 + xOffset, 0 + yOffset), charBodySource[0], Color.White);
+        break;
+}
+
+_spriteBatch.End();
