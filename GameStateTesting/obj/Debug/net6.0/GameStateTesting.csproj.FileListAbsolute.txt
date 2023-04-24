@@ -350,3 +350,14 @@ C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-3.xnb
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-4.xnb
 C:\Users\Lyndsey\Documents\GitHub\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-5.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\battle_song_2.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\debug-background.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full-2.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar-full.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\mana-bar.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-1.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-2.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-3.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-4.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\SE-5.xnb
+E:\Schoolwork\Repos\cs320project\GameStateTesting\bin\Debug\net6.0\Content\cough-story-title.xnb

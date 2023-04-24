@@ -17,11 +17,20 @@ namespace GameStateTesting.States
     {
         //loading main variables and classes
         private Texture2D titleScreen;
+        private Texture2D titleArrow;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private SpriteFont font;
         private int optionFocused;
+        private bool isOptionFocused;
         private KeyboardState oldKstate;
+
+        private Rectangle arrowSource;
+
+        //loading clickable areas
+        private Rectangle charSceneClickable = new Rectangle(880, 236, 364, 67);
+        private Rectangle storySceneClickable = new Rectangle(880, 311, 364, 67);
+        private Rectangle battleSceneClickable = new Rectangle(880, 387, 364, 67);
 
         //audio vars
         private SoundEffectInstance titleMusicInstance;
@@ -37,7 +46,9 @@ namespace GameStateTesting.States
         public override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(_graphicsDevice);
-            titleScreen = _content.Load<Texture2D>("cough-story-title-draft");  //load main screen
+            titleScreen = _content.Load<Texture2D>("cough-story-title");  //load main screen
+            titleArrow = _content.Load<Texture2D>("pronouns-sheet"); //load arrow sprite
+            arrowSource = new Rectangle(464, 168, 36, 52);
             font = _content.Load<SpriteFont>("TestFont");
 
             //load audio
@@ -55,9 +66,13 @@ namespace GameStateTesting.States
         public override void Update(GameTime gameTime)
         {
             var newKstate = Keyboard.GetState();
+            var mouseState = Mouse.GetState();
+            var mousePosition = new Point(mouseState.X, mouseState.Y);
+
+            isOptionFocused = false;
 
             //swap between options
-            if(newKstate.IsKeyDown(Keys.Down) && oldKstate.IsKeyUp(Keys.Down))
+            if (newKstate.IsKeyDown(Keys.Down) && oldKstate.IsKeyUp(Keys.Down))
             {
                 optionFocused += 1;
                 SE_1.Play();
@@ -72,8 +87,25 @@ namespace GameStateTesting.States
             if (optionFocused == 3) { optionFocused = 0; }
             if (optionFocused == -1) { optionFocused = 2; }
 
+            //mouse-over option select
+            if (charSceneClickable.Contains(mousePosition))
+            {
+                isOptionFocused = true;
+                optionFocused = 0;
+            }
+            if (storySceneClickable.Contains(mousePosition))
+            {
+                isOptionFocused = true;
+                optionFocused = 1;
+            }
+            if (battleSceneClickable.Contains(mousePosition))
+            {
+                isOptionFocused= true;
+                optionFocused = 2;
+            }
+
             //enter the selected state
-            if (newKstate.IsKeyDown(Keys.Enter) || newKstate.IsKeyDown(Keys.Space)) 
+            if (newKstate.IsKeyDown(Keys.Enter) || newKstate.IsKeyDown(Keys.Space) || (mouseState.LeftButton == ButtonState.Pressed && isOptionFocused == true)) 
             {
                 //stop music
                 titleMusicInstance.Stop();
@@ -117,29 +149,21 @@ namespace GameStateTesting.States
             //draw background
             _spriteBatch.Draw(titleScreen, new Vector2(0, 0), Color.White);
 
-            //draw the options
-            Color CCS = Color.Black;  //get the colors
-            Color SS = Color.Black;
-            Color BS = Color.Black;
-            switch (optionFocused)    //find the selected option
+            //find the selected option
+            switch (optionFocused)
             {
                 case 0:
-                    CCS = Color.Red;
+                    _spriteBatch.Draw(titleArrow, new Vector2(902, 247), arrowSource, Color.White);
                     break;
                 case 1:
-                    SS = Color.Red;
+                    _spriteBatch.Draw(titleArrow, new Vector2(902, 322), arrowSource, Color.White);
                     break;
                 case 2:
-                    BS = Color.Red;
+                    _spriteBatch.Draw(titleArrow, new Vector2(902, 393), arrowSource, Color.White);
                     break;
                 default:
                     break;
             }
-
-            //draw the strings
-            _spriteBatch.DrawString(font, "Character Creation Scene", new Vector2(920, 250), CCS);
-            _spriteBatch.DrawString(font, "Story Scene", new Vector2(920, 300), SS);
-            _spriteBatch.DrawString(font, "Battle Scene", new Vector2(920, 350), BS);
 
             _spriteBatch.End();
 

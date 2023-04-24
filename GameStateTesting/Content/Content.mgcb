@@ -199,6 +199,18 @@
 /processorParam:TextureFormat=Color
 /build:cough-story-title-draft.png
 
+#begin cough-story-title.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:cough-story-title.png
+
 #begin covdragon.png
 /importer:TextureImporter
 /processor:TextureProcessor
