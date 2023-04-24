@@ -52,7 +52,7 @@
     "Id": "XBAAA",
     "Story": "Getting some much needed sleep was a good idea but you wake up feeling worse. You have a test this morning and you don't want to miss it.",
     "Good": "You call your teacher to let them know your going to the Urgent care to get tested because your not feeling well.",
-    "Bad": "You go to the class because taking the at a later date would be inconvenient. "
+    "Bad": "You go to the class because taking the test at a later date would be inconvenient for the teacher and you. "
   },
   {
     "Id": "XBAAB",
@@ -195,92 +195,92 @@
   },
   {
     "Id": "XBAAAA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Having gone to the Urgent care you find out that you got the big disease (yo it's COVID!). You decide to.....",
+    "Good": "Go home and take the medical professional opinions into account. You rest up and seclude for a week.",
+    "Bad": "You go home and decided it's been a while since a vacation. You do rest but you also play video games allot."
   },
   {
     "Id": "XBAAAB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You don't feel well at all. You are pretty sure you bombed that test and are super disapointed in yourself. Your throat is on fire.",
+    "Good": "After that experience you decide to go and get tested at the local Urgent care.",
+    "Bad": "You wear a mask but stay the rest of the day at school. Might as well finish as much of the day up."
   },
   {
     "Id": "XBAABA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You have woken up after a good nights rest but you are feeling very unwell. You decide to....",
+    "Good": "Go to the local Urgent Care to get tested for what kind of nasty you may have caught. You let your teacher know.",
+    "Bad": "You get up and get ready for the day to take a test at the school. You do mask up."
   },
   {
     "Id": "XBAABB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Going home you slep all night. In fact you slept straight through your alarm. But you couldn't help it, your exhausted.",
+    "Good": "You decide to email your teacher that you will out for the day because your going to the Urgent care to get tested.",
+    "Bad": "With the day shot and the test missed in the morning, you contact your teacher to see if you can make up the test another day."
   },
   {
     "Id": "XBABAA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "The fever is down but you tested positive for COVID. The doctor recommends you stay away from everyone for a week and rest.",
+    "Good": "You decide to listen to the doctor and head home immediately. You let your teacher know and family what has happened.",
+    "Bad": "You go home to rest just like the doctor said. But resting comes in many forms, like gaming for example."
   },
   {
     "Id": "XBABAB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Sleeping the day away normall does help but this didn't help. You feel even worse than you did the night before.",
+    "Good": "You finally go to the Urgent Care. This isn't normal and the last time you felt this bad was when you had Mono.",
+    "Bad": "You call your mom and ask for her advice. Maybe this is just a bad cold this season. Yeah definitely."
   },
   {
     "Id": "XBABBA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You wake up with a reduced fever but beyond tired. Your brain is in a fog.",
+    "Good": "You decide to go to the Urgent care. This isn't anything like you have felt before.",
+    "Bad": "You decide to get up and go to school. Your made of firmer stuff and taking some cold meds should be enough."
   },
   {
     "Id": "XBABBB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Waking up from bed you are feverish and you swear you can hear your joints creaking they hurt so bad.",
+    "Good": "You go to the Urgent Care to get tested. You also call your mother and let her know whats going on.",
+    "Bad": "You call your mom and ask what she thinks. It's likely just a cold and it couldn't be to serious."
   },
   {
     "Id": "XBBAAA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You are sad that you may have unknowingly passed a new strand of COVID around to your club without knowing.",
+    "Good": "You remember to also contact your teacher and let them know that you will be out for a week. ",
+    "Bad": "During your time in seclusion you play games with your club online. This is kinda like a small vacation for you."
   },
   {
     "Id": "XBBAAB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Your mom did end up coming over and making you chicken soup.",
+    "Good": "You made sure to stay in your room during this time and you asked your mom to mask up and glove up the entire time she visited.",
+    "Bad": "As moms do she came and visited you. Since you looked so feverish she decided to stay over to make sure nothing bad happened."
   },
   {
     "Id": "XBBABA",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You learn that you caught the new itis that is in town. Staying up last night didn't do well for your health. You decide to...",
+    "Good": "Take the medical professionals advice. You go home, contact everyone that you may have come in contact with, and stay in for a week.",
+    "Bad": ""
   },
   {
     "Id": "XBBABB",
-    "Story": "Second story message",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "Your mom came over and brought some chicken soup. She loves her child and hates to see you ill.",
+    "Good": "You ask her to drive you to the Urgent Care to get tested.",
+    "Bad": "You let her stay over while your not feeling well. It's likely just a cold after all."
   },
   {
     "Id": "XBBBAA",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "You learn that you have COVID and that it is VERY contagious.",
+    "Good": "You call everyone that you know you may have come in contact with to let them know to be careful.",
+    "Bad": "Since there is nothing to be done you go home to rest up and ride the week long isolation out."
   },
   {
     "Id": "XBBBAB",
-    "Story": "Hello World!",
-    "Good": "Good choice to pick.",
-    "Bad": "Bad choice to pick."
+    "Story": "On the way home you start to become delirous and the road becomes wobbley.",
+    "Good": "You decide to pull over to a parking lot that the car can stay at overnight and ask your mom to take you to the emergency room",
+    "Bad": "You decide to head home. It can't be that much further. This shouldn't be an issue."
   },
   {
     "Id": "XBBBBA",
     "Story": "As you get to the emergency room you begin to cough so bad you can't get breathe. The medical workers begin to move quickly.",
-    "Good": "You ask your mother to go home and stay away from others. ",
+    "Good": "You ask your mother to go home and stay away from others.",
     "Bad": "You ask your mom to stay with you because your nervous and scared."
   },
   {
